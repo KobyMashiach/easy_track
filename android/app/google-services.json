@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "309600422747",
+    "project_id": "easytrack-41741",
+    "storage_bucket": "easytrack-41741.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309600422747:android:63a9544c6ebd621a93687e",
+        "android_client_info": {
+          "package_name": "com.KHEasyDev.easy_track"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp6FGzcj6P4621enFtFRqBDemI0O8a2-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
