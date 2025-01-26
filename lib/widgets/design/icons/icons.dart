@@ -1,3 +1,4 @@
+import 'package:easy_track/core/consts.dart';
 import 'package:flutter/material.dart';
 
 enum SocialIcons { google, facebook }
@@ -7,14 +8,14 @@ extension SocialIconsX on SocialIcons {
   String get iconPath {
     switch (this) {
       case SocialIcons.google:
-        return '${assetsPath}google_icon.png';
+        return googleIcon;
       case SocialIcons.facebook:
-        return 'assets/facebook_icon.png';
+        return appLogo;
     }
   }
 }
 
-CircleAvatar googleIcon(
+CircleAvatar socialIcons(
     {SocialIcons icon = SocialIcons.google, double size = 30}) {
   return CircleAvatar(
     radius: size - 10,

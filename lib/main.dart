@@ -1,5 +1,6 @@
 import 'package:easy_track/core/hive/adapters_controller.dart';
 import 'package:easy_track/firebase_options.dart';
+import 'package:easy_track/i18n/strings.g.dart';
 import 'package:easy_track/services/package_info.dart';
 import 'package:easy_track/ui/login/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ void main() async {
     await Hive.initFlutter(appDocumentDirectory.path);
   }
   AdaptersController.registerAdapters();
-  runApp(const MyApp());
+  runApp(TranslationProvider(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -52,6 +53,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
+      locale: TranslationProvider.of(context).flutterLocale,
+      supportedLocales: AppLocaleUtils.supportedLocales,
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
       home: const LoginScreen(),
     );
