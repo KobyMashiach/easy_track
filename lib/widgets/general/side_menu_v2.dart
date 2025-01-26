@@ -7,8 +7,8 @@ import 'package:kh_easy_dev/kh_easy_dev.dart';
 
 appSideMenuV2(BuildContext context, String pageName) {
   return kheasydevAppDrawerV2(
-    name: "Koby",
-    // profileImage: globalEvent?.profileImageUrl,
+    name: globalUser.name.isNotEmpty ? globalUser.name : "",
+    profileImage: globalUser.picture.isNotEmpty ? globalUser.picture : null,
     color: AppColors.primaryColor,
     contactsScreenButtomBackground: AppColors.buttomBackground,
     contactsScreenDialogColor: AppColors.primaryColor,
@@ -16,6 +16,7 @@ appSideMenuV2(BuildContext context, String pageName) {
     context: context,
     appDetails: (globalAppName, globalAppVersion),
     buttonsTextSize: 24,
+    languageCode: 'en',
     buttons: [
       DrawerButtonModel(
         text: "Home screen",

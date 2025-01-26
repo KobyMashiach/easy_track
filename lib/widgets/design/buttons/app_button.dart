@@ -12,15 +12,20 @@ Widget appButton({
   double? textSize,
   Color? primaryColor,
   Color? textColor,
+  Widget? leftIcon,
+  Widget? rightIcon,
 }) {
   return kheasydevAppButton(
-      text: text,
-      onTap: onTap,
-      unfillColors: unfillColors,
-      disableColors: disableColors,
-      margin: margin ?? EdgeInsets.zero,
-      textSize: textSize,
-      textColor: textColor,
-      padding: padding,
-      primaryColor: AppColors.primaryColor);
+    text: text,
+    onTap: onTap,
+    unfillColors: unfillColors,
+    disableColors: disableColors,
+    margin: margin ?? EdgeInsets.zero,
+    textSize: textSize,
+    textColor: textColor,
+    padding: padding,
+    primaryColor: AppColors.primaryColor,
+    leftIcon: leftIcon,
+    rightIcon: rightIcon,
+  );
 }

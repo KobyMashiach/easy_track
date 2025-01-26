@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static Color primaryColor = const Color.fromARGB(255, 220, 155, 155);
-  static Color shadowColor = darkenColor(primaryColor, 0.2);
-  static Color disableColor = darkenColor(primaryColor, 0.4);
+  static Color primaryColor = const Color.fromARGB(255, 0, 128, 160);
+  static Color shadowColor = const Color.fromARGB(255, 0, 87, 109);
+  static Color disableColor = const Color.fromARGB(255, 0, 45, 56);
+  // static Color shadowColor = darkenColor(primaryColor, 0.2);
+  // static Color disableColor = darkenColor(primaryColor, 0.4);
 
   static const Color buttomBackground = Color.fromARGB(255, 0, 0, 0);
   static Color greyDisableColor = Colors.grey[400]!;
