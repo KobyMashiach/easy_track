@@ -1,5 +1,6 @@
 {
   "home_screen": "מסך הבית",
   "login_screen": "בדיקה התחברות",
-  "login_with_google": "התחבר עם גוגל"
+  "login_with_google": "התחבר עם גוגל",
+  "greeting": "ברוך הבא $name"
 }

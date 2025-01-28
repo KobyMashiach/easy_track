@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 6 (3 per locale)
+/// Strings: 8 (4 per locale)
 ///
-/// Built on 2025-01-28 at 00:54 UTC
+/// Built on 2025-01-28 at 01:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -151,6 +151,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get home_screen => 'Home Screen';
 	String get login_screen => 'Login Screen';
 	String get login_with_google => 'Login with Google';
+	String greeting({required Object name}) => 'Welcome ${name}';
 }
 
 // Path: <root>
@@ -180,6 +181,7 @@ class _StringsHe implements Translations {
 	@override String get home_screen => 'מסך הבית';
 	@override String get login_screen => 'בדיקה התחברות';
 	@override String get login_with_google => 'התחבר עם גוגל';
+	@override String greeting({required Object name}) => 'ברוך הבא ${name}';
 }
 
 /// Flat map(s) containing all translations.
@@ -191,6 +193,7 @@ extension on Translations {
 			case 'home_screen': return 'Home Screen';
 			case 'login_screen': return 'Login Screen';
 			case 'login_with_google': return 'Login with Google';
+			case 'greeting': return ({required Object name}) => 'Welcome ${name}';
 			default: return null;
 		}
 	}
@@ -202,6 +205,7 @@ extension on _StringsHe {
 			case 'home_screen': return 'מסך הבית';
 			case 'login_screen': return 'בדיקה התחברות';
 			case 'login_with_google': return 'התחבר עם גוגל';
+			case 'greeting': return ({required Object name}) => 'ברוך הבא ${name}';
 			default: return null;
 		}
 	}

@@ -1,5 +1,7 @@
 import 'dart:math' as math;
 
+import 'package:easy_track/core/global_vars.dart';
+import 'package:easy_track/core/text_styles.dart';
 import 'package:flutter/material.dart';
 
 import 'package:easy_track/i18n/strings.g.dart';
@@ -19,23 +21,34 @@ class HomeScreen extends StatelessWidget {
       drawer: appSideMenuV2(context, 'home'),
       body: SizedBox(
         height: MediaQuery.of(context).size.height * 0.8,
-        child: ListView.separated(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: 10,
-            separatorBuilder: (context, index) => SizedBox(height: 40),
-            itemBuilder: (context, index) {
-              int randomNumber = math.Random().nextInt(90) + 10;
-              final category = CategoryModel(
-                  title: 'Category $index',
-                  images: List.generate(
-                      10,
-                      (i) => ImageModel(
-                          imageUrl:
-                              'https://random.imagecdn.app/300/$randomNumber',
-                          date: DateTime.now())));
-              return CarouselImagesCard(category: category);
-            }),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text(
+                t.greeting(name: globalUser.name),
+                style: AppTextStyle().bigTitle,
+              ),
+              ListView.separated(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 10,
+                  separatorBuilder: (context, index) => SizedBox(height: 40),
+                  itemBuilder: (context, index) {
+                    int randomNumber = math.Random().nextInt(90) + 10;
+                    final category = CategoryModel(
+                        title: 'Category $index',
+                        images: List.generate(
+                            10,
+                            (i) => ImageModel(
+                                imageUrl:
+                                    'https://random.imagecdn.app/300/$randomNumber',
+                                date: DateTime.now())));
+                    return CarouselImagesCard(category: category);
+                  }),
+            ],
+          ),
+        ),
       ),
     );
   }

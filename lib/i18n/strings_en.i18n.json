@@ -1,5 +1,6 @@
 {
   "home_screen": "Home Screen",
   "login_screen": "Login Screen",
-  "login_with_google": "Login with Google"
+  "login_with_google": "Login with Google",
+  "greeting": "Welcome $name"
 }
