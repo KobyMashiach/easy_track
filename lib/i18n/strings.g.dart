@@ -3,10 +3,10 @@
 /// Original: lib/i18n
 /// To regenerate, run: `dart run slang`
 ///
-/// Locales: 1
-/// Strings: 3
+/// Locales: 2
+/// Strings: 6 (3 per locale)
 ///
-/// Built on 2025-01-26 at 16:17 UTC
+/// Built on 2025-01-27 at 22:25 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -25,7 +25,8 @@ const AppLocale _baseLocale = AppLocale.en;
 /// - Locale locale = AppLocale.en.flutterLocale // get flutter locale from enum
 /// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
 enum AppLocale with BaseAppLocale<AppLocale, Translations> {
-	en(languageCode: 'en', build: Translations.build);
+	en(languageCode: 'en', build: Translations.build),
+	he(languageCode: 'he', build: _StringsHe.build);
 
 	const AppLocale({required this.languageCode, this.scriptCode, this.countryCode, required this.build}); // ignore: unused_element
 
@@ -152,6 +153,35 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get login_with_google => 'Login with Google';
 }
 
+// Path: <root>
+class _StringsHe implements Translations {
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsHe.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.he,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
+
+	/// Metadata for the translations of <he>.
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
+
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key);
+
+	@override late final _StringsHe _root = this; // ignore: unused_field
+
+	// Translations
+	@override String get home_screen => 'מסך הבית';
+	@override String get login_screen => 'בדיקה התחברות';
+	@override String get login_with_google => 'התחבר עם גוגל';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -161,6 +191,17 @@ extension on Translations {
 			case 'home_screen': return 'Home Screen';
 			case 'login_screen': return 'Login Screen';
 			case 'login_with_google': return 'Login with Google';
+			default: return null;
+		}
+	}
+}
+
+extension on _StringsHe {
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'home_screen': return 'מסך הבית';
+			case 'login_screen': return 'בדיקה התחברות';
+			case 'login_with_google': return 'התחבר עם גוגל';
 			default: return null;
 		}
 	}

@@ -22,7 +22,7 @@ appSideMenuV2(BuildContext context, String pageName) {
         text: "Home screen",
         enableColor: pageName == 'home',
         icon: const Icon(Icons.home),
-        page: const HomeScreen(),
+        page: HomeScreen(),
       ),
       // DrawerButtonModel(
       //   text: t.settings,

@@ -12,8 +12,8 @@ class AppTextStyle {
   TextStyle get error => const TextStyle(fontSize: 16, color: Colors.red);
   TextStyle get dropDownValues => const TextStyle(fontSize: 16);
   TextStyle get mainListValues => const TextStyle(fontSize: 28);
-  TextStyle get cardTitle =>
-      const TextStyle(fontSize: 28, fontWeight: FontWeight.bold);
+  TextStyle get cardDescription =>
+      const TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
 
   TextStyle get watchTitle =>
       const TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
