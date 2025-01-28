@@ -34,32 +34,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        navigatorKey: NavigationContextService.navigatorKey,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.grey[100],
-          fontFamily:
-              GoogleFonts.amaticSc(fontWeight: FontWeight.bold).fontFamily,
-          textTheme: TextTheme(
-            bodyLarge: GoogleFonts.amaticSc(
-              textStyle: const TextStyle(fontSize: 28),
-            ),
-            bodyMedium: GoogleFonts.amaticSc(
-              textStyle: const TextStyle(fontSize: 24),
-            ),
-            bodySmall: GoogleFonts.amaticSc(
-              textStyle: const TextStyle(fontSize: 20),
-            ),
+      navigatorKey: NavigationContextService.navigatorKey,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.grey[100],
+        fontFamily:
+            GoogleFonts.amaticSc(fontWeight: FontWeight.bold).fontFamily,
+        textTheme: TextTheme(
+          bodyLarge: GoogleFonts.amaticSc(
+            textStyle: const TextStyle(fontSize: 28),
           ),
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-          useMaterial3: true,
+          bodyMedium: GoogleFonts.amaticSc(
+            textStyle: const TextStyle(fontSize: 24),
+          ),
+          bodySmall: GoogleFonts.amaticSc(
+            textStyle: const TextStyle(fontSize: 20),
+          ),
         ),
-        debugShowCheckedModeBanner: false,
-        locale: TranslationProvider.of(context).flutterLocale,
-        supportedLocales: AppLocaleUtils.supportedLocales,
-        localizationsDelegates: GlobalMaterialLocalizations.delegates,
-        home: HomeScreen()
-        // home: const LoginScreen(),
-        );
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        useMaterial3: true,
+      ),
+      debugShowCheckedModeBanner: false,
+      locale: TranslationProvider.of(context).flutterLocale,
+      supportedLocales: AppLocaleUtils.supportedLocales,
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      // home: HomeScreen()
+      home: const LoginScreen(),
+    );
   }
 }
 
