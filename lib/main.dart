@@ -2,7 +2,6 @@ import 'package:easy_track/core/hive/adapters_controller.dart';
 import 'package:easy_track/firebase_options.dart';
 import 'package:easy_track/i18n/strings.g.dart';
 import 'package:easy_track/services/package_info.dart';
-import 'package:easy_track/ui/home/home_screen.dart';
 import 'package:easy_track/ui/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -57,7 +56,6 @@ class MyApp extends StatelessWidget {
       locale: TranslationProvider.of(context).flutterLocale,
       supportedLocales: AppLocaleUtils.supportedLocales,
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
-      // home: HomeScreen()
       home: const LoginScreen(),
     );
   }

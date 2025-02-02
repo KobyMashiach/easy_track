@@ -1,58 +1,34 @@
 import 'dart:developer';
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_track/core/global_vars.dart';
 import 'package:easy_track/services/firebase/firestore_data.dart';
 
 class UserRepo {
   UserRepo();
-  final String docName = 'userDetails';
+  final collection = FirebaseFirestore.instance.collection(globalUser.email);
+  final String docName = 'categories';
 
-  Future<bool> checkIfHaveDetails() async {
-    final collection = FirebaseFirestore.instance.collection(globalUser.email);
-
-    final collectionExist =
-        await firestoreCheckIfCollectionExists(globalUser.email);
-    final docExist = await firestoreCheckIfDocExists(collection, docName);
-    if (collectionExist && docExist) {
-      final user = await firestoreGetDocValues(collection, docName);
-      if (user['register'] == true) {
-        globalUser = globalUser.copyWith(
-          firstName: user['firstName'],
-          lastName: user['lastName'],
-          picture: user['picture'],
-          name: user['name'],
-          register: user['register'],
-        );
-      }
-      log(user.toString());
-      return true;
-    }
-    return false;
-  }
-
-  Future<dynamic> firstRegister(
-      {required String firstName, required String lastName, File? file}) async {
-    final collection = FirebaseFirestore.instance.collection(globalUser.email);
-
-    final name = "${capitalizeFirst(firstName)} ${capitalizeFirst(lastName)}";
-    String? imageUrl;
-    if (file != null) {
-      imageUrl = await firestoreUploadImageToStorage(
-          path: globalUser.email, imageFile: file, imageName: 'profileImage');
-    }
-
-    globalUser = globalUser.copyWith(
-      firstName: capitalizeFirst(firstName),
-      lastName: capitalizeFirst(lastName),
-      register: true,
-      name: name,
-      picture: imageUrl ?? globalUser.picture,
-    );
-    firestoreNewDoc(collection, docName: docName, values: globalUser.toJson());
-    firestoreNewDoc(collection, docName: 'categories');
-  }
+  // Future<bool> checkIfHaveDetails() async {
+  //   final collectionExist =
+  //       await firestoreCheckIfCollectionExists(globalUser.email);
+  //   final docExist =
+  //       await firestoreCheckIfDocExists(collection, docName);
+  //   if (collectionExist && docExist) {
+  //     final user = await firestoreGetDocValues(collection, docName);
+  //     if (user['register'] == true) {
+  //       globalUser = globalUser.copyWith(
+  //         firstName: user['firstName'],
+  //         lastName: user['lastName'],
+  //         picture: user['picture'],
+  //         name: user['name'],
+  //         register: user['register'],
+  //       );
+  //     }
+  //     log(user.toString());
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   // Future<void> updateUser(UserModel user) async {
   //   await localDB.updateUser(user: user);
