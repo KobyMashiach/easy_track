@@ -2,5 +2,11 @@
   "home_screen": "מסך הבית",
   "login_screen": "בדיקה התחברות",
   "login_with_google": "התחבר עם גוגל",
-  "greeting": "ברוך הבא $name"
+  "greeting": "ברוך הבא $name",
+  "add_category": "הוסף קטגוריה",
+  "category_name": "שם הקטגוריה",
+  "user_details": "פרטי משתמש",
+  "first_name": "שם פרטי",
+  "last_name": "שם משפחה",
+  "email_address": "כתובת מייל"
 }

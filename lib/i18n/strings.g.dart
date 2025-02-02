@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 8 (4 per locale)
+/// Strings: 20 (10 per locale)
 ///
-/// Built on 2025-01-28 at 01:11 UTC
+/// Built on 2025-02-02 at 12:57 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -152,6 +152,12 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get login_screen => 'Login Screen';
 	String get login_with_google => 'Login with Google';
 	String greeting({required Object name}) => 'Welcome ${name}';
+	String get add_category => 'Add category';
+	String get category_name => 'category name';
+	String get user_details => 'User details';
+	String get first_name => 'First name';
+	String get last_name => 'Last name';
+	String get email_address => 'email address';
 }
 
 // Path: <root>
@@ -182,6 +188,12 @@ class _StringsHe implements Translations {
 	@override String get login_screen => 'בדיקה התחברות';
 	@override String get login_with_google => 'התחבר עם גוגל';
 	@override String greeting({required Object name}) => 'ברוך הבא ${name}';
+	@override String get add_category => 'הוסף קטגוריה';
+	@override String get category_name => 'שם הקטגוריה';
+	@override String get user_details => 'פרטי משתמש';
+	@override String get first_name => 'שם פרטי';
+	@override String get last_name => 'שם משפחה';
+	@override String get email_address => 'כתובת מייל';
 }
 
 /// Flat map(s) containing all translations.
@@ -194,6 +206,12 @@ extension on Translations {
 			case 'login_screen': return 'Login Screen';
 			case 'login_with_google': return 'Login with Google';
 			case 'greeting': return ({required Object name}) => 'Welcome ${name}';
+			case 'add_category': return 'Add category';
+			case 'category_name': return 'category name';
+			case 'user_details': return 'User details';
+			case 'first_name': return 'First name';
+			case 'last_name': return 'Last name';
+			case 'email_address': return 'email address';
 			default: return null;
 		}
 	}
@@ -206,6 +224,12 @@ extension on _StringsHe {
 			case 'login_screen': return 'בדיקה התחברות';
 			case 'login_with_google': return 'התחבר עם גוגל';
 			case 'greeting': return ({required Object name}) => 'ברוך הבא ${name}';
+			case 'add_category': return 'הוסף קטגוריה';
+			case 'category_name': return 'שם הקטגוריה';
+			case 'user_details': return 'פרטי משתמש';
+			case 'first_name': return 'שם פרטי';
+			case 'last_name': return 'שם משפחה';
+			case 'email_address': return 'כתובת מייל';
 			default: return null;
 		}
 	}

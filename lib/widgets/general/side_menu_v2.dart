@@ -7,8 +7,9 @@ import 'package:kh_easy_dev/kh_easy_dev.dart';
 
 appSideMenuV2(BuildContext context, String pageName) {
   return kheasydevAppDrawerV2(
-    name: globalUser.name.isNotEmpty ? globalUser.name : "",
-    profileImage: globalUser.picture.isNotEmpty ? globalUser.picture : null,
+    name: globalUser.name?.isNotEmpty ?? false ? globalUser.name! : "",
+    profileImage:
+        globalUser.picture?.isNotEmpty ?? false ? globalUser.picture : null,
     color: AppColors.primaryColor,
     contactsScreenButtomBackground: AppColors.buttomBackground,
     contactsScreenDialogColor: AppColors.primaryColor,

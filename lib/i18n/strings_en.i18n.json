@@ -2,5 +2,11 @@
   "home_screen": "Home Screen",
   "login_screen": "Login Screen",
   "login_with_google": "Login with Google",
-  "greeting": "Welcome $name"
+  "greeting": "Welcome $name",
+  "add_category": "Add category",
+  "category_name": "category name",
+  "user_details": "User details",
+  "first_name": "First name",
+  "last_name": "Last name",
+  "email_address": "email address"
 }

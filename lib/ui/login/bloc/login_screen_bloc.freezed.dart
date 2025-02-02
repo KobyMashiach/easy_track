@@ -176,18 +176,21 @@ mixin _$LoginScreenState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() navigateHome,
+    required TResult Function() navigateFillDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? navigateHome,
+    TResult? Function()? navigateFillDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? navigateHome,
+    TResult Function()? navigateFillDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -195,18 +198,24 @@ mixin _$LoginScreenState {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoginScreenInitial value) initial,
     required TResult Function(_LoginScreenNavigateHome value) navigateHome,
+    required TResult Function(_LoginScreenNavigateFillDetails value)
+        navigateFillDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginScreenInitial value)? initial,
     TResult? Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult? Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginScreenInitial value)? initial,
     TResult Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -276,6 +285,7 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() navigateHome,
+    required TResult Function() navigateFillDetails,
   }) {
     return initial();
   }
@@ -285,6 +295,7 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? navigateHome,
+    TResult? Function()? navigateFillDetails,
   }) {
     return initial?.call();
   }
@@ -294,6 +305,7 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? navigateHome,
+    TResult Function()? navigateFillDetails,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -307,6 +319,8 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoginScreenInitial value) initial,
     required TResult Function(_LoginScreenNavigateHome value) navigateHome,
+    required TResult Function(_LoginScreenNavigateFillDetails value)
+        navigateFillDetails,
   }) {
     return initial(this);
   }
@@ -316,6 +330,8 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginScreenInitial value)? initial,
     TResult? Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult? Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
   }) {
     return initial?.call(this);
   }
@@ -325,6 +341,8 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginScreenInitial value)? initial,
     TResult Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -384,6 +402,7 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() navigateHome,
+    required TResult Function() navigateFillDetails,
   }) {
     return navigateHome();
   }
@@ -393,6 +412,7 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? navigateHome,
+    TResult? Function()? navigateFillDetails,
   }) {
     return navigateHome?.call();
   }
@@ -402,6 +422,7 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? navigateHome,
+    TResult Function()? navigateFillDetails,
     required TResult orElse(),
   }) {
     if (navigateHome != null) {
@@ -415,6 +436,8 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoginScreenInitial value) initial,
     required TResult Function(_LoginScreenNavigateHome value) navigateHome,
+    required TResult Function(_LoginScreenNavigateFillDetails value)
+        navigateFillDetails,
   }) {
     return navigateHome(this);
   }
@@ -424,6 +447,8 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginScreenInitial value)? initial,
     TResult? Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult? Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
   }) {
     return navigateHome?.call(this);
   }
@@ -433,6 +458,8 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginScreenInitial value)? initial,
     TResult Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
     required TResult orElse(),
   }) {
     if (navigateHome != null) {
@@ -444,4 +471,124 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
 
 abstract class _LoginScreenNavigateHome implements LoginScreenState {
   const factory _LoginScreenNavigateHome() = _$LoginScreenNavigateHomeImpl;
+}
+
+/// @nodoc
+abstract class _$$LoginScreenNavigateFillDetailsImplCopyWith<$Res> {
+  factory _$$LoginScreenNavigateFillDetailsImplCopyWith(
+          _$LoginScreenNavigateFillDetailsImpl value,
+          $Res Function(_$LoginScreenNavigateFillDetailsImpl) then) =
+      __$$LoginScreenNavigateFillDetailsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoginScreenNavigateFillDetailsImplCopyWithImpl<$Res>
+    extends _$LoginScreenStateCopyWithImpl<$Res,
+        _$LoginScreenNavigateFillDetailsImpl>
+    implements _$$LoginScreenNavigateFillDetailsImplCopyWith<$Res> {
+  __$$LoginScreenNavigateFillDetailsImplCopyWithImpl(
+      _$LoginScreenNavigateFillDetailsImpl _value,
+      $Res Function(_$LoginScreenNavigateFillDetailsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginScreenState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoginScreenNavigateFillDetailsImpl
+    implements _LoginScreenNavigateFillDetails {
+  const _$LoginScreenNavigateFillDetailsImpl();
+
+  @override
+  String toString() {
+    return 'LoginScreenState.navigateFillDetails()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoginScreenNavigateFillDetailsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() navigateHome,
+    required TResult Function() navigateFillDetails,
+  }) {
+    return navigateFillDetails();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? navigateHome,
+    TResult? Function()? navigateFillDetails,
+  }) {
+    return navigateFillDetails?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? navigateHome,
+    TResult Function()? navigateFillDetails,
+    required TResult orElse(),
+  }) {
+    if (navigateFillDetails != null) {
+      return navigateFillDetails();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoginScreenInitial value) initial,
+    required TResult Function(_LoginScreenNavigateHome value) navigateHome,
+    required TResult Function(_LoginScreenNavigateFillDetails value)
+        navigateFillDetails,
+  }) {
+    return navigateFillDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoginScreenInitial value)? initial,
+    TResult? Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult? Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
+  }) {
+    return navigateFillDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoginScreenInitial value)? initial,
+    TResult Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
+    required TResult orElse(),
+  }) {
+    if (navigateFillDetails != null) {
+      return navigateFillDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoginScreenNavigateFillDetails implements LoginScreenState {
+  const factory _LoginScreenNavigateFillDetails() =
+      _$LoginScreenNavigateFillDetailsImpl;
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:easy_track/core/global_vars.dart';
 import 'package:easy_track/models/user_model/user_model.dart';
 import 'package:easy_track/services/firebase/firebase_auth.dart';
@@ -18,7 +20,11 @@ class LoginScreenBloc extends Bloc<LoginScreenEvent, LoginScreenState> {
           if (googleCredential != null) {
             globalUser = UserModel.fromJson(
                 googleCredential.additionalUserInfo!.profile!);
-            emit(const LoginScreenState.navigateHome());
+            if (globalUser.register == true) {
+              emit(const LoginScreenState.navigateHome());
+            } else {
+              emit(const LoginScreenState.navigateFillDetails());
+            }
           }
         },
       );

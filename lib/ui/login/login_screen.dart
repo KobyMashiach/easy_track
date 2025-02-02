@@ -1,6 +1,7 @@
 import 'package:easy_track/core/consts.dart';
 import 'package:easy_track/core/text_styles.dart';
 import 'package:easy_track/i18n/strings.g.dart';
+import 'package:easy_track/ui/fill_details/fill_details_screen.dart';
 import 'package:easy_track/ui/home/home_screen.dart';
 import 'package:easy_track/ui/login/bloc/login_screen_bloc.dart';
 import 'package:easy_track/widgets/design/buttons/app_button.dart';
@@ -20,10 +21,10 @@ class LoginScreen extends StatelessWidget {
       child: BlocConsumer<LoginScreenBloc, LoginScreenState>(
         listener: (context, state) {
           state.maybeWhen(
-              navigateHome: () {
-                KheasydevNavigatePage()
-                    .pushAndRemoveUntilDuration(context, HomeScreen());
-              },
+              navigateHome: () => KheasydevNavigatePage()
+                  .pushAndRemoveUntilDuration(context, HomeScreen()),
+              navigateFillDetails: () => KheasydevNavigatePage()
+                  .pushAndRemoveUntilDuration(context, FillDetailsScreen()),
               orElse: () {});
         },
         builder: (context, state) {
