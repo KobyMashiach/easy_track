@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 22 (11 per locale)
+/// Strings: 28 (14 per locale)
 ///
-/// Built on 2025-02-02 at 15:32 UTC
+/// Built on 2025-02-02 at 20:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -159,6 +159,9 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get last_name => 'Last name';
 	String get email_address => 'email address';
 	String get save => 'save';
+	String get password => 'password';
+	String get or_login_with => 'or login with';
+	String get login_with_email => 'Login with email';
 }
 
 // Path: <root>
@@ -196,6 +199,9 @@ class _StringsHe implements Translations {
 	@override String get last_name => 'שם משפחה';
 	@override String get email_address => 'כתובת מייל';
 	@override String get save => 'שמירה';
+	@override String get password => 'סיסמה';
+	@override String get or_login_with => 'או התחבר עם';
+	@override String get login_with_email => 'התחבר עם מייל';
 }
 
 /// Flat map(s) containing all translations.
@@ -215,6 +221,9 @@ extension on Translations {
 			case 'last_name': return 'Last name';
 			case 'email_address': return 'email address';
 			case 'save': return 'save';
+			case 'password': return 'password';
+			case 'or_login_with': return 'or login with';
+			case 'login_with_email': return 'Login with email';
 			default: return null;
 		}
 	}
@@ -234,6 +243,9 @@ extension on _StringsHe {
 			case 'last_name': return 'שם משפחה';
 			case 'email_address': return 'כתובת מייל';
 			case 'save': return 'שמירה';
+			case 'password': return 'סיסמה';
+			case 'or_login_with': return 'או התחבר עם';
+			case 'login_with_email': return 'התחבר עם מייל';
 			default: return null;
 		}
 	}

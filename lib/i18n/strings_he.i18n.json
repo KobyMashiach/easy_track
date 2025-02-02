@@ -9,5 +9,8 @@
   "first_name": "שם פרטי",
   "last_name": "שם משפחה",
   "email_address": "כתובת מייל",
-  "save": "שמירה"
+  "save": "שמירה",
+  "password": "סיסמה",
+  "or_login_with": "או התחבר עם",
+  "login_with_email": "התחבר עם מייל"
 }

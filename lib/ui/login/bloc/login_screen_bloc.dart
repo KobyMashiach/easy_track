@@ -16,27 +16,30 @@ class LoginScreenBloc extends Bloc<LoginScreenEvent, LoginScreenState> {
   final UserRepo repo;
   LoginScreenBloc(this.repo) : super(const LoginScreenState.initial()) {
     on<LoginScreenEvent>((event, emit) async {
-      await event.map(signInByGoogle: (e) async {
-        emit(const LoginScreenState.loading());
-        final googleCredential = await loginWithGoogle();
-        if (googleCredential != null) {
-          globalUser =
-              UserModel.fromJson(googleCredential.additionalUserInfo!.profile!);
-          await repo.checkIfHaveDetails();
-          if (globalUser.register == true) {
+      await event.map(
+          signInByGoogle: (e) async {
+            emit(const LoginScreenState.loading());
+            final googleCredential = await loginWithGoogle();
+            if (googleCredential != null) {
+              globalUser = UserModel.fromJson(
+                  googleCredential.additionalUserInfo!.profile!);
+              await repo.checkIfHaveDetails();
+              if (globalUser.register == true) {
+                emit(const LoginScreenState.navigateHome());
+              } else {
+                emit(const LoginScreenState.navigateFillDetails());
+              }
+            }
+            emit(const LoginScreenState.refreshUI());
+          },
+          saveUser: (e) async {
+            emit(const LoginScreenState.loading());
+            await repo.firstRegister(
+                firstName: e.firstName, lastName: e.lastName, file: e.image);
+            emit(const LoginScreenState.refreshUI());
             emit(const LoginScreenState.navigateHome());
-          } else {
-            emit(const LoginScreenState.navigateFillDetails());
-          }
-        }
-        emit(const LoginScreenState.refreshUI());
-      }, saveUser: (e) async {
-        emit(const LoginScreenState.loading());
-        await repo.firstRegister(
-            firstName: e.firstName, lastName: e.lastName, file: e.image);
-        emit(const LoginScreenState.refreshUI());
-        emit(const LoginScreenState.navigateHome());
-      });
+          },
+          signInByEmailPassword: (e) async {});
     });
   }
 }

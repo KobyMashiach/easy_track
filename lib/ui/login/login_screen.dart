@@ -6,10 +6,12 @@ import 'package:easy_track/ui/login/inner/fill_details_screen.dart';
 import 'package:easy_track/ui/home/home_screen.dart';
 import 'package:easy_track/ui/login/bloc/login_screen_bloc.dart';
 import 'package:easy_track/widgets/design/buttons/app_button.dart';
+import 'package:easy_track/widgets/design/fields/app_textfields.dart';
 import 'package:easy_track/widgets/design/icons/icons.dart';
 import 'package:easy_track/widgets/general/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kh_easy_dev/kh_easy_dev.dart';
 import 'package:kh_easy_dev/services/navigate_page.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -54,8 +56,25 @@ class LoginScreen extends StatelessWidget {
                   orElse: () => Column(
                     children: [
                       Text("Easy Track", style: AppTextStyle().bigTitle),
-                      Image.asset(appLogo),
+                      Image.asset(appLogo, height: 300),
+                      AppTextField(hintText: t.email_address),
+                      AppTextField(hintText: t.password),
+                      appButton(
+                        text: t.login_with_google,
+                        leftIcon: socialIcons(),
+                        onTap: () =>
+                            bloc.add(const LoginScreenEvent.signInByGoogle()),
+                      ),
                       Spacer(),
+                      Row(
+                        spacing: 12,
+                        children: [
+                          Expanded(child: kheasydevDivider(black: true)),
+                          Text(t.or_login_with),
+                          Expanded(child: kheasydevDivider(black: true)),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
                       appButton(
                         text: t.login_with_google,
                         leftIcon: socialIcons(),
