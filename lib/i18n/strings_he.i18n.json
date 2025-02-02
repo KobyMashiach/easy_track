@@ -8,5 +8,6 @@
   "user_details": "פרטי משתמש",
   "first_name": "שם פרטי",
   "last_name": "שם משפחה",
-  "email_address": "כתובת מייל"
+  "email_address": "כתובת מייל",
+  "save": "שמירה"
 }

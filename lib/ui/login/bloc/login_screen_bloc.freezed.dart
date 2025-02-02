@@ -19,32 +19,39 @@ mixin _$LoginScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signInByGoogle,
+    required TResult Function(String firstName, String lastName, File? image)
+        saveUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signInByGoogle,
+    TResult? Function(String firstName, String lastName, File? image)? saveUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signInByGoogle,
+    TResult Function(String firstName, String lastName, File? image)? saveUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignInByGoogle value) signInByGoogle,
+    required TResult Function(_SaveUser value) saveUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignInByGoogle value)? signInByGoogle,
+    TResult? Function(_SaveUser value)? saveUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignInByGoogle value)? signInByGoogle,
+    TResult Function(_SaveUser value)? saveUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +120,8 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signInByGoogle,
+    required TResult Function(String firstName, String lastName, File? image)
+        saveUser,
   }) {
     return signInByGoogle();
   }
@@ -121,6 +130,7 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signInByGoogle,
+    TResult? Function(String firstName, String lastName, File? image)? saveUser,
   }) {
     return signInByGoogle?.call();
   }
@@ -129,6 +139,7 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signInByGoogle,
+    TResult Function(String firstName, String lastName, File? image)? saveUser,
     required TResult orElse(),
   }) {
     if (signInByGoogle != null) {
@@ -141,6 +152,7 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignInByGoogle value) signInByGoogle,
+    required TResult Function(_SaveUser value) saveUser,
   }) {
     return signInByGoogle(this);
   }
@@ -149,6 +161,7 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignInByGoogle value)? signInByGoogle,
+    TResult? Function(_SaveUser value)? saveUser,
   }) {
     return signInByGoogle?.call(this);
   }
@@ -157,6 +170,7 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignInByGoogle value)? signInByGoogle,
+    TResult Function(_SaveUser value)? saveUser,
     required TResult orElse(),
   }) {
     if (signInByGoogle != null) {
@@ -171,10 +185,177 @@ abstract class _SignInByGoogle implements LoginScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$SaveUserImplCopyWith<$Res> {
+  factory _$$SaveUserImplCopyWith(
+          _$SaveUserImpl value, $Res Function(_$SaveUserImpl) then) =
+      __$$SaveUserImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String firstName, String lastName, File? image});
+}
+
+/// @nodoc
+class __$$SaveUserImplCopyWithImpl<$Res>
+    extends _$LoginScreenEventCopyWithImpl<$Res, _$SaveUserImpl>
+    implements _$$SaveUserImplCopyWith<$Res> {
+  __$$SaveUserImplCopyWithImpl(
+      _$SaveUserImpl _value, $Res Function(_$SaveUserImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? image = freezed,
+  }) {
+    return _then(_$SaveUserImpl(
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as File?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveUserImpl implements _SaveUser {
+  const _$SaveUserImpl(
+      {required this.firstName, required this.lastName, this.image});
+
+  @override
+  final String firstName;
+  @override
+  final String lastName;
+  @override
+  final File? image;
+
+  @override
+  String toString() {
+    return 'LoginScreenEvent.saveUser(firstName: $firstName, lastName: $lastName, image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveUserImpl &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, firstName, lastName, image);
+
+  /// Create a copy of LoginScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveUserImplCopyWith<_$SaveUserImpl> get copyWith =>
+      __$$SaveUserImplCopyWithImpl<_$SaveUserImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signInByGoogle,
+    required TResult Function(String firstName, String lastName, File? image)
+        saveUser,
+  }) {
+    return saveUser(firstName, lastName, image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signInByGoogle,
+    TResult? Function(String firstName, String lastName, File? image)? saveUser,
+  }) {
+    return saveUser?.call(firstName, lastName, image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signInByGoogle,
+    TResult Function(String firstName, String lastName, File? image)? saveUser,
+    required TResult orElse(),
+  }) {
+    if (saveUser != null) {
+      return saveUser(firstName, lastName, image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignInByGoogle value) signInByGoogle,
+    required TResult Function(_SaveUser value) saveUser,
+  }) {
+    return saveUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SignInByGoogle value)? signInByGoogle,
+    TResult? Function(_SaveUser value)? saveUser,
+  }) {
+    return saveUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignInByGoogle value)? signInByGoogle,
+    TResult Function(_SaveUser value)? saveUser,
+    required TResult orElse(),
+  }) {
+    if (saveUser != null) {
+      return saveUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveUser implements LoginScreenEvent {
+  const factory _SaveUser(
+      {required final String firstName,
+      required final String lastName,
+      final File? image}) = _$SaveUserImpl;
+
+  String get firstName;
+  String get lastName;
+  File? get image;
+
+  /// Create a copy of LoginScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveUserImplCopyWith<_$SaveUserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$LoginScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() refreshUI,
     required TResult Function() navigateHome,
     required TResult Function() navigateFillDetails,
   }) =>
@@ -182,6 +363,8 @@ mixin _$LoginScreenState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? refreshUI,
     TResult? Function()? navigateHome,
     TResult? Function()? navigateFillDetails,
   }) =>
@@ -189,6 +372,8 @@ mixin _$LoginScreenState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? refreshUI,
     TResult Function()? navigateHome,
     TResult Function()? navigateFillDetails,
     required TResult orElse(),
@@ -197,6 +382,8 @@ mixin _$LoginScreenState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoginScreenInitial value) initial,
+    required TResult Function(_LoginScreenLoading value) loading,
+    required TResult Function(_LoginScreenRefreshUI value) refreshUI,
     required TResult Function(_LoginScreenNavigateHome value) navigateHome,
     required TResult Function(_LoginScreenNavigateFillDetails value)
         navigateFillDetails,
@@ -205,6 +392,8 @@ mixin _$LoginScreenState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginScreenInitial value)? initial,
+    TResult? Function(_LoginScreenLoading value)? loading,
+    TResult? Function(_LoginScreenRefreshUI value)? refreshUI,
     TResult? Function(_LoginScreenNavigateHome value)? navigateHome,
     TResult? Function(_LoginScreenNavigateFillDetails value)?
         navigateFillDetails,
@@ -213,6 +402,8 @@ mixin _$LoginScreenState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginScreenInitial value)? initial,
+    TResult Function(_LoginScreenLoading value)? loading,
+    TResult Function(_LoginScreenRefreshUI value)? refreshUI,
     TResult Function(_LoginScreenNavigateHome value)? navigateHome,
     TResult Function(_LoginScreenNavigateFillDetails value)?
         navigateFillDetails,
@@ -284,6 +475,8 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() refreshUI,
     required TResult Function() navigateHome,
     required TResult Function() navigateFillDetails,
   }) {
@@ -294,6 +487,8 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? refreshUI,
     TResult? Function()? navigateHome,
     TResult? Function()? navigateFillDetails,
   }) {
@@ -304,6 +499,8 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? refreshUI,
     TResult Function()? navigateHome,
     TResult Function()? navigateFillDetails,
     required TResult orElse(),
@@ -318,6 +515,8 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoginScreenInitial value) initial,
+    required TResult Function(_LoginScreenLoading value) loading,
+    required TResult Function(_LoginScreenRefreshUI value) refreshUI,
     required TResult Function(_LoginScreenNavigateHome value) navigateHome,
     required TResult Function(_LoginScreenNavigateFillDetails value)
         navigateFillDetails,
@@ -329,6 +528,8 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginScreenInitial value)? initial,
+    TResult? Function(_LoginScreenLoading value)? loading,
+    TResult? Function(_LoginScreenRefreshUI value)? refreshUI,
     TResult? Function(_LoginScreenNavigateHome value)? navigateHome,
     TResult? Function(_LoginScreenNavigateFillDetails value)?
         navigateFillDetails,
@@ -340,6 +541,8 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginScreenInitial value)? initial,
+    TResult Function(_LoginScreenLoading value)? loading,
+    TResult Function(_LoginScreenRefreshUI value)? refreshUI,
     TResult Function(_LoginScreenNavigateHome value)? navigateHome,
     TResult Function(_LoginScreenNavigateFillDetails value)?
         navigateFillDetails,
@@ -354,6 +557,259 @@ class _$LoginScreenInitialImpl implements _LoginScreenInitial {
 
 abstract class _LoginScreenInitial implements LoginScreenState {
   const factory _LoginScreenInitial() = _$LoginScreenInitialImpl;
+}
+
+/// @nodoc
+abstract class _$$LoginScreenLoadingImplCopyWith<$Res> {
+  factory _$$LoginScreenLoadingImplCopyWith(_$LoginScreenLoadingImpl value,
+          $Res Function(_$LoginScreenLoadingImpl) then) =
+      __$$LoginScreenLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoginScreenLoadingImplCopyWithImpl<$Res>
+    extends _$LoginScreenStateCopyWithImpl<$Res, _$LoginScreenLoadingImpl>
+    implements _$$LoginScreenLoadingImplCopyWith<$Res> {
+  __$$LoginScreenLoadingImplCopyWithImpl(_$LoginScreenLoadingImpl _value,
+      $Res Function(_$LoginScreenLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginScreenState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoginScreenLoadingImpl implements _LoginScreenLoading {
+  const _$LoginScreenLoadingImpl();
+
+  @override
+  String toString() {
+    return 'LoginScreenState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoginScreenLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() refreshUI,
+    required TResult Function() navigateHome,
+    required TResult Function() navigateFillDetails,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? refreshUI,
+    TResult? Function()? navigateHome,
+    TResult? Function()? navigateFillDetails,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? refreshUI,
+    TResult Function()? navigateHome,
+    TResult Function()? navigateFillDetails,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoginScreenInitial value) initial,
+    required TResult Function(_LoginScreenLoading value) loading,
+    required TResult Function(_LoginScreenRefreshUI value) refreshUI,
+    required TResult Function(_LoginScreenNavigateHome value) navigateHome,
+    required TResult Function(_LoginScreenNavigateFillDetails value)
+        navigateFillDetails,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoginScreenInitial value)? initial,
+    TResult? Function(_LoginScreenLoading value)? loading,
+    TResult? Function(_LoginScreenRefreshUI value)? refreshUI,
+    TResult? Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult? Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoginScreenInitial value)? initial,
+    TResult Function(_LoginScreenLoading value)? loading,
+    TResult Function(_LoginScreenRefreshUI value)? refreshUI,
+    TResult Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoginScreenLoading implements LoginScreenState {
+  const factory _LoginScreenLoading() = _$LoginScreenLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$LoginScreenRefreshUIImplCopyWith<$Res> {
+  factory _$$LoginScreenRefreshUIImplCopyWith(_$LoginScreenRefreshUIImpl value,
+          $Res Function(_$LoginScreenRefreshUIImpl) then) =
+      __$$LoginScreenRefreshUIImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoginScreenRefreshUIImplCopyWithImpl<$Res>
+    extends _$LoginScreenStateCopyWithImpl<$Res, _$LoginScreenRefreshUIImpl>
+    implements _$$LoginScreenRefreshUIImplCopyWith<$Res> {
+  __$$LoginScreenRefreshUIImplCopyWithImpl(_$LoginScreenRefreshUIImpl _value,
+      $Res Function(_$LoginScreenRefreshUIImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginScreenState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoginScreenRefreshUIImpl implements _LoginScreenRefreshUI {
+  const _$LoginScreenRefreshUIImpl();
+
+  @override
+  String toString() {
+    return 'LoginScreenState.refreshUI()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoginScreenRefreshUIImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() refreshUI,
+    required TResult Function() navigateHome,
+    required TResult Function() navigateFillDetails,
+  }) {
+    return refreshUI();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? refreshUI,
+    TResult? Function()? navigateHome,
+    TResult? Function()? navigateFillDetails,
+  }) {
+    return refreshUI?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? refreshUI,
+    TResult Function()? navigateHome,
+    TResult Function()? navigateFillDetails,
+    required TResult orElse(),
+  }) {
+    if (refreshUI != null) {
+      return refreshUI();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoginScreenInitial value) initial,
+    required TResult Function(_LoginScreenLoading value) loading,
+    required TResult Function(_LoginScreenRefreshUI value) refreshUI,
+    required TResult Function(_LoginScreenNavigateHome value) navigateHome,
+    required TResult Function(_LoginScreenNavigateFillDetails value)
+        navigateFillDetails,
+  }) {
+    return refreshUI(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoginScreenInitial value)? initial,
+    TResult? Function(_LoginScreenLoading value)? loading,
+    TResult? Function(_LoginScreenRefreshUI value)? refreshUI,
+    TResult? Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult? Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
+  }) {
+    return refreshUI?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoginScreenInitial value)? initial,
+    TResult Function(_LoginScreenLoading value)? loading,
+    TResult Function(_LoginScreenRefreshUI value)? refreshUI,
+    TResult Function(_LoginScreenNavigateHome value)? navigateHome,
+    TResult Function(_LoginScreenNavigateFillDetails value)?
+        navigateFillDetails,
+    required TResult orElse(),
+  }) {
+    if (refreshUI != null) {
+      return refreshUI(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoginScreenRefreshUI implements LoginScreenState {
+  const factory _LoginScreenRefreshUI() = _$LoginScreenRefreshUIImpl;
 }
 
 /// @nodoc
@@ -401,6 +857,8 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() refreshUI,
     required TResult Function() navigateHome,
     required TResult Function() navigateFillDetails,
   }) {
@@ -411,6 +869,8 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? refreshUI,
     TResult? Function()? navigateHome,
     TResult? Function()? navigateFillDetails,
   }) {
@@ -421,6 +881,8 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? refreshUI,
     TResult Function()? navigateHome,
     TResult Function()? navigateFillDetails,
     required TResult orElse(),
@@ -435,6 +897,8 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoginScreenInitial value) initial,
+    required TResult Function(_LoginScreenLoading value) loading,
+    required TResult Function(_LoginScreenRefreshUI value) refreshUI,
     required TResult Function(_LoginScreenNavigateHome value) navigateHome,
     required TResult Function(_LoginScreenNavigateFillDetails value)
         navigateFillDetails,
@@ -446,6 +910,8 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginScreenInitial value)? initial,
+    TResult? Function(_LoginScreenLoading value)? loading,
+    TResult? Function(_LoginScreenRefreshUI value)? refreshUI,
     TResult? Function(_LoginScreenNavigateHome value)? navigateHome,
     TResult? Function(_LoginScreenNavigateFillDetails value)?
         navigateFillDetails,
@@ -457,6 +923,8 @@ class _$LoginScreenNavigateHomeImpl implements _LoginScreenNavigateHome {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginScreenInitial value)? initial,
+    TResult Function(_LoginScreenLoading value)? loading,
+    TResult Function(_LoginScreenRefreshUI value)? refreshUI,
     TResult Function(_LoginScreenNavigateHome value)? navigateHome,
     TResult Function(_LoginScreenNavigateFillDetails value)?
         navigateFillDetails,
@@ -520,6 +988,8 @@ class _$LoginScreenNavigateFillDetailsImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() refreshUI,
     required TResult Function() navigateHome,
     required TResult Function() navigateFillDetails,
   }) {
@@ -530,6 +1000,8 @@ class _$LoginScreenNavigateFillDetailsImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? refreshUI,
     TResult? Function()? navigateHome,
     TResult? Function()? navigateFillDetails,
   }) {
@@ -540,6 +1012,8 @@ class _$LoginScreenNavigateFillDetailsImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? refreshUI,
     TResult Function()? navigateHome,
     TResult Function()? navigateFillDetails,
     required TResult orElse(),
@@ -554,6 +1028,8 @@ class _$LoginScreenNavigateFillDetailsImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoginScreenInitial value) initial,
+    required TResult Function(_LoginScreenLoading value) loading,
+    required TResult Function(_LoginScreenRefreshUI value) refreshUI,
     required TResult Function(_LoginScreenNavigateHome value) navigateHome,
     required TResult Function(_LoginScreenNavigateFillDetails value)
         navigateFillDetails,
@@ -565,6 +1041,8 @@ class _$LoginScreenNavigateFillDetailsImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginScreenInitial value)? initial,
+    TResult? Function(_LoginScreenLoading value)? loading,
+    TResult? Function(_LoginScreenRefreshUI value)? refreshUI,
     TResult? Function(_LoginScreenNavigateHome value)? navigateHome,
     TResult? Function(_LoginScreenNavigateFillDetails value)?
         navigateFillDetails,
@@ -576,6 +1054,8 @@ class _$LoginScreenNavigateFillDetailsImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginScreenInitial value)? initial,
+    TResult Function(_LoginScreenLoading value)? loading,
+    TResult Function(_LoginScreenRefreshUI value)? refreshUI,
     TResult Function(_LoginScreenNavigateHome value)? navigateHome,
     TResult Function(_LoginScreenNavigateFillDetails value)?
         navigateFillDetails,

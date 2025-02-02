@@ -92,6 +92,17 @@ Future<bool> firestoreCheckIfDocExists(
   }
 }
 
+Future<bool> firestoreCheckIfCollectionExists(String collectionName) async {
+  try {
+    var collectionRef = FirebaseFirestore.instance.collection(collectionName);
+    var querySnapshot = await collectionRef.limit(1).get();
+    return querySnapshot.docs.isNotEmpty;
+  } catch (e) {
+    log("Error checking collection existence: $e");
+    return false;
+  }
+}
+
 Future<String> firestoreUploadImageToStorage(
     {required String path,
     required File imageFile,

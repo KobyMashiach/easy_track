@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 20 (10 per locale)
+/// Strings: 22 (11 per locale)
 ///
-/// Built on 2025-02-02 at 12:57 UTC
+/// Built on 2025-02-02 at 15:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -158,6 +158,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get first_name => 'First name';
 	String get last_name => 'Last name';
 	String get email_address => 'email address';
+	String get save => 'save';
 }
 
 // Path: <root>
@@ -194,6 +195,7 @@ class _StringsHe implements Translations {
 	@override String get first_name => 'שם פרטי';
 	@override String get last_name => 'שם משפחה';
 	@override String get email_address => 'כתובת מייל';
+	@override String get save => 'שמירה';
 }
 
 /// Flat map(s) containing all translations.
@@ -212,6 +214,7 @@ extension on Translations {
 			case 'first_name': return 'First name';
 			case 'last_name': return 'Last name';
 			case 'email_address': return 'email address';
+			case 'save': return 'save';
 			default: return null;
 		}
 	}
@@ -230,6 +233,7 @@ extension on _StringsHe {
 			case 'first_name': return 'שם פרטי';
 			case 'last_name': return 'שם משפחה';
 			case 'email_address': return 'כתובת מייל';
+			case 'save': return 'שמירה';
 			default: return null;
 		}
 	}
