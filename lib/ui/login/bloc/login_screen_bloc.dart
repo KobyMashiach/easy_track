@@ -38,7 +38,7 @@ class LoginScreenBloc extends Bloc<LoginScreenEvent, LoginScreenState> {
         emit(const LoginScreenState.refreshUI());
         emit(const LoginScreenState.navigateHome());
       }, signInByEmailPassword: (e) async {
-        //TODO: from here
+        emit(const LoginScreenState.loading());
         final userCredential =
             await registerOrLoginWithEmailAndPassword(e.email, e.password);
         if (userCredential != null) {
@@ -51,6 +51,7 @@ class LoginScreenBloc extends Bloc<LoginScreenEvent, LoginScreenState> {
             emit(const LoginScreenState.navigateFillDetails());
           }
         }
+        emit(const LoginScreenState.refreshUI());
       });
     });
   }
