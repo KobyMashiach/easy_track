@@ -1,7 +1,7 @@
 import 'package:easy_track/core/consts.dart';
 import 'package:flutter/material.dart';
 
-enum SocialIcons { google, facebook }
+enum SocialIcons { google, facebook, email }
 
 extension SocialIconsX on SocialIcons {
   static const assetsPath = 'assets/icons/';
@@ -11,6 +11,8 @@ extension SocialIconsX on SocialIcons {
         return googleIcon;
       case SocialIcons.facebook:
         return appLogo;
+      case SocialIcons.email:
+        return emailIcon;
     }
   }
 }

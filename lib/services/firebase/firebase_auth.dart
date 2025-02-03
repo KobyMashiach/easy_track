@@ -30,6 +30,35 @@ Future<UserCredential?> loginWithGoogle() async {
   }
 }
 
+Future<UserCredential?> registerOrLoginWithEmailAndPassword(
+    String email, String password) async {
+  try {
+    UserCredential userCredential =
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    return userCredential;
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'user-not-found' || e.code == 'invalid-credential') {
+      try {
+        UserCredential newUserCredential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+        return newUserCredential;
+      } on FirebaseAuthException catch (registerError) {
+        log('Error during registration: ${registerError.message}');
+        return null;
+      }
+    } else {
+      log('Error during login: ${e.message}');
+      return null;
+    }
+  }
+}
+
 Future<String> logoutFirestore() async {
   try {
     await FirebaseAuth.instance.signOut();

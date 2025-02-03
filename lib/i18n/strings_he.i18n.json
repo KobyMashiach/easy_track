@@ -12,5 +12,9 @@
   "save": "שמירה",
   "password": "סיסמה",
   "or_login_with": "או התחבר עם",
-  "login_with_email": "התחבר עם מייל"
+  "login_with_email": "התחבר עם מייל",
+  "email_invalid": "כתובת המייל אינה חוקית",
+  "pasword_least_6_chars": "הסיסמה חייבת להכיל לפחות 6 תווים",
+  "required_email": "חובה למלא כתובת מייל",
+  "required_password": "חובה למלא סיסמה"
 }

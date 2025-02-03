@@ -4,7 +4,7 @@ part of 'login_screen_bloc.dart';
 class LoginScreenEvent with _$LoginScreenEvent {
   const factory LoginScreenEvent.signInByGoogle() = _SignInByGoogle;
   const factory LoginScreenEvent.signInByEmailPassword(
-      {required String name,
+      {required String email,
       required String password}) = _SignInByEmailPassword;
   const factory LoginScreenEvent.saveUser(
       {required String firstName,

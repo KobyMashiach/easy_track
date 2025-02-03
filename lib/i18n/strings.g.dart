@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 28 (14 per locale)
+/// Strings: 36 (18 per locale)
 ///
-/// Built on 2025-02-02 at 20:05 UTC
+/// Built on 2025-02-03 at 12:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -162,6 +162,10 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get password => 'password';
 	String get or_login_with => 'or login with';
 	String get login_with_email => 'Login with email';
+	String get email_invalid => 'The email address is invalid';
+	String get pasword_least_6_chars => 'The password must contain at least 6 characters';
+	String get required_email => 'Required to fill in an email address';
+	String get required_password => 'Required to fill in an password';
 }
 
 // Path: <root>
@@ -202,6 +206,10 @@ class _StringsHe implements Translations {
 	@override String get password => 'סיסמה';
 	@override String get or_login_with => 'או התחבר עם';
 	@override String get login_with_email => 'התחבר עם מייל';
+	@override String get email_invalid => 'כתובת המייל אינה חוקית';
+	@override String get pasword_least_6_chars => 'הסיסמה חייבת להכיל לפחות 6 תווים';
+	@override String get required_email => 'חובה למלא כתובת מייל';
+	@override String get required_password => 'חובה למלא סיסמה';
 }
 
 /// Flat map(s) containing all translations.
@@ -224,6 +232,10 @@ extension on Translations {
 			case 'password': return 'password';
 			case 'or_login_with': return 'or login with';
 			case 'login_with_email': return 'Login with email';
+			case 'email_invalid': return 'The email address is invalid';
+			case 'pasword_least_6_chars': return 'The password must contain at least 6 characters';
+			case 'required_email': return 'Required to fill in an email address';
+			case 'required_password': return 'Required to fill in an password';
 			default: return null;
 		}
 	}
@@ -246,6 +258,10 @@ extension on _StringsHe {
 			case 'password': return 'סיסמה';
 			case 'or_login_with': return 'או התחבר עם';
 			case 'login_with_email': return 'התחבר עם מייל';
+			case 'email_invalid': return 'כתובת המייל אינה חוקית';
+			case 'pasword_least_6_chars': return 'הסיסמה חייבת להכיל לפחות 6 תווים';
+			case 'required_email': return 'חובה למלא כתובת מייל';
+			case 'required_password': return 'חובה למלא סיסמה';
 			default: return null;
 		}
 	}

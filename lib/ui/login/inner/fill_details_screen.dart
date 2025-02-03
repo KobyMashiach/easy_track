@@ -103,7 +103,10 @@ class _FillDetailsScreenState extends State<FillDetailsScreen> {
               : (globalUser.picture != null
                   ? NetworkImage(globalUser.picture!)
                   : null),
-          child: image == null && globalUser.picture == null
+          child: image == null &&
+                  globalUser.picture == null &&
+                  firstNameController.text.isNotEmpty &&
+                  lastNameController.text.isNotEmpty
               ? getImageText()
               : null,
         ),
@@ -157,6 +160,7 @@ class _FillDetailsScreenState extends State<FillDetailsScreen> {
             hintText: title,
             controller: controller,
             readOnly: readOnly,
+            onChanged: (v) => setState(() {}),
           ),
         ),
       ],

@@ -19,7 +19,7 @@ mixin _$LoginScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signInByGoogle,
-    required TResult Function(String name, String password)
+    required TResult Function(String email, String password)
         signInByEmailPassword,
     required TResult Function(String firstName, String lastName, File? image)
         saveUser,
@@ -28,14 +28,14 @@ mixin _$LoginScreenEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signInByGoogle,
-    TResult? Function(String name, String password)? signInByEmailPassword,
+    TResult? Function(String email, String password)? signInByEmailPassword,
     TResult? Function(String firstName, String lastName, File? image)? saveUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signInByGoogle,
-    TResult Function(String name, String password)? signInByEmailPassword,
+    TResult Function(String email, String password)? signInByEmailPassword,
     TResult Function(String firstName, String lastName, File? image)? saveUser,
     required TResult orElse(),
   }) =>
@@ -128,7 +128,7 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signInByGoogle,
-    required TResult Function(String name, String password)
+    required TResult Function(String email, String password)
         signInByEmailPassword,
     required TResult Function(String firstName, String lastName, File? image)
         saveUser,
@@ -140,7 +140,7 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signInByGoogle,
-    TResult? Function(String name, String password)? signInByEmailPassword,
+    TResult? Function(String email, String password)? signInByEmailPassword,
     TResult? Function(String firstName, String lastName, File? image)? saveUser,
   }) {
     return signInByGoogle?.call();
@@ -150,7 +150,7 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signInByGoogle,
-    TResult Function(String name, String password)? signInByEmailPassword,
+    TResult Function(String email, String password)? signInByEmailPassword,
     TResult Function(String firstName, String lastName, File? image)? saveUser,
     required TResult orElse(),
   }) {
@@ -207,7 +207,7 @@ abstract class _$$SignInByEmailPasswordImplCopyWith<$Res> {
           $Res Function(_$SignInByEmailPasswordImpl) then) =
       __$$SignInByEmailPasswordImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String name, String password});
+  $Res call({String email, String password});
 }
 
 /// @nodoc
@@ -223,13 +223,13 @@ class __$$SignInByEmailPasswordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? email = null,
     Object? password = null,
   }) {
     return _then(_$SignInByEmailPasswordImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -243,16 +243,16 @@ class __$$SignInByEmailPasswordImplCopyWithImpl<$Res>
 
 class _$SignInByEmailPasswordImpl implements _SignInByEmailPassword {
   const _$SignInByEmailPasswordImpl(
-      {required this.name, required this.password});
+      {required this.email, required this.password});
 
   @override
-  final String name;
+  final String email;
   @override
   final String password;
 
   @override
   String toString() {
-    return 'LoginScreenEvent.signInByEmailPassword(name: $name, password: $password)';
+    return 'LoginScreenEvent.signInByEmailPassword(email: $email, password: $password)';
   }
 
   @override
@@ -260,13 +260,13 @@ class _$SignInByEmailPasswordImpl implements _SignInByEmailPassword {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignInByEmailPasswordImpl &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, password);
+  int get hashCode => Object.hash(runtimeType, email, password);
 
   /// Create a copy of LoginScreenEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -281,34 +281,34 @@ class _$SignInByEmailPasswordImpl implements _SignInByEmailPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signInByGoogle,
-    required TResult Function(String name, String password)
+    required TResult Function(String email, String password)
         signInByEmailPassword,
     required TResult Function(String firstName, String lastName, File? image)
         saveUser,
   }) {
-    return signInByEmailPassword(name, password);
+    return signInByEmailPassword(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signInByGoogle,
-    TResult? Function(String name, String password)? signInByEmailPassword,
+    TResult? Function(String email, String password)? signInByEmailPassword,
     TResult? Function(String firstName, String lastName, File? image)? saveUser,
   }) {
-    return signInByEmailPassword?.call(name, password);
+    return signInByEmailPassword?.call(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signInByGoogle,
-    TResult Function(String name, String password)? signInByEmailPassword,
+    TResult Function(String email, String password)? signInByEmailPassword,
     TResult Function(String firstName, String lastName, File? image)? saveUser,
     required TResult orElse(),
   }) {
     if (signInByEmailPassword != null) {
-      return signInByEmailPassword(name, password);
+      return signInByEmailPassword(email, password);
     }
     return orElse();
   }
@@ -351,10 +351,10 @@ class _$SignInByEmailPasswordImpl implements _SignInByEmailPassword {
 
 abstract class _SignInByEmailPassword implements LoginScreenEvent {
   const factory _SignInByEmailPassword(
-      {required final String name,
+      {required final String email,
       required final String password}) = _$SignInByEmailPasswordImpl;
 
-  String get name;
+  String get email;
   String get password;
 
   /// Create a copy of LoginScreenEvent
@@ -452,7 +452,7 @@ class _$SaveUserImpl implements _SaveUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signInByGoogle,
-    required TResult Function(String name, String password)
+    required TResult Function(String email, String password)
         signInByEmailPassword,
     required TResult Function(String firstName, String lastName, File? image)
         saveUser,
@@ -464,7 +464,7 @@ class _$SaveUserImpl implements _SaveUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? signInByGoogle,
-    TResult? Function(String name, String password)? signInByEmailPassword,
+    TResult? Function(String email, String password)? signInByEmailPassword,
     TResult? Function(String firstName, String lastName, File? image)? saveUser,
   }) {
     return saveUser?.call(firstName, lastName, image);
@@ -474,7 +474,7 @@ class _$SaveUserImpl implements _SaveUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signInByGoogle,
-    TResult Function(String name, String password)? signInByEmailPassword,
+    TResult Function(String email, String password)? signInByEmailPassword,
     TResult Function(String firstName, String lastName, File? image)? saveUser,
     required TResult orElse(),
   }) {

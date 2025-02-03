@@ -32,6 +32,12 @@ class UserRepo {
     return false;
   }
 
+  Future<dynamic> saveUserFirstTime() async {
+    final collection = FirebaseFirestore.instance.collection(globalUser.email);
+    firestoreNewDoc(collection, docName: docName, values: globalUser.toJson());
+    firestoreNewDoc(collection, docName: 'categories');
+  }
+
   Future<dynamic> firstRegister(
       {required String firstName, required String lastName, File? file}) async {
     final collection = FirebaseFirestore.instance.collection(globalUser.email);
@@ -50,8 +56,8 @@ class UserRepo {
       name: name,
       picture: imageUrl ?? globalUser.picture,
     );
-    firestoreNewDoc(collection, docName: docName, values: globalUser.toJson());
-    firestoreNewDoc(collection, docName: 'categories');
+    firestoreUpdateDoc(collection,
+        docName: docName, values: globalUser.toJson());
   }
 
   // Future<void> updateUser(UserModel user) async {

@@ -14,8 +14,35 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kh_easy_dev/kh_easy_dev.dart';
 import 'package:kh_easy_dev/services/navigate_page.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+
+  Map<String, bool> validation = {
+    'email': false,
+    'password': false,
+  };
+
+  @override
+  void initState() {
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +53,6 @@ class LoginScreen extends StatelessWidget {
         child: BlocConsumer<LoginScreenBloc, LoginScreenState>(
           listener: (context, state) {
             final bloc = context.read<LoginScreenBloc>();
-
             state.maybeWhen(
                 navigateHome: () => KheasydevNavigatePage()
                     .pushAndRemoveUntilDuration(context, HomeScreen()),
@@ -53,35 +79,55 @@ class LoginScreen extends StatelessWidget {
                 child: Center(
                     child: state.maybeWhen(
                   loading: () => const CircularProgressIndicator(),
-                  orElse: () => Column(
-                    children: [
-                      Text("Easy Track", style: AppTextStyle().bigTitle),
-                      Image.asset(appLogo, height: 300),
-                      AppTextField(hintText: t.email_address),
-                      AppTextField(hintText: t.password),
-                      appButton(
-                        text: t.login_with_google,
-                        leftIcon: socialIcons(),
-                        onTap: () =>
-                            bloc.add(const LoginScreenEvent.signInByGoogle()),
-                      ),
-                      Spacer(),
-                      Row(
-                        spacing: 12,
-                        children: [
-                          Expanded(child: kheasydevDivider(black: true)),
-                          Text(t.or_login_with),
-                          Expanded(child: kheasydevDivider(black: true)),
-                        ],
-                      ),
-                      const SizedBox(height: 12),
-                      appButton(
-                        text: t.login_with_google,
-                        leftIcon: socialIcons(),
-                        onTap: () =>
-                            bloc.add(const LoginScreenEvent.signInByGoogle()),
-                      ),
-                    ],
+                  orElse: () => SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Text("Easy Track", style: AppTextStyle().bigTitle),
+                        Image.asset(appLogo, height: 300),
+                        AppTextField(
+                          hintText: t.email_address,
+                          controller: emailController,
+                          showError: validation['email']!,
+                          keyboard: TextInputType.emailAddress,
+                        ),
+                        AppTextField(
+                          hintText: t.password,
+                          controller: passwordController,
+                          showError: validation['password']!,
+                          checkIfPassword: true,
+                        ),
+                        appButton(
+                          text: t.login_with_email,
+                          leftIcon: socialIcons(icon: SocialIcons.email),
+                          onTap: () {
+                            if (checkValidation()) {
+                              bloc.add(
+                                LoginScreenEvent.signInByEmailPassword(
+                                    email: emailController.text,
+                                    password: passwordController.text),
+                              );
+                            }
+                          },
+                        ),
+                        // Spacer(),
+                        const SizedBox(height: 24),
+                        Row(
+                          spacing: 12,
+                          children: [
+                            Expanded(child: kheasydevDivider(black: true)),
+                            Text(t.or_login_with),
+                            Expanded(child: kheasydevDivider(black: true)),
+                          ],
+                        ),
+                        const SizedBox(height: 12),
+                        appButton(
+                          text: t.login_with_google,
+                          leftIcon: socialIcons(),
+                          onTap: () =>
+                              bloc.add(const LoginScreenEvent.signInByGoogle()),
+                        ),
+                      ],
+                    ),
                   ),
                 )),
               ),
@@ -90,5 +136,39 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  bool checkValidation() {
+    final emailRegex =
+        RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    if (emailController.text.isEmpty) {
+      kheasydevAppToast(t.required_email);
+      changeValidation(true, false);
+      return false;
+    } else if (!emailRegex.hasMatch(emailController.text)) {
+      kheasydevAppToast(t.email_invalid);
+      changeValidation(true, false);
+      return false;
+    } else if (passwordController.text.isEmpty) {
+      kheasydevAppToast(t.required_password);
+      changeValidation(false, true);
+
+      return false;
+    } else if (passwordController.text.length < 6) {
+      kheasydevAppToast(t.pasword_least_6_chars);
+      changeValidation(false, true);
+
+      return false;
+    }
+    changeValidation(false, false);
+
+    return true;
+  }
+
+  changeValidation(bool email, bool password) {
+    setState(() {
+      validation['email'] = email;
+      validation['password'] = password;
+    });
   }
 }
