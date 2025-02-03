@@ -9,6 +9,7 @@ import 'package:easy_track/widgets/design/buttons/app_button.dart';
 import 'package:easy_track/widgets/design/fields/app_textfields.dart';
 import 'package:easy_track/widgets/design/icons/icons.dart';
 import 'package:easy_track/widgets/general/appbar.dart';
+import 'package:easy_track/widgets/general/circular_progress_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kh_easy_dev/kh_easy_dev.dart';
@@ -78,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.all(24),
                 child: Center(
                     child: state.maybeWhen(
-                  loading: () => const CircularProgressIndicator(),
+                  loading: () => CircularProgressImage(),
                   orElse: () => SingleChildScrollView(
                     child: Column(
                       children: [

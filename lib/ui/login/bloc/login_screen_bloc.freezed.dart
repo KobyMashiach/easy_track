@@ -42,24 +42,24 @@ mixin _$LoginScreenEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SignInByGoogle value) signInByGoogle,
-    required TResult Function(_SignInByEmailPassword value)
+    required TResult Function(SignInByGoogle value) signInByGoogle,
+    required TResult Function(SignInByEmailPassword value)
         signInByEmailPassword,
-    required TResult Function(_SaveUser value) saveUser,
+    required TResult Function(SaveUser value) saveUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SignInByGoogle value)? signInByGoogle,
-    TResult? Function(_SignInByEmailPassword value)? signInByEmailPassword,
-    TResult? Function(_SaveUser value)? saveUser,
+    TResult? Function(SignInByGoogle value)? signInByGoogle,
+    TResult? Function(SignInByEmailPassword value)? signInByEmailPassword,
+    TResult? Function(SaveUser value)? saveUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SignInByGoogle value)? signInByGoogle,
-    TResult Function(_SignInByEmailPassword value)? signInByEmailPassword,
-    TResult Function(_SaveUser value)? saveUser,
+    TResult Function(SignInByGoogle value)? signInByGoogle,
+    TResult Function(SignInByEmailPassword value)? signInByEmailPassword,
+    TResult Function(SaveUser value)? saveUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,7 +107,7 @@ class __$$SignInByGoogleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignInByGoogleImpl implements _SignInByGoogle {
+class _$SignInByGoogleImpl implements SignInByGoogle {
   const _$SignInByGoogleImpl();
 
   @override
@@ -163,10 +163,10 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SignInByGoogle value) signInByGoogle,
-    required TResult Function(_SignInByEmailPassword value)
+    required TResult Function(SignInByGoogle value) signInByGoogle,
+    required TResult Function(SignInByEmailPassword value)
         signInByEmailPassword,
-    required TResult Function(_SaveUser value) saveUser,
+    required TResult Function(SaveUser value) saveUser,
   }) {
     return signInByGoogle(this);
   }
@@ -174,9 +174,9 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SignInByGoogle value)? signInByGoogle,
-    TResult? Function(_SignInByEmailPassword value)? signInByEmailPassword,
-    TResult? Function(_SaveUser value)? saveUser,
+    TResult? Function(SignInByGoogle value)? signInByGoogle,
+    TResult? Function(SignInByEmailPassword value)? signInByEmailPassword,
+    TResult? Function(SaveUser value)? saveUser,
   }) {
     return signInByGoogle?.call(this);
   }
@@ -184,9 +184,9 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SignInByGoogle value)? signInByGoogle,
-    TResult Function(_SignInByEmailPassword value)? signInByEmailPassword,
-    TResult Function(_SaveUser value)? saveUser,
+    TResult Function(SignInByGoogle value)? signInByGoogle,
+    TResult Function(SignInByEmailPassword value)? signInByEmailPassword,
+    TResult Function(SaveUser value)? saveUser,
     required TResult orElse(),
   }) {
     if (signInByGoogle != null) {
@@ -196,8 +196,8 @@ class _$SignInByGoogleImpl implements _SignInByGoogle {
   }
 }
 
-abstract class _SignInByGoogle implements LoginScreenEvent {
-  const factory _SignInByGoogle() = _$SignInByGoogleImpl;
+abstract class SignInByGoogle implements LoginScreenEvent {
+  const factory SignInByGoogle() = _$SignInByGoogleImpl;
 }
 
 /// @nodoc
@@ -241,7 +241,7 @@ class __$$SignInByEmailPasswordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignInByEmailPasswordImpl implements _SignInByEmailPassword {
+class _$SignInByEmailPasswordImpl implements SignInByEmailPassword {
   const _$SignInByEmailPasswordImpl(
       {required this.email, required this.password});
 
@@ -316,10 +316,10 @@ class _$SignInByEmailPasswordImpl implements _SignInByEmailPassword {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SignInByGoogle value) signInByGoogle,
-    required TResult Function(_SignInByEmailPassword value)
+    required TResult Function(SignInByGoogle value) signInByGoogle,
+    required TResult Function(SignInByEmailPassword value)
         signInByEmailPassword,
-    required TResult Function(_SaveUser value) saveUser,
+    required TResult Function(SaveUser value) saveUser,
   }) {
     return signInByEmailPassword(this);
   }
@@ -327,9 +327,9 @@ class _$SignInByEmailPasswordImpl implements _SignInByEmailPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SignInByGoogle value)? signInByGoogle,
-    TResult? Function(_SignInByEmailPassword value)? signInByEmailPassword,
-    TResult? Function(_SaveUser value)? saveUser,
+    TResult? Function(SignInByGoogle value)? signInByGoogle,
+    TResult? Function(SignInByEmailPassword value)? signInByEmailPassword,
+    TResult? Function(SaveUser value)? saveUser,
   }) {
     return signInByEmailPassword?.call(this);
   }
@@ -337,9 +337,9 @@ class _$SignInByEmailPasswordImpl implements _SignInByEmailPassword {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SignInByGoogle value)? signInByGoogle,
-    TResult Function(_SignInByEmailPassword value)? signInByEmailPassword,
-    TResult Function(_SaveUser value)? saveUser,
+    TResult Function(SignInByGoogle value)? signInByGoogle,
+    TResult Function(SignInByEmailPassword value)? signInByEmailPassword,
+    TResult Function(SaveUser value)? saveUser,
     required TResult orElse(),
   }) {
     if (signInByEmailPassword != null) {
@@ -349,8 +349,8 @@ class _$SignInByEmailPasswordImpl implements _SignInByEmailPassword {
   }
 }
 
-abstract class _SignInByEmailPassword implements LoginScreenEvent {
-  const factory _SignInByEmailPassword(
+abstract class SignInByEmailPassword implements LoginScreenEvent {
+  const factory SignInByEmailPassword(
       {required final String email,
       required final String password}) = _$SignInByEmailPasswordImpl;
 
@@ -409,7 +409,7 @@ class __$$SaveUserImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveUserImpl implements _SaveUser {
+class _$SaveUserImpl implements SaveUser {
   const _$SaveUserImpl(
       {required this.firstName, required this.lastName, this.image});
 
@@ -487,10 +487,10 @@ class _$SaveUserImpl implements _SaveUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SignInByGoogle value) signInByGoogle,
-    required TResult Function(_SignInByEmailPassword value)
+    required TResult Function(SignInByGoogle value) signInByGoogle,
+    required TResult Function(SignInByEmailPassword value)
         signInByEmailPassword,
-    required TResult Function(_SaveUser value) saveUser,
+    required TResult Function(SaveUser value) saveUser,
   }) {
     return saveUser(this);
   }
@@ -498,9 +498,9 @@ class _$SaveUserImpl implements _SaveUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SignInByGoogle value)? signInByGoogle,
-    TResult? Function(_SignInByEmailPassword value)? signInByEmailPassword,
-    TResult? Function(_SaveUser value)? saveUser,
+    TResult? Function(SignInByGoogle value)? signInByGoogle,
+    TResult? Function(SignInByEmailPassword value)? signInByEmailPassword,
+    TResult? Function(SaveUser value)? saveUser,
   }) {
     return saveUser?.call(this);
   }
@@ -508,9 +508,9 @@ class _$SaveUserImpl implements _SaveUser {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SignInByGoogle value)? signInByGoogle,
-    TResult Function(_SignInByEmailPassword value)? signInByEmailPassword,
-    TResult Function(_SaveUser value)? saveUser,
+    TResult Function(SignInByGoogle value)? signInByGoogle,
+    TResult Function(SignInByEmailPassword value)? signInByEmailPassword,
+    TResult Function(SaveUser value)? saveUser,
     required TResult orElse(),
   }) {
     if (saveUser != null) {
@@ -520,8 +520,8 @@ class _$SaveUserImpl implements _SaveUser {
   }
 }
 
-abstract class _SaveUser implements LoginScreenEvent {
-  const factory _SaveUser(
+abstract class SaveUser implements LoginScreenEvent {
+  const factory SaveUser(
       {required final String firstName,
       required final String lastName,
       final File? image}) = _$SaveUserImpl;

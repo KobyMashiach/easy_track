@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+import 'package:easy_track/core/consts.dart';
 import 'package:flutter/material.dart';
 
 class CircularProgressImage extends StatefulWidget {
@@ -43,7 +44,7 @@ class _CircularProgressImageState extends State<CircularProgressImage>
             );
           },
           child: Image.asset(
-            'assets/logo.png',
+            appLogo,
             height: widget.size ?? 60,
           ),
         ),

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 36 (18 per locale)
+/// Strings: 40 (20 per locale)
 ///
-/// Built on 2025-02-03 at 12:21 UTC
+/// Built on 2025-02-03 at 13:52 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -166,6 +166,8 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get pasword_least_6_chars => 'The password must contain at least 6 characters';
 	String get required_email => 'Required to fill in an email address';
 	String get required_password => 'Required to fill in an password';
+	String get logout => 'Logout';
+	String get sure_logout => 'Are you sure you want to logout';
 }
 
 // Path: <root>
@@ -210,6 +212,8 @@ class _StringsHe implements Translations {
 	@override String get pasword_least_6_chars => 'הסיסמה חייבת להכיל לפחות 6 תווים';
 	@override String get required_email => 'חובה למלא כתובת מייל';
 	@override String get required_password => 'חובה למלא סיסמה';
+	@override String get logout => 'התנתק';
+	@override String get sure_logout => 'אתה בטוח שאתה רוצה להתנתק';
 }
 
 /// Flat map(s) containing all translations.
@@ -236,6 +240,8 @@ extension on Translations {
 			case 'pasword_least_6_chars': return 'The password must contain at least 6 characters';
 			case 'required_email': return 'Required to fill in an email address';
 			case 'required_password': return 'Required to fill in an password';
+			case 'logout': return 'Logout';
+			case 'sure_logout': return 'Are you sure you want to logout';
 			default: return null;
 		}
 	}
@@ -262,6 +268,8 @@ extension on _StringsHe {
 			case 'pasword_least_6_chars': return 'הסיסמה חייבת להכיל לפחות 6 תווים';
 			case 'required_email': return 'חובה למלא כתובת מייל';
 			case 'required_password': return 'חובה למלא סיסמה';
+			case 'logout': return 'התנתק';
+			case 'sure_logout': return 'אתה בטוח שאתה רוצה להתנתק';
 			default: return null;
 		}
 	}

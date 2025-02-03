@@ -16,5 +16,7 @@
   "email_invalid": "The email address is invalid",
   "pasword_least_6_chars": "The password must contain at least 6 characters",
   "required_email": "Required to fill in an email address",
-  "required_password": "Required to fill in an password"
+  "required_password": "Required to fill in an password",
+  "logout": "Logout",
+  "sure_logout": "Are you sure you want to logout"
 }

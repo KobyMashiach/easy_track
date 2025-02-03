@@ -16,5 +16,7 @@
   "email_invalid": "כתובת המייל אינה חוקית",
   "pasword_least_6_chars": "הסיסמה חייבת להכיל לפחות 6 תווים",
   "required_email": "חובה למלא כתובת מייל",
-  "required_password": "חובה למלא סיסמה"
+  "required_password": "חובה למלא סיסמה",
+  "logout": "התנתק",
+  "sure_logout": "אתה בטוח שאתה רוצה להתנתק"
 }
