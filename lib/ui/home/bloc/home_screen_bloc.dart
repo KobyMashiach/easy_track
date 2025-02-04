@@ -32,7 +32,6 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
                   categories: categories, message: errorMessage));
             },
           );
-
           refreshUI(emit);
         },
         addCategory: (e) async {
@@ -70,6 +69,15 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
   void loading(Emitter<HomeScreenState> emit) =>
       emit(HomeScreenState.loading(categories: categories));
 
-  void refreshUI(Emitter<HomeScreenState> emit) =>
-      emit(HomeScreenState.refreshUI(categories: categories));
+  void refreshUI(Emitter<HomeScreenState> emit) {
+    categories.forEach((key, category) {
+      if (category.images != null) {
+        List<ImageModel> mutableImages = List.of(category.images!);
+        mutableImages.sort((a, b) => a.date!.compareTo(b.date!));
+        categories[key] = category.copyWith(images: mutableImages);
+      }
+    });
+
+    emit(HomeScreenState.refreshUI(categories: categories));
+  }
 }

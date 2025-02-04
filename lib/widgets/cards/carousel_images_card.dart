@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use
 
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -12,6 +11,7 @@ import 'package:easy_track/i18n/strings.g.dart';
 import 'package:easy_track/models/category_model/category_model.dart';
 import 'package:easy_track/models/image_model/image_model.dart';
 import 'package:easy_track/widgets/dialogs/add_item_dialog.dart';
+import 'package:easy_track/widgets/dialogs/general_dialog.dart';
 
 class CarouselImagesCard extends StatelessWidget {
   final double? height;
@@ -34,11 +34,30 @@ class CarouselImagesCard extends StatelessWidget {
               itemSnapping: true,
               onTap: (index) async {
                 if (index == (category?.images?.length ?? 0)) {
-                  log("tap $index");
                   await showDialog(
                     context: context,
                     builder: (context) => AddItemDialog(
                       saveCategory: saveCategory,
+                    ),
+                  );
+                } else {
+                  showDialog(
+                    context: context,
+                    builder: (context) => generalDialog(
+                      title: category!.title,
+                      description:
+                          dateTimeToString(category!.images![index].date!),
+                      child: Container(
+                        constraints: const BoxConstraints(maxHeight: 500),
+                        child: (category!.images?[index].imageUrl != null)
+                            ? ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: cacheImage(
+                                    category!.images![index].imageUrl!,
+                                    fit: BoxFit.fitHeight),
+                              )
+                            : const SizedBox.shrink(),
+                      ),
                     ),
                   );
                 }
@@ -56,7 +75,7 @@ class CarouselImagesCard extends StatelessWidget {
                         width: double.infinity,
                         height: double.infinity,
                         color: image?.imageUrl == null
-                            ? Colors.primaries[i]
+                            ? Colors.primaries[i % 17]
                             : null,
                         child: image?.imageUrl != null
                             ? cacheImage(image!.imageUrl!)

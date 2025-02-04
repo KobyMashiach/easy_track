@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_track/widgets/general/circular_progress_image.dart';
 import 'package:flutter/material.dart';
 
-cacheImage(String imageUrl) => CachedNetworkImage(
+cacheImage(String imageUrl, {BoxFit fit = BoxFit.cover}) => CachedNetworkImage(
       imageUrl: imageUrl,
-      fit: BoxFit.cover,
+      fit: fit,
       placeholder: (context, url) => const Center(
         child: CircularProgressImage(),
       ),
