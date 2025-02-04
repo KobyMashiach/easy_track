@@ -18,5 +18,6 @@
   "required_email": "חובה למלא כתובת מייל",
   "required_password": "חובה למלא סיסמה",
   "logout": "התנתק",
-  "sure_logout": "אתה בטוח שאתה רוצה להתנתק"
+  "sure_logout": "אתה בטוח שאתה רוצה להתנתק",
+  "no_categories": "אין קטגוריות, נא הוסף"
 }

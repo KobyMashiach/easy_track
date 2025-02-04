@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_track/core/global_vars.dart';
 import 'package:easy_track/services/firebase/firestore_data.dart';
 
-class UserRepo {
-  UserRepo();
+class CategoryRepo {
+  CategoryRepo();
   final collection = FirebaseFirestore.instance.collection(globalUser.email);
   final String docName = 'categories';
 

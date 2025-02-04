@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 40 (20 per locale)
+/// Strings: 42 (21 per locale)
 ///
-/// Built on 2025-02-03 at 13:52 UTC
+/// Built on 2025-02-04 at 12:03 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -168,6 +168,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get required_password => 'Required to fill in an password';
 	String get logout => 'Logout';
 	String get sure_logout => 'Are you sure you want to logout';
+	String get no_categories => 'There are no categories, please add one.';
 }
 
 // Path: <root>
@@ -214,6 +215,7 @@ class _StringsHe implements Translations {
 	@override String get required_password => 'חובה למלא סיסמה';
 	@override String get logout => 'התנתק';
 	@override String get sure_logout => 'אתה בטוח שאתה רוצה להתנתק';
+	@override String get no_categories => 'אין קטגוריות, נא הוסף';
 }
 
 /// Flat map(s) containing all translations.
@@ -242,6 +244,7 @@ extension on Translations {
 			case 'required_password': return 'Required to fill in an password';
 			case 'logout': return 'Logout';
 			case 'sure_logout': return 'Are you sure you want to logout';
+			case 'no_categories': return 'There are no categories, please add one.';
 			default: return null;
 		}
 	}
@@ -270,6 +273,7 @@ extension on _StringsHe {
 			case 'required_password': return 'חובה למלא סיסמה';
 			case 'logout': return 'התנתק';
 			case 'sure_logout': return 'אתה בטוח שאתה רוצה להתנתק';
+			case 'no_categories': return 'אין קטגוריות, נא הוסף';
 			default: return null;
 		}
 	}

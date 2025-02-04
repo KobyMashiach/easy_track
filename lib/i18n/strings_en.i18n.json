@@ -18,5 +18,6 @@
   "required_email": "Required to fill in an email address",
   "required_password": "Required to fill in an password",
   "logout": "Logout",
-  "sure_logout": "Are you sure you want to logout"
+  "sure_logout": "Are you sure you want to logout",
+  "no_categories": "There are no categories, please add one."
 }
