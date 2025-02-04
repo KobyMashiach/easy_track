@@ -7,7 +7,6 @@ import 'package:easy_track/repos/user_repo.dart';
 import 'package:easy_track/services/firebase/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'login_screen_bloc.freezed.dart';
 part 'login_screen_event.dart';

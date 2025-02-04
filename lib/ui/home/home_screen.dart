@@ -13,6 +13,7 @@ import 'package:easy_track/widgets/general/appbar.dart';
 import 'package:easy_track/widgets/general/side_menu_v2.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kh_easy_dev/kh_easy_dev.dart';
+import 'package:kh_easy_dev/services/navigate_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -57,8 +58,23 @@ class HomeScreen extends StatelessWidget {
                                     const SizedBox(height: 40),
                                 itemBuilder: (context, index) {
                                   return CarouselImagesCard(
-                                      category: state.categories.values
-                                          .elementAt(index));
+                                    category: state.categories.values
+                                        .elementAt(index),
+                                    saveCategory: (image, date) {
+                                      KheasydevNavigatePage()
+                                          .maybePopDuration(context);
+                                      KheasydevNavigatePage()
+                                          .maybePopDuration(context);
+                                      bloc.add(
+                                        HomeScreenEvent.updateCategory(
+                                          name: state.categories.keys
+                                              .elementAt(index),
+                                          image: image,
+                                          date: date,
+                                        ),
+                                      );
+                                    },
+                                  );
                                 },
                               ),
                             ],

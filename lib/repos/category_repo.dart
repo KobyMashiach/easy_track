@@ -62,15 +62,10 @@ class CategoryRepo {
     }
   }
 
-  // Future<void> updateUser(UserModel user) async {
-  //   await localDB.updateUser(user: user);
-  //   final phoneExist =
-  //       await firestoreCheckIfDocExists(collection, user.email);
-  //   if (phoneExist) {
-  //     firestoreUpdateDoc(collection,
-  //         docName: user.email, values: user.toJson());
-  //   }
-  // }
+  Future<void> updateCategory(CategoryModel category) async {
+    firestoreUpdateDoc(collection,
+        docName: docName, values: {category.title!: category.toJson()});
+  }
 
   // Future<void> deleteUser({required String email}) async {
   //   await localDB.deleteUser();

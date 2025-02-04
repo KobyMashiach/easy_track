@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class CircularProgressImage extends StatefulWidget {
   final double? size;
-
   const CircularProgressImage({super.key, this.size});
+
   @override
-  _CircularProgressImageState createState() => _CircularProgressImageState();
+  State<CircularProgressImage> createState() => _CircularProgressImageState();
 }
 
 class _CircularProgressImageState extends State<CircularProgressImage>

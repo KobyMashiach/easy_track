@@ -20,18 +20,22 @@ mixin _$HomeScreenEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function(String name) addCategory,
+    required TResult Function(String name, File? image, DateTime? date)
+        updateCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function(String name)? addCategory,
+    TResult? Function(String name, File? image, DateTime? date)? updateCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function(String name)? addCategory,
+    TResult Function(String name, File? image, DateTime? date)? updateCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +43,21 @@ mixin _$HomeScreenEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_AddCategory value) addCategory,
+    required TResult Function(_SaveCategory value) updateCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_AddCategory value)? addCategory,
+    TResult? Function(_SaveCategory value)? updateCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialize value)? initialize,
     TResult Function(_AddCategory value)? addCategory,
+    TResult Function(_SaveCategory value)? updateCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +127,8 @@ class _$InitializeImpl implements _Initialize {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function(String name) addCategory,
+    required TResult Function(String name, File? image, DateTime? date)
+        updateCategory,
   }) {
     return initialize();
   }
@@ -129,6 +138,7 @@ class _$InitializeImpl implements _Initialize {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function(String name)? addCategory,
+    TResult? Function(String name, File? image, DateTime? date)? updateCategory,
   }) {
     return initialize?.call();
   }
@@ -138,6 +148,7 @@ class _$InitializeImpl implements _Initialize {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function(String name)? addCategory,
+    TResult Function(String name, File? image, DateTime? date)? updateCategory,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -151,6 +162,7 @@ class _$InitializeImpl implements _Initialize {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_AddCategory value) addCategory,
+    required TResult Function(_SaveCategory value) updateCategory,
   }) {
     return initialize(this);
   }
@@ -160,6 +172,7 @@ class _$InitializeImpl implements _Initialize {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_AddCategory value)? addCategory,
+    TResult? Function(_SaveCategory value)? updateCategory,
   }) {
     return initialize?.call(this);
   }
@@ -169,6 +182,7 @@ class _$InitializeImpl implements _Initialize {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialize value)? initialize,
     TResult Function(_AddCategory value)? addCategory,
+    TResult Function(_SaveCategory value)? updateCategory,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -252,6 +266,8 @@ class _$AddCategoryImpl implements _AddCategory {
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
     required TResult Function(String name) addCategory,
+    required TResult Function(String name, File? image, DateTime? date)
+        updateCategory,
   }) {
     return addCategory(name);
   }
@@ -261,6 +277,7 @@ class _$AddCategoryImpl implements _AddCategory {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
     TResult? Function(String name)? addCategory,
+    TResult? Function(String name, File? image, DateTime? date)? updateCategory,
   }) {
     return addCategory?.call(name);
   }
@@ -270,6 +287,7 @@ class _$AddCategoryImpl implements _AddCategory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
     TResult Function(String name)? addCategory,
+    TResult Function(String name, File? image, DateTime? date)? updateCategory,
     required TResult orElse(),
   }) {
     if (addCategory != null) {
@@ -283,6 +301,7 @@ class _$AddCategoryImpl implements _AddCategory {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_AddCategory value) addCategory,
+    required TResult Function(_SaveCategory value) updateCategory,
   }) {
     return addCategory(this);
   }
@@ -292,6 +311,7 @@ class _$AddCategoryImpl implements _AddCategory {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_AddCategory value)? addCategory,
+    TResult? Function(_SaveCategory value)? updateCategory,
   }) {
     return addCategory?.call(this);
   }
@@ -301,6 +321,7 @@ class _$AddCategoryImpl implements _AddCategory {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialize value)? initialize,
     TResult Function(_AddCategory value)? addCategory,
+    TResult Function(_SaveCategory value)? updateCategory,
     required TResult orElse(),
   }) {
     if (addCategory != null) {
@@ -319,6 +340,175 @@ abstract class _AddCategory implements HomeScreenEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddCategoryImplCopyWith<_$AddCategoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SaveCategoryImplCopyWith<$Res> {
+  factory _$$SaveCategoryImplCopyWith(
+          _$SaveCategoryImpl value, $Res Function(_$SaveCategoryImpl) then) =
+      __$$SaveCategoryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String name, File? image, DateTime? date});
+}
+
+/// @nodoc
+class __$$SaveCategoryImplCopyWithImpl<$Res>
+    extends _$HomeScreenEventCopyWithImpl<$Res, _$SaveCategoryImpl>
+    implements _$$SaveCategoryImplCopyWith<$Res> {
+  __$$SaveCategoryImplCopyWithImpl(
+      _$SaveCategoryImpl _value, $Res Function(_$SaveCategoryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? image = freezed,
+    Object? date = freezed,
+  }) {
+    return _then(_$SaveCategoryImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as File?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveCategoryImpl implements _SaveCategory {
+  const _$SaveCategoryImpl({required this.name, this.image, this.date});
+
+  @override
+  final String name;
+  @override
+  final File? image;
+  @override
+  final DateTime? date;
+
+  @override
+  String toString() {
+    return 'HomeScreenEvent.updateCategory(name: $name, image: $image, date: $date)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveCategoryImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality().equals(other.image, image) &&
+            (identical(other.date, date) || other.date == date));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, name, const DeepCollectionEquality().hash(image), date);
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveCategoryImplCopyWith<_$SaveCategoryImpl> get copyWith =>
+      __$$SaveCategoryImplCopyWithImpl<_$SaveCategoryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(String name) addCategory,
+    required TResult Function(String name, File? image, DateTime? date)
+        updateCategory,
+  }) {
+    return updateCategory(name, image, date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function(String name)? addCategory,
+    TResult? Function(String name, File? image, DateTime? date)? updateCategory,
+  }) {
+    return updateCategory?.call(name, image, date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(String name)? addCategory,
+    TResult Function(String name, File? image, DateTime? date)? updateCategory,
+    required TResult orElse(),
+  }) {
+    if (updateCategory != null) {
+      return updateCategory(name, image, date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_AddCategory value) addCategory,
+    required TResult Function(_SaveCategory value) updateCategory,
+  }) {
+    return updateCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_AddCategory value)? addCategory,
+    TResult? Function(_SaveCategory value)? updateCategory,
+  }) {
+    return updateCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_AddCategory value)? addCategory,
+    TResult Function(_SaveCategory value)? updateCategory,
+    required TResult orElse(),
+  }) {
+    if (updateCategory != null) {
+      return updateCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveCategory implements HomeScreenEvent {
+  const factory _SaveCategory(
+      {required final String name,
+      final File? image,
+      final DateTime? date}) = _$SaveCategoryImpl;
+
+  String get name;
+  File? get image;
+  DateTime? get date;
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveCategoryImplCopyWith<_$SaveCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

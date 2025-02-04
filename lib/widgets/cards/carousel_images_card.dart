@@ -1,20 +1,25 @@
 // ignore_for_file: deprecated_member_use
 
 import 'dart:developer';
+import 'dart:io';
 
-import 'package:easy_track/i18n/strings.g.dart';
-import 'package:easy_track/models/image_model/image_model.dart';
-import 'package:easy_track/widgets/dialogs/add_item_dialog.dart';
 import 'package:flutter/material.dart';
 
 import 'package:easy_track/core/general_functions.dart';
+import 'package:easy_track/core/images.dart';
 import 'package:easy_track/core/text_styles.dart';
+import 'package:easy_track/i18n/strings.g.dart';
 import 'package:easy_track/models/category_model/category_model.dart';
+import 'package:easy_track/models/image_model/image_model.dart';
+import 'package:easy_track/widgets/dialogs/add_item_dialog.dart';
 
 class CarouselImagesCard extends StatelessWidget {
   final double? height;
   final CategoryModel? category;
-  const CarouselImagesCard({super.key, this.height, this.category});
+  final Function(File? image, DateTime date) saveCategory;
+
+  const CarouselImagesCard(
+      {super.key, this.height, this.category, required this.saveCategory});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,7 @@ class CarouselImagesCard extends StatelessWidget {
                   await showDialog(
                     context: context,
                     builder: (context) => AddItemDialog(
-                      saveCategory: (image, date) {},
+                      saveCategory: saveCategory,
                     ),
                   );
                 }
@@ -48,16 +53,13 @@ class CarouselImagesCard extends StatelessWidget {
                   return Stack(
                     children: [
                       Container(
+                        width: double.infinity,
+                        height: double.infinity,
                         color: image?.imageUrl == null
                             ? Colors.primaries[i]
                             : null,
-                        decoration: image?.imageUrl != null
-                            ? BoxDecoration(
-                                image: DecorationImage(
-                                  image: NetworkImage(image!.imageUrl!),
-                                  fit: BoxFit.cover,
-                                ),
-                              )
+                        child: image?.imageUrl != null
+                            ? cacheImage(image!.imageUrl!)
                             : null,
                       ),
                       whiteShadow(),

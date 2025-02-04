@@ -1,9 +1,8 @@
-import 'dart:developer';
-
-import 'package:easy_track/core/hive/hive_functions.dart';
+import 'package:easy_track/ui/login/inner/fill_details_screen.dart';
 import 'package:easy_track/widgets/dialogs/general_dialog.dart';
 import 'package:easy_track/widgets/general/appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:kh_easy_dev/services/navigate_page.dart';
 
 class DeveloperScreen extends StatelessWidget {
   const DeveloperScreen({super.key});
@@ -11,15 +10,13 @@ class DeveloperScreen extends StatelessWidget {
   List<Map<String, dynamic>> settingsOptions(BuildContext context) {
     final List<Map<String, dynamic>> settingOptions = [
       {
-        'title': "Clear all hive boxes",
-        'icon': Icons.storage_rounded,
-        'function': () async {
-          final userChoise = await deleteSomethingDialog(context);
-          if (userChoise == true) {
-            clearAllHiveBoxes();
-            log("All local storage deleted!");
-          }
-        }
+        'title': "Navigate to fill details screen",
+        'icon': Icons.navigation_outlined,
+        'function': () => KheasydevNavigatePage().push(
+            context,
+            FillDetailsScreen(
+              onSave: (firstName, lastName, image) {},
+            ))
       },
     ];
     return settingOptions;

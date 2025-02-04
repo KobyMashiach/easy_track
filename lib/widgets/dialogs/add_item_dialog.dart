@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:easy_track/core/colors.dart';
+import 'package:easy_track/core/general_functions.dart';
 import 'package:easy_track/i18n/strings.g.dart';
 import 'package:easy_track/widgets/design/fields/app_textfields.dart';
 import 'package:easy_track/widgets/dialogs/general_dialog.dart';
@@ -9,7 +10,7 @@ import 'package:kh_easy_dev/services/navigate_page.dart';
 import 'package:intl/intl.dart' as intl;
 
 class AddItemDialog extends StatefulWidget {
-  final Function(File image, DateTime date) saveCategory;
+  final Function(File? image, DateTime date) saveCategory;
   const AddItemDialog({super.key, required this.saveCategory});
 
   @override
@@ -18,12 +19,16 @@ class AddItemDialog extends StatefulWidget {
 
 class _AddItemDialogState extends State<AddItemDialog> {
   late TextEditingController selectedDateController;
-  late DateTime? selectedDate;
+  late DateTime selectedDate = DateTime.now();
+  File? file;
+  Image? image;
 
   @override
   void initState() {
     super.initState();
     selectedDateController = TextEditingController();
+    selectedDateController.text =
+        intl.DateFormat('dd/MM/yyyy').format(selectedDate);
   }
 
   @override
@@ -41,16 +46,29 @@ class _AddItemDialogState extends State<AddItemDialog> {
         spacing: 28,
         children: [
           const SizedBox.shrink(),
-          Container(
-            height: 2 * imageSize,
-            width: 3 * imageSize,
-            decoration: BoxDecoration(
-                color: AppColors.primaryColor,
-                borderRadius: const BorderRadius.all(Radius.circular(30))),
-            child: Icon(
-              Icons.add_photo_alternate_outlined,
-              size: imageSize,
-              color: Colors.white,
+          GestureDetector(
+            onTap: () async {
+              file = await pickImageImagePicker();
+              if (file != null) {
+                setState(() {
+                  image = Image.file(file!, fit: BoxFit.cover);
+                });
+              }
+            },
+            child: Container(
+              height: 2 * imageSize,
+              width: 3 * imageSize,
+              decoration: BoxDecoration(
+                  color: AppColors.primaryColor,
+                  borderRadius: BorderRadius.circular(30)),
+              child: image != null
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.circular(30), child: image)
+                  : Icon(
+                      Icons.add_photo_alternate_outlined,
+                      size: imageSize,
+                      color: Colors.white,
+                    ),
             ),
           ),
           AppTextField(
@@ -66,7 +84,7 @@ class _AddItemDialogState extends State<AddItemDialog> {
         ],
       ),
       okButtonOnTap: () {
-        // widget.saveCategory.call(categoryName.text);
+        widget.saveCategory.call(file, selectedDate);
         KheasydevNavigatePage().popDuration(context);
       },
     );
