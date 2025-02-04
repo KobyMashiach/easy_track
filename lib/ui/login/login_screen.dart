@@ -50,8 +50,19 @@ class _LoginScreenState extends State<LoginScreen> {
     return RepositoryProvider(
       create: (context) => UserRepo(),
       child: BlocProvider(
-        create: (context) => LoginScreenBloc(context.read<UserRepo>()),
+        create: (context) => LoginScreenBloc(context.read<UserRepo>())
+          ..add(LoginScreenEvent.initialize()),
         child: BlocConsumer<LoginScreenBloc, LoginScreenState>(
+          listenWhen: (previous, current) => current.maybeWhen(
+            navigateHome: () => true,
+            navigateFillDetails: () => true,
+            orElse: () => false,
+          ),
+          buildWhen: (previous, current) => current.maybeWhen(
+            navigateHome: () => false,
+            navigateFillDetails: () => false,
+            orElse: () => true,
+          ),
           listener: (context, state) {
             final bloc = context.read<LoginScreenBloc>();
             state.maybeWhen(

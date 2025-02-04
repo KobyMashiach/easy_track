@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LoginScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function() signInByGoogle,
     required TResult Function(String email, String password)
         signInByEmailPassword,
@@ -27,6 +28,7 @@ mixin _$LoginScreenEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function()? signInByGoogle,
     TResult? Function(String email, String password)? signInByEmailPassword,
     TResult? Function(String firstName, String lastName, File? image)? saveUser,
@@ -34,6 +36,7 @@ mixin _$LoginScreenEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function()? signInByGoogle,
     TResult Function(String email, String password)? signInByEmailPassword,
     TResult Function(String firstName, String lastName, File? image)? saveUser,
@@ -42,6 +45,7 @@ mixin _$LoginScreenEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
     required TResult Function(SignInByGoogle value) signInByGoogle,
     required TResult Function(SignInByEmailPassword value)
         signInByEmailPassword,
@@ -50,6 +54,7 @@ mixin _$LoginScreenEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initialize value)? initialize,
     TResult? Function(SignInByGoogle value)? signInByGoogle,
     TResult? Function(SignInByEmailPassword value)? signInByEmailPassword,
     TResult? Function(SaveUser value)? saveUser,
@@ -57,6 +62,7 @@ mixin _$LoginScreenEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
     TResult Function(SignInByGoogle value)? signInByGoogle,
     TResult Function(SignInByEmailPassword value)? signInByEmailPassword,
     TResult Function(SaveUser value)? saveUser,
@@ -84,6 +90,126 @@ class _$LoginScreenEventCopyWithImpl<$Res, $Val extends LoginScreenEvent>
 
   /// Create a copy of LoginScreenEvent
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$InitializeImplCopyWith<$Res> {
+  factory _$$InitializeImplCopyWith(
+          _$InitializeImpl value, $Res Function(_$InitializeImpl) then) =
+      __$$InitializeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitializeImplCopyWithImpl<$Res>
+    extends _$LoginScreenEventCopyWithImpl<$Res, _$InitializeImpl>
+    implements _$$InitializeImplCopyWith<$Res> {
+  __$$InitializeImplCopyWithImpl(
+      _$InitializeImpl _value, $Res Function(_$InitializeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$InitializeImpl implements Initialize {
+  const _$InitializeImpl();
+
+  @override
+  String toString() {
+    return 'LoginScreenEvent.initialize()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitializeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() signInByGoogle,
+    required TResult Function(String email, String password)
+        signInByEmailPassword,
+    required TResult Function(String firstName, String lastName, File? image)
+        saveUser,
+  }) {
+    return initialize();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function()? signInByGoogle,
+    TResult? Function(String email, String password)? signInByEmailPassword,
+    TResult? Function(String firstName, String lastName, File? image)? saveUser,
+  }) {
+    return initialize?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? signInByGoogle,
+    TResult Function(String email, String password)? signInByEmailPassword,
+    TResult Function(String firstName, String lastName, File? image)? saveUser,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(SignInByGoogle value) signInByGoogle,
+    required TResult Function(SignInByEmailPassword value)
+        signInByEmailPassword,
+    required TResult Function(SaveUser value) saveUser,
+  }) {
+    return initialize(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initialize value)? initialize,
+    TResult? Function(SignInByGoogle value)? signInByGoogle,
+    TResult? Function(SignInByEmailPassword value)? signInByEmailPassword,
+    TResult? Function(SaveUser value)? saveUser,
+  }) {
+    return initialize?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(SignInByGoogle value)? signInByGoogle,
+    TResult Function(SignInByEmailPassword value)? signInByEmailPassword,
+    TResult Function(SaveUser value)? saveUser,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Initialize implements LoginScreenEvent {
+  const factory Initialize() = _$InitializeImpl;
 }
 
 /// @nodoc
@@ -127,6 +253,7 @@ class _$SignInByGoogleImpl implements SignInByGoogle {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function() signInByGoogle,
     required TResult Function(String email, String password)
         signInByEmailPassword,
@@ -139,6 +266,7 @@ class _$SignInByGoogleImpl implements SignInByGoogle {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function()? signInByGoogle,
     TResult? Function(String email, String password)? signInByEmailPassword,
     TResult? Function(String firstName, String lastName, File? image)? saveUser,
@@ -149,6 +277,7 @@ class _$SignInByGoogleImpl implements SignInByGoogle {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function()? signInByGoogle,
     TResult Function(String email, String password)? signInByEmailPassword,
     TResult Function(String firstName, String lastName, File? image)? saveUser,
@@ -163,6 +292,7 @@ class _$SignInByGoogleImpl implements SignInByGoogle {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
     required TResult Function(SignInByGoogle value) signInByGoogle,
     required TResult Function(SignInByEmailPassword value)
         signInByEmailPassword,
@@ -174,6 +304,7 @@ class _$SignInByGoogleImpl implements SignInByGoogle {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initialize value)? initialize,
     TResult? Function(SignInByGoogle value)? signInByGoogle,
     TResult? Function(SignInByEmailPassword value)? signInByEmailPassword,
     TResult? Function(SaveUser value)? saveUser,
@@ -184,6 +315,7 @@ class _$SignInByGoogleImpl implements SignInByGoogle {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
     TResult Function(SignInByGoogle value)? signInByGoogle,
     TResult Function(SignInByEmailPassword value)? signInByEmailPassword,
     TResult Function(SaveUser value)? saveUser,
@@ -280,6 +412,7 @@ class _$SignInByEmailPasswordImpl implements SignInByEmailPassword {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function() signInByGoogle,
     required TResult Function(String email, String password)
         signInByEmailPassword,
@@ -292,6 +425,7 @@ class _$SignInByEmailPasswordImpl implements SignInByEmailPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function()? signInByGoogle,
     TResult? Function(String email, String password)? signInByEmailPassword,
     TResult? Function(String firstName, String lastName, File? image)? saveUser,
@@ -302,6 +436,7 @@ class _$SignInByEmailPasswordImpl implements SignInByEmailPassword {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function()? signInByGoogle,
     TResult Function(String email, String password)? signInByEmailPassword,
     TResult Function(String firstName, String lastName, File? image)? saveUser,
@@ -316,6 +451,7 @@ class _$SignInByEmailPasswordImpl implements SignInByEmailPassword {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
     required TResult Function(SignInByGoogle value) signInByGoogle,
     required TResult Function(SignInByEmailPassword value)
         signInByEmailPassword,
@@ -327,6 +463,7 @@ class _$SignInByEmailPasswordImpl implements SignInByEmailPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initialize value)? initialize,
     TResult? Function(SignInByGoogle value)? signInByGoogle,
     TResult? Function(SignInByEmailPassword value)? signInByEmailPassword,
     TResult? Function(SaveUser value)? saveUser,
@@ -337,6 +474,7 @@ class _$SignInByEmailPasswordImpl implements SignInByEmailPassword {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
     TResult Function(SignInByGoogle value)? signInByGoogle,
     TResult Function(SignInByEmailPassword value)? signInByEmailPassword,
     TResult Function(SaveUser value)? saveUser,
@@ -451,6 +589,7 @@ class _$SaveUserImpl implements SaveUser {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function() signInByGoogle,
     required TResult Function(String email, String password)
         signInByEmailPassword,
@@ -463,6 +602,7 @@ class _$SaveUserImpl implements SaveUser {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function()? signInByGoogle,
     TResult? Function(String email, String password)? signInByEmailPassword,
     TResult? Function(String firstName, String lastName, File? image)? saveUser,
@@ -473,6 +613,7 @@ class _$SaveUserImpl implements SaveUser {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function()? signInByGoogle,
     TResult Function(String email, String password)? signInByEmailPassword,
     TResult Function(String firstName, String lastName, File? image)? saveUser,
@@ -487,6 +628,7 @@ class _$SaveUserImpl implements SaveUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
     required TResult Function(SignInByGoogle value) signInByGoogle,
     required TResult Function(SignInByEmailPassword value)
         signInByEmailPassword,
@@ -498,6 +640,7 @@ class _$SaveUserImpl implements SaveUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initialize value)? initialize,
     TResult? Function(SignInByGoogle value)? signInByGoogle,
     TResult? Function(SignInByEmailPassword value)? signInByEmailPassword,
     TResult? Function(SaveUser value)? saveUser,
@@ -508,6 +651,7 @@ class _$SaveUserImpl implements SaveUser {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
     TResult Function(SignInByGoogle value)? signInByGoogle,
     TResult Function(SignInByEmailPassword value)? signInByEmailPassword,
     TResult Function(SaveUser value)? saveUser,

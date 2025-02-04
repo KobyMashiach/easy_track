@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:easy_track/core/global_vars.dart';
@@ -17,11 +18,29 @@ class LoginScreenBloc extends Bloc<LoginScreenEvent, LoginScreenState> {
   LoginScreenBloc(this.repo) : super(const LoginScreenState.initial()) {
     on<LoginScreenEvent>((event, emit) async {
       await event.map(
+        initialize: (e) async => initialize(e, emit),
         signInByGoogle: (e) async => signInByGoogle(e, emit),
         saveUser: (e) async => saveUser(e, emit),
         signInByEmailPassword: (e) async => signInByEmailPassword(e, emit),
       );
     });
+  }
+
+  Future<void> initialize(e, Emitter<LoginScreenState> emit) async {
+    emit(const LoginScreenState.loading());
+    final userLoggedIn = await getUserLoginMethod();
+    log(name: "user login", userLoggedIn ?? "no user");
+    if (userLoggedIn != null) {
+      await repo.checkIfHaveDetails();
+      if (globalUser.register == true) {
+        emit(const LoginScreenState.navigateHome());
+      } else {
+        await repo.saveUserFirstTime();
+        emit(const LoginScreenState.navigateFillDetails());
+      }
+    } else {
+      emit(const LoginScreenState.refreshUI());
+    }
   }
 
   Future<void> signInByGoogle(
@@ -38,8 +57,9 @@ class LoginScreenBloc extends Bloc<LoginScreenEvent, LoginScreenState> {
         await repo.saveUserFirstTime();
         emit(const LoginScreenState.navigateFillDetails());
       }
+    } else {
+      emit(const LoginScreenState.refreshUI());
     }
-    emit(const LoginScreenState.refreshUI());
   }
 
   Future<void> saveUser(SaveUser e, Emitter<LoginScreenState> emit) async {
