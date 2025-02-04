@@ -17,7 +17,9 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
       await event.map(
         addCategory: (e) async {
           loading(emit);
-          categories.add(CategoryModel(title: e.name));
+          final newCategory = CategoryModel(title: e.name);
+          await repo.addCategory(newCategory);
+          // categories.add(newCategory);
           refreshUI(emit);
         },
       );

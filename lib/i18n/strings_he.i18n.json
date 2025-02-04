@@ -19,5 +19,8 @@
   "required_password": "חובה למלא סיסמה",
   "logout": "התנתק",
   "sure_logout": "אתה בטוח שאתה רוצה להתנתק",
-  "no_categories": "אין קטגוריות, נא הוסף"
+  "no_categories": "אין קטגוריות, נא הוסף",
+  "category_exist": "קטגוריה כבר קיימת",
+  "error_occurred": "אירעה שגיאה, נא נסה שנית מאוחר יותר",
+  "category_added": "הקטגוריה הוספה בהצלחה"
 }

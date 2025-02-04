@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 42 (21 per locale)
+/// Strings: 48 (24 per locale)
 ///
-/// Built on 2025-02-04 at 12:03 UTC
+/// Built on 2025-02-04 at 12:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -169,6 +169,9 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get logout => 'Logout';
 	String get sure_logout => 'Are you sure you want to logout';
 	String get no_categories => 'There are no categories, please add one.';
+	String get category_exist => 'Category already exists';
+	String get error_occurred => 'An error occurred, please try again later.';
+	String get category_added => 'Category added successfully';
 }
 
 // Path: <root>
@@ -216,6 +219,9 @@ class _StringsHe implements Translations {
 	@override String get logout => 'התנתק';
 	@override String get sure_logout => 'אתה בטוח שאתה רוצה להתנתק';
 	@override String get no_categories => 'אין קטגוריות, נא הוסף';
+	@override String get category_exist => 'קטגוריה כבר קיימת';
+	@override String get error_occurred => 'אירעה שגיאה, נא נסה שנית מאוחר יותר';
+	@override String get category_added => 'הקטגוריה הוספה בהצלחה';
 }
 
 /// Flat map(s) containing all translations.
@@ -245,6 +251,9 @@ extension on Translations {
 			case 'logout': return 'Logout';
 			case 'sure_logout': return 'Are you sure you want to logout';
 			case 'no_categories': return 'There are no categories, please add one.';
+			case 'category_exist': return 'Category already exists';
+			case 'error_occurred': return 'An error occurred, please try again later.';
+			case 'category_added': return 'Category added successfully';
 			default: return null;
 		}
 	}
@@ -274,6 +283,9 @@ extension on _StringsHe {
 			case 'logout': return 'התנתק';
 			case 'sure_logout': return 'אתה בטוח שאתה רוצה להתנתק';
 			case 'no_categories': return 'אין קטגוריות, נא הוסף';
+			case 'category_exist': return 'קטגוריה כבר קיימת';
+			case 'error_occurred': return 'אירעה שגיאה, נא נסה שנית מאוחר יותר';
+			case 'category_added': return 'הקטגוריה הוספה בהצלחה';
 			default: return null;
 		}
 	}

@@ -1,6 +1,8 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_track/core/global_vars.dart';
+import 'package:easy_track/i18n/strings.g.dart';
+import 'package:easy_track/models/category_model/category_model.dart';
 import 'package:easy_track/services/firebase/firestore_data.dart';
 
 class CategoryRepo {
@@ -29,6 +31,22 @@ class CategoryRepo {
   //   }
   //   return false;
   // }
+
+  Future<String> addCategory(CategoryModel category) async {
+    try {
+      final categories = await firestoreGetDocValues(collection, docName);
+      if (categories.keys.any((name) => name == category.title)) {
+        return t.category_exist;
+      } else {
+        firestoreUpdateDoc(collection,
+            docName: docName, values: {category.title!: category.toJson()});
+        return t.category_added;
+      }
+    } catch (e) {
+      log(e.toString());
+      return t.error_occurred;
+    }
+  }
 
   // Future<void> updateUser(UserModel user) async {
   //   await localDB.updateUser(user: user);
