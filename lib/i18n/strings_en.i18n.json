@@ -22,5 +22,8 @@
   "no_categories": "There are no categories, please add one.",
   "category_exist": "Category already exists",
   "error_occurred": "An error occurred, please try again later.",
-  "category_added": "Category added successfully"
+  "category_added": "Category added successfully",
+  "no_items_added": "No items added",
+  "add_item": "Add item",
+  "date": "date"
 }

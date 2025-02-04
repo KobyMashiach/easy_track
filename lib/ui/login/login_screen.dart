@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
       create: (context) => UserRepo(),
       child: BlocProvider(
         create: (context) => LoginScreenBloc(context.read<UserRepo>())
-          ..add(LoginScreenEvent.initialize()),
+          ..add(const LoginScreenEvent.initialize()),
         child: BlocConsumer<LoginScreenBloc, LoginScreenState>(
           listenWhen: (previous, current) => current.maybeWhen(
             navigateHome: () => true,
@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
             final bloc = context.read<LoginScreenBloc>();
             state.maybeWhen(
                 navigateHome: () => KheasydevNavigatePage()
-                    .pushAndRemoveUntilDuration(context, HomeScreen()),
+                    .pushAndRemoveUntilDuration(context, const HomeScreen()),
                 navigateFillDetails: () => KheasydevNavigatePage().pushDuration(
                       context,
                       FillDetailsScreen(onSave: (firstName, lastName, image) {
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.all(24),
                 child: Center(
                     child: state.maybeWhen(
-                  loading: () => CircularProgressImage(),
+                  loading: () => const CircularProgressImage(),
                   orElse: () => SingleChildScrollView(
                     child: Column(
                       children: [

@@ -29,7 +29,7 @@ appSideMenuV2(BuildContext context, String pageName) {
         text: t.home_screen,
         enableColor: pageName == 'home',
         icon: const Icon(Icons.home),
-        page: HomeScreen(),
+        page: const HomeScreen(),
       ),
       DrawerButtonModel(
         text: t.logout,
@@ -49,6 +49,6 @@ showLogoutDialog() async => await showDialog(
             await logoutFirestore();
             KheasydevNavigatePage().pushAndRemoveUntil(
                 NavigationContextService.navigatorKey.currentContext!,
-                LoginScreen());
+                const LoginScreen());
           }),
     );

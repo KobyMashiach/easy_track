@@ -114,7 +114,8 @@ class _FillDetailsScreenState extends State<FillDetailsScreen> {
           child: CircleAvatar(
             radius: 15,
             backgroundColor: AppColors.error,
-            child: Icon(Icons.highlight_remove_sharp, color: Colors.white),
+            child:
+                const Icon(Icons.highlight_remove_sharp, color: Colors.white),
           ),
         ),
         RepaintBoundary(
@@ -150,7 +151,7 @@ class _FillDetailsScreenState extends State<FillDetailsScreen> {
             child: CircleAvatar(
               radius: 25,
               backgroundColor: AppColors.primaryColor,
-              child: Icon(Icons.add_a_photo, color: Colors.white),
+              child: const Icon(Icons.add_a_photo, color: Colors.white),
             ),
           ),
         ),

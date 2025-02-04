@@ -22,5 +22,8 @@
   "no_categories": "אין קטגוריות, נא הוסף",
   "category_exist": "קטגוריה כבר קיימת",
   "error_occurred": "אירעה שגיאה, נא נסה שנית מאוחר יותר",
-  "category_added": "הקטגוריה הוספה בהצלחה"
+  "category_added": "הקטגוריה הוספה בהצלחה",
+  "no_items_added": "לא הוספו פריטים",
+  "add_item": "הוסף פריט",
+  "date": "תאריך"
 }

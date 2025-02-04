@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
       create: (context) => CategoryRepo(),
       child: BlocProvider(
         create: (context) => HomeScreenBloc(context.read<CategoryRepo>())
-          ..add(HomeScreenEvent.initialize()),
+          ..add(const HomeScreenEvent.initialize()),
         child: BlocConsumer<HomeScreenBloc, HomeScreenState>(
           listener: (context, state) {
             state.maybeWhen(
@@ -36,7 +36,8 @@ class HomeScreen extends StatelessWidget {
               appBar: appAppBar(title: t.home_screen),
               drawer: appSideMenuV2(context, 'home'),
               body: state.maybeWhen(
-                loading: (categories) => Center(child: CircularProgressImage()),
+                loading: (categories) =>
+                    const Center(child: CircularProgressImage()),
                 orElse: () => SizedBox(
                   height: MediaQuery.of(context).size.height * 0.8,
                   child: state.categories.isNotEmpty
@@ -50,10 +51,10 @@ class HomeScreen extends StatelessWidget {
                               ListView.separated(
                                 scrollDirection: Axis.vertical,
                                 shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemCount: state.categories.length,
                                 separatorBuilder: (context, index) =>
-                                    SizedBox(height: 40),
+                                    const SizedBox(height: 40),
                                 itemBuilder: (context, index) {
                                   return CarouselImagesCard(
                                       category: state.categories.values
@@ -85,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                       .smallDescription
                       .copyWith(color: Colors.white),
                 ),
-                icon: Icon(
+                icon: const Icon(
                   Icons.add,
                   color: Colors.white,
                 ),

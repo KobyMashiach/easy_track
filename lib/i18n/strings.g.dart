@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 48 (24 per locale)
+/// Strings: 54 (27 per locale)
 ///
-/// Built on 2025-02-04 at 15:57 UTC
+/// Built on 2025-02-04 at 21:00 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -172,6 +172,9 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get category_exist => 'Category already exists';
 	String get error_occurred => 'An error occurred, please try again later.';
 	String get category_added => 'Category added successfully';
+	String get no_items_added => 'No items added';
+	String get add_item => 'Add item';
+	String get date => 'date';
 }
 
 // Path: <root>
@@ -222,6 +225,9 @@ class _StringsHe implements Translations {
 	@override String get category_exist => 'קטגוריה כבר קיימת';
 	@override String get error_occurred => 'אירעה שגיאה, נא נסה שנית מאוחר יותר';
 	@override String get category_added => 'הקטגוריה הוספה בהצלחה';
+	@override String get no_items_added => 'לא הוספו פריטים';
+	@override String get add_item => 'הוסף פריט';
+	@override String get date => 'תאריך';
 }
 
 /// Flat map(s) containing all translations.
@@ -254,6 +260,9 @@ extension on Translations {
 			case 'category_exist': return 'Category already exists';
 			case 'error_occurred': return 'An error occurred, please try again later.';
 			case 'category_added': return 'Category added successfully';
+			case 'no_items_added': return 'No items added';
+			case 'add_item': return 'Add item';
+			case 'date': return 'date';
 			default: return null;
 		}
 	}
@@ -286,6 +295,9 @@ extension on _StringsHe {
 			case 'category_exist': return 'קטגוריה כבר קיימת';
 			case 'error_occurred': return 'אירעה שגיאה, נא נסה שנית מאוחר יותר';
 			case 'category_added': return 'הקטגוריה הוספה בהצלחה';
+			case 'no_items_added': return 'לא הוספו פריטים';
+			case 'add_item': return 'הוסף פריט';
+			case 'date': return 'תאריך';
 			default: return null;
 		}
 	}

@@ -1,8 +1,10 @@
 // ignore_for_file: deprecated_member_use
 
 import 'dart:developer';
-import 'dart:math' as math;
 
+import 'package:easy_track/i18n/strings.g.dart';
+import 'package:easy_track/models/image_model/image_model.dart';
+import 'package:easy_track/widgets/dialogs/add_item_dialog.dart';
 import 'package:flutter/material.dart';
 
 import 'package:easy_track/core/general_functions.dart';
@@ -20,64 +22,53 @@ class CarouselImagesCard extends StatelessWidget {
       height: height ?? 200,
       child: Column(
         children: [
-          Text(category?.title ?? "title", style: AppTextStyle().title),
+          Text(category?.title ?? "", style: AppTextStyle().title),
           Expanded(
             child: CarouselView.weighted(
               flexWeights: const [1, 2, 1],
               itemSnapping: true,
-              onTap: (index) => log('Item ${index + 1}'),
+              onTap: (index) async {
+                if (index == (category?.images?.length ?? 0)) {
+                  log("tap $index");
+                  await showDialog(
+                    context: context,
+                    builder: (context) => AddItemDialog(
+                      saveCategory: (image, date) {},
+                    ),
+                  );
+                }
+              },
               children: List.generate(
-                category?.images?.length ?? 10,
+                (category?.images?.length ?? 0) + 1,
                 (i) {
-                  final image = category?.images?[i];
+                  ImageModel? image;
+                  if (i < (category?.images?.length ?? 0)) {
+                    image = category?.images?[i];
+                  }
                   return Stack(
                     children: [
                       Container(
-                        color: image == null ? Colors.primaries[i] : null,
-                        decoration: image != null
+                        color: image?.imageUrl == null
+                            ? Colors.primaries[i]
+                            : null,
+                        decoration: image?.imageUrl != null
                             ? BoxDecoration(
                                 image: DecorationImage(
-                                  image: NetworkImage(
-                                      "${image.imageUrl}${math.Random().nextInt(9) + 1}"),
+                                  image: NetworkImage(image!.imageUrl!),
                                   fit: BoxFit.cover,
                                 ),
                               )
                             : null,
                       ),
-                      Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        child: Container(
-                          height: height != null ? height! / 2 : 100,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Colors.white.withOpacity(0),
-                                Colors.white.withOpacity(0.8),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                      whiteShadow(),
+                      if (image == null)
+                        const Center(child: Icon(Icons.add, size: 40)),
                       Positioned(
                         bottom: 10,
                         left: 10,
                         right: 10,
                         child: Center(
-                          child: FittedBox(
-                            child: Text(
-                              image?.date != null
-                                  ? dateTimeToString(image!.date!)
-                                  : 'Item ${i + 1}',
-                              style: AppTextStyle()
-                                  .cardDescription
-                                  .copyWith(color: Colors.black),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                          child: textWithBorder(text: getItemText(image, i)),
                         ),
                       ),
                     ],
@@ -85,6 +76,65 @@ class CarouselImagesCard extends StatelessWidget {
                 },
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Positioned whiteShadow() {
+    return Positioned(
+      bottom: 0,
+      left: 0,
+      right: 0,
+      child: Container(
+        height: height != null ? height! / 2 : 100,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white.withOpacity(0),
+              Colors.white.withOpacity(0.8),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  String getItemText(ImageModel? image, int i) {
+    return image == null
+        ? t.add_item
+        : image.date != null
+            ? dateTimeToString(image.date!)
+            : 'Item ${i + 1}';
+  }
+
+  FittedBox textWithBorder({required String text}) {
+    return FittedBox(
+      child: Row(
+        children: [
+          Stack(
+            children: [
+              Text(
+                text,
+                style: AppTextStyle().cardDescription.copyWith(
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 2
+                        ..color = Colors.white,
+                    ),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                text,
+                style: AppTextStyle().cardDescription.copyWith(
+                      color: Colors.black,
+                    ),
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
         ],
       ),
