@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 import 'package:easy_track/core/global_vars.dart';
 import 'package:easy_track/i18n/strings.g.dart';
 import 'package:easy_track/models/category_model/category_model.dart';
@@ -45,6 +46,19 @@ class CategoryRepo {
     } catch (e) {
       log(e.toString());
       return t.error_occurred;
+    }
+  }
+
+  Future<Either<Map<String, CategoryModel>, String>> getCategories() async {
+    try {
+      final categoriesJson = await firestoreGetDocValues(collection, docName);
+      Map<String, CategoryModel> categories = categoriesJson.map(
+        (key, value) => MapEntry(key, CategoryModel.fromJson(value)),
+      );
+      return Left(categories);
+    } catch (e) {
+      log(e.toString());
+      return Right(t.error_occurred);
     }
   }
 

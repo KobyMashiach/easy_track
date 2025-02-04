@@ -12,6 +12,7 @@ import 'package:easy_track/widgets/dialogs/add_category_dialog.dart';
 import 'package:easy_track/widgets/general/appbar.dart';
 import 'package:easy_track/widgets/general/side_menu_v2.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kh_easy_dev/kh_easy_dev.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,9 +22,14 @@ class HomeScreen extends StatelessWidget {
     return RepositoryProvider(
       create: (context) => CategoryRepo(),
       child: BlocProvider(
-        create: (context) => HomeScreenBloc(context.read<CategoryRepo>()),
+        create: (context) => HomeScreenBloc(context.read<CategoryRepo>())
+          ..add(HomeScreenEvent.initialize()),
         child: BlocConsumer<HomeScreenBloc, HomeScreenState>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            state.maybeWhen(
+                message: (categories, message) => kheasydevAppToast(message),
+                orElse: () {});
+          },
           builder: (context, state) {
             final bloc = context.read<HomeScreenBloc>();
             return Scaffold(
@@ -50,7 +56,8 @@ class HomeScreen extends StatelessWidget {
                                     SizedBox(height: 40),
                                 itemBuilder: (context, index) {
                                   return CarouselImagesCard(
-                                      category: state.categories[index]);
+                                      category: state.categories.values
+                                          .elementAt(index));
                                 },
                               ),
                             ],

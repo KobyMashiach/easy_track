@@ -16,44 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomeScreenEvent {
-  String get name => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(String name) addCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(String name)? addCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(String name)? addCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_AddCategory value) addCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_AddCategory value)? addCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_AddCategory value)? addCategory,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of HomeScreenEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $HomeScreenEventCopyWith<HomeScreenEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -62,8 +61,6 @@ abstract class $HomeScreenEventCopyWith<$Res> {
   factory $HomeScreenEventCopyWith(
           HomeScreenEvent value, $Res Function(HomeScreenEvent) then) =
       _$HomeScreenEventCopyWithImpl<$Res, HomeScreenEvent>;
-  @useResult
-  $Res call({String name});
 }
 
 /// @nodoc
@@ -78,27 +75,118 @@ class _$HomeScreenEventCopyWithImpl<$Res, $Val extends HomeScreenEvent>
 
   /// Create a copy of HomeScreenEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$AddCategoryImplCopyWith<$Res>
-    implements $HomeScreenEventCopyWith<$Res> {
+abstract class _$$InitializeImplCopyWith<$Res> {
+  factory _$$InitializeImplCopyWith(
+          _$InitializeImpl value, $Res Function(_$InitializeImpl) then) =
+      __$$InitializeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitializeImplCopyWithImpl<$Res>
+    extends _$HomeScreenEventCopyWithImpl<$Res, _$InitializeImpl>
+    implements _$$InitializeImplCopyWith<$Res> {
+  __$$InitializeImplCopyWithImpl(
+      _$InitializeImpl _value, $Res Function(_$InitializeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$InitializeImpl implements _Initialize {
+  const _$InitializeImpl();
+
+  @override
+  String toString() {
+    return 'HomeScreenEvent.initialize()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitializeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(String name) addCategory,
+  }) {
+    return initialize();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function(String name)? addCategory,
+  }) {
+    return initialize?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(String name)? addCategory,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_AddCategory value) addCategory,
+  }) {
+    return initialize(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_AddCategory value)? addCategory,
+  }) {
+    return initialize?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_AddCategory value)? addCategory,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialize implements HomeScreenEvent {
+  const factory _Initialize() = _$InitializeImpl;
+}
+
+/// @nodoc
+abstract class _$$AddCategoryImplCopyWith<$Res> {
   factory _$$AddCategoryImplCopyWith(
           _$AddCategoryImpl value, $Res Function(_$AddCategoryImpl) then) =
       __$$AddCategoryImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String name});
 }
@@ -162,6 +250,7 @@ class _$AddCategoryImpl implements _AddCategory {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(String name) addCategory,
   }) {
     return addCategory(name);
@@ -170,6 +259,7 @@ class _$AddCategoryImpl implements _AddCategory {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(String name)? addCategory,
   }) {
     return addCategory?.call(name);
@@ -178,6 +268,7 @@ class _$AddCategoryImpl implements _AddCategory {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(String name)? addCategory,
     required TResult orElse(),
   }) {
@@ -190,6 +281,7 @@ class _$AddCategoryImpl implements _AddCategory {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_AddCategory value) addCategory,
   }) {
     return addCategory(this);
@@ -198,6 +290,7 @@ class _$AddCategoryImpl implements _AddCategory {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_AddCategory value)? addCategory,
   }) {
     return addCategory?.call(this);
@@ -206,6 +299,7 @@ class _$AddCategoryImpl implements _AddCategory {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_AddCategory value)? addCategory,
     required TResult orElse(),
   }) {
@@ -219,12 +313,10 @@ class _$AddCategoryImpl implements _AddCategory {
 abstract class _AddCategory implements HomeScreenEvent {
   const factory _AddCategory({required final String name}) = _$AddCategoryImpl;
 
-  @override
   String get name;
 
   /// Create a copy of HomeScreenEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddCategoryImplCopyWith<_$AddCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -232,26 +324,34 @@ abstract class _AddCategory implements HomeScreenEvent {
 
 /// @nodoc
 mixin _$HomeScreenState {
-  List<CategoryModel> get categories => throw _privateConstructorUsedError;
+  Map<String, CategoryModel> get categories =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<CategoryModel> categories) initial,
-    required TResult Function(List<CategoryModel> categories) loading,
-    required TResult Function(List<CategoryModel> categories) refreshUI,
+    required TResult Function(Map<String, CategoryModel> categories) initial,
+    required TResult Function(Map<String, CategoryModel> categories) loading,
+    required TResult Function(Map<String, CategoryModel> categories) refreshUI,
+    required TResult Function(
+            Map<String, CategoryModel> categories, String message)
+        message,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<CategoryModel> categories)? initial,
-    TResult? Function(List<CategoryModel> categories)? loading,
-    TResult? Function(List<CategoryModel> categories)? refreshUI,
+    TResult? Function(Map<String, CategoryModel> categories)? initial,
+    TResult? Function(Map<String, CategoryModel> categories)? loading,
+    TResult? Function(Map<String, CategoryModel> categories)? refreshUI,
+    TResult? Function(Map<String, CategoryModel> categories, String message)?
+        message,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<CategoryModel> categories)? initial,
-    TResult Function(List<CategoryModel> categories)? loading,
-    TResult Function(List<CategoryModel> categories)? refreshUI,
+    TResult Function(Map<String, CategoryModel> categories)? initial,
+    TResult Function(Map<String, CategoryModel> categories)? loading,
+    TResult Function(Map<String, CategoryModel> categories)? refreshUI,
+    TResult Function(Map<String, CategoryModel> categories, String message)?
+        message,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -260,6 +360,7 @@ mixin _$HomeScreenState {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenMessage value) message,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -267,6 +368,7 @@ mixin _$HomeScreenState {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenMessage value)? message,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -274,6 +376,7 @@ mixin _$HomeScreenState {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenMessage value)? message,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -291,7 +394,7 @@ abstract class $HomeScreenStateCopyWith<$Res> {
           HomeScreenState value, $Res Function(HomeScreenState) then) =
       _$HomeScreenStateCopyWithImpl<$Res, HomeScreenState>;
   @useResult
-  $Res call({List<CategoryModel> categories});
+  $Res call({Map<String, CategoryModel> categories});
 }
 
 /// @nodoc
@@ -315,7 +418,7 @@ class _$HomeScreenStateCopyWithImpl<$Res, $Val extends HomeScreenState>
       categories: null == categories
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryModel>,
+              as Map<String, CategoryModel>,
     ) as $Val);
   }
 }
@@ -328,7 +431,7 @@ abstract class _$$HomeScreenInitialImplCopyWith<$Res>
       __$$HomeScreenInitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<CategoryModel> categories});
+  $Res call({Map<String, CategoryModel> categories});
 }
 
 /// @nodoc
@@ -350,7 +453,7 @@ class __$$HomeScreenInitialImplCopyWithImpl<$Res>
       categories: null == categories
           ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryModel>,
+              as Map<String, CategoryModel>,
     ));
   }
 }
@@ -358,15 +461,16 @@ class __$$HomeScreenInitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomeScreenInitialImpl implements HomeScreenInitial {
-  const _$HomeScreenInitialImpl({required final List<CategoryModel> categories})
+  const _$HomeScreenInitialImpl(
+      {required final Map<String, CategoryModel> categories})
       : _categories = categories;
 
-  final List<CategoryModel> _categories;
+  final Map<String, CategoryModel> _categories;
   @override
-  List<CategoryModel> get categories {
-    if (_categories is EqualUnmodifiableListView) return _categories;
+  Map<String, CategoryModel> get categories {
+    if (_categories is EqualUnmodifiableMapView) return _categories;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categories);
+    return EqualUnmodifiableMapView(_categories);
   }
 
   @override
@@ -399,9 +503,12 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<CategoryModel> categories) initial,
-    required TResult Function(List<CategoryModel> categories) loading,
-    required TResult Function(List<CategoryModel> categories) refreshUI,
+    required TResult Function(Map<String, CategoryModel> categories) initial,
+    required TResult Function(Map<String, CategoryModel> categories) loading,
+    required TResult Function(Map<String, CategoryModel> categories) refreshUI,
+    required TResult Function(
+            Map<String, CategoryModel> categories, String message)
+        message,
   }) {
     return initial(categories);
   }
@@ -409,9 +516,11 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<CategoryModel> categories)? initial,
-    TResult? Function(List<CategoryModel> categories)? loading,
-    TResult? Function(List<CategoryModel> categories)? refreshUI,
+    TResult? Function(Map<String, CategoryModel> categories)? initial,
+    TResult? Function(Map<String, CategoryModel> categories)? loading,
+    TResult? Function(Map<String, CategoryModel> categories)? refreshUI,
+    TResult? Function(Map<String, CategoryModel> categories, String message)?
+        message,
   }) {
     return initial?.call(categories);
   }
@@ -419,9 +528,11 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<CategoryModel> categories)? initial,
-    TResult Function(List<CategoryModel> categories)? loading,
-    TResult Function(List<CategoryModel> categories)? refreshUI,
+    TResult Function(Map<String, CategoryModel> categories)? initial,
+    TResult Function(Map<String, CategoryModel> categories)? loading,
+    TResult Function(Map<String, CategoryModel> categories)? refreshUI,
+    TResult Function(Map<String, CategoryModel> categories, String message)?
+        message,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -436,6 +547,7 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenMessage value) message,
   }) {
     return initial(this);
   }
@@ -446,6 +558,7 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenMessage value)? message,
   }) {
     return initial?.call(this);
   }
@@ -456,6 +569,7 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenMessage value)? message,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -467,11 +581,11 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
 
 abstract class HomeScreenInitial implements HomeScreenState {
   const factory HomeScreenInitial(
-          {required final List<CategoryModel> categories}) =
+          {required final Map<String, CategoryModel> categories}) =
       _$HomeScreenInitialImpl;
 
   @override
-  List<CategoryModel> get categories;
+  Map<String, CategoryModel> get categories;
 
   /// Create a copy of HomeScreenState
   /// with the given fields replaced by the non-null parameter values.
@@ -489,7 +603,7 @@ abstract class _$$HomeScreenLoadingImplCopyWith<$Res>
       __$$HomeScreenLoadingImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<CategoryModel> categories});
+  $Res call({Map<String, CategoryModel> categories});
 }
 
 /// @nodoc
@@ -511,7 +625,7 @@ class __$$HomeScreenLoadingImplCopyWithImpl<$Res>
       categories: null == categories
           ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryModel>,
+              as Map<String, CategoryModel>,
     ));
   }
 }
@@ -519,15 +633,16 @@ class __$$HomeScreenLoadingImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomeScreenLoadingImpl implements HomeScreenLoading {
-  const _$HomeScreenLoadingImpl({required final List<CategoryModel> categories})
+  const _$HomeScreenLoadingImpl(
+      {required final Map<String, CategoryModel> categories})
       : _categories = categories;
 
-  final List<CategoryModel> _categories;
+  final Map<String, CategoryModel> _categories;
   @override
-  List<CategoryModel> get categories {
-    if (_categories is EqualUnmodifiableListView) return _categories;
+  Map<String, CategoryModel> get categories {
+    if (_categories is EqualUnmodifiableMapView) return _categories;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categories);
+    return EqualUnmodifiableMapView(_categories);
   }
 
   @override
@@ -560,9 +675,12 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<CategoryModel> categories) initial,
-    required TResult Function(List<CategoryModel> categories) loading,
-    required TResult Function(List<CategoryModel> categories) refreshUI,
+    required TResult Function(Map<String, CategoryModel> categories) initial,
+    required TResult Function(Map<String, CategoryModel> categories) loading,
+    required TResult Function(Map<String, CategoryModel> categories) refreshUI,
+    required TResult Function(
+            Map<String, CategoryModel> categories, String message)
+        message,
   }) {
     return loading(categories);
   }
@@ -570,9 +688,11 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<CategoryModel> categories)? initial,
-    TResult? Function(List<CategoryModel> categories)? loading,
-    TResult? Function(List<CategoryModel> categories)? refreshUI,
+    TResult? Function(Map<String, CategoryModel> categories)? initial,
+    TResult? Function(Map<String, CategoryModel> categories)? loading,
+    TResult? Function(Map<String, CategoryModel> categories)? refreshUI,
+    TResult? Function(Map<String, CategoryModel> categories, String message)?
+        message,
   }) {
     return loading?.call(categories);
   }
@@ -580,9 +700,11 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<CategoryModel> categories)? initial,
-    TResult Function(List<CategoryModel> categories)? loading,
-    TResult Function(List<CategoryModel> categories)? refreshUI,
+    TResult Function(Map<String, CategoryModel> categories)? initial,
+    TResult Function(Map<String, CategoryModel> categories)? loading,
+    TResult Function(Map<String, CategoryModel> categories)? refreshUI,
+    TResult Function(Map<String, CategoryModel> categories, String message)?
+        message,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -597,6 +719,7 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenMessage value) message,
   }) {
     return loading(this);
   }
@@ -607,6 +730,7 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenMessage value)? message,
   }) {
     return loading?.call(this);
   }
@@ -617,6 +741,7 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenMessage value)? message,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -628,11 +753,11 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
 
 abstract class HomeScreenLoading implements HomeScreenState {
   const factory HomeScreenLoading(
-          {required final List<CategoryModel> categories}) =
+          {required final Map<String, CategoryModel> categories}) =
       _$HomeScreenLoadingImpl;
 
   @override
-  List<CategoryModel> get categories;
+  Map<String, CategoryModel> get categories;
 
   /// Create a copy of HomeScreenState
   /// with the given fields replaced by the non-null parameter values.
@@ -650,7 +775,7 @@ abstract class _$$HomeScreenRefreshUIImplCopyWith<$Res>
       __$$HomeScreenRefreshUIImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<CategoryModel> categories});
+  $Res call({Map<String, CategoryModel> categories});
 }
 
 /// @nodoc
@@ -672,7 +797,7 @@ class __$$HomeScreenRefreshUIImplCopyWithImpl<$Res>
       categories: null == categories
           ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryModel>,
+              as Map<String, CategoryModel>,
     ));
   }
 }
@@ -681,15 +806,15 @@ class __$$HomeScreenRefreshUIImplCopyWithImpl<$Res>
 
 class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
   const _$HomeScreenRefreshUIImpl(
-      {required final List<CategoryModel> categories})
+      {required final Map<String, CategoryModel> categories})
       : _categories = categories;
 
-  final List<CategoryModel> _categories;
+  final Map<String, CategoryModel> _categories;
   @override
-  List<CategoryModel> get categories {
-    if (_categories is EqualUnmodifiableListView) return _categories;
+  Map<String, CategoryModel> get categories {
+    if (_categories is EqualUnmodifiableMapView) return _categories;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categories);
+    return EqualUnmodifiableMapView(_categories);
   }
 
   @override
@@ -722,9 +847,12 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<CategoryModel> categories) initial,
-    required TResult Function(List<CategoryModel> categories) loading,
-    required TResult Function(List<CategoryModel> categories) refreshUI,
+    required TResult Function(Map<String, CategoryModel> categories) initial,
+    required TResult Function(Map<String, CategoryModel> categories) loading,
+    required TResult Function(Map<String, CategoryModel> categories) refreshUI,
+    required TResult Function(
+            Map<String, CategoryModel> categories, String message)
+        message,
   }) {
     return refreshUI(categories);
   }
@@ -732,9 +860,11 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<CategoryModel> categories)? initial,
-    TResult? Function(List<CategoryModel> categories)? loading,
-    TResult? Function(List<CategoryModel> categories)? refreshUI,
+    TResult? Function(Map<String, CategoryModel> categories)? initial,
+    TResult? Function(Map<String, CategoryModel> categories)? loading,
+    TResult? Function(Map<String, CategoryModel> categories)? refreshUI,
+    TResult? Function(Map<String, CategoryModel> categories, String message)?
+        message,
   }) {
     return refreshUI?.call(categories);
   }
@@ -742,9 +872,11 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<CategoryModel> categories)? initial,
-    TResult Function(List<CategoryModel> categories)? loading,
-    TResult Function(List<CategoryModel> categories)? refreshUI,
+    TResult Function(Map<String, CategoryModel> categories)? initial,
+    TResult Function(Map<String, CategoryModel> categories)? loading,
+    TResult Function(Map<String, CategoryModel> categories)? refreshUI,
+    TResult Function(Map<String, CategoryModel> categories, String message)?
+        message,
     required TResult orElse(),
   }) {
     if (refreshUI != null) {
@@ -759,6 +891,7 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenMessage value) message,
   }) {
     return refreshUI(this);
   }
@@ -769,6 +902,7 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenMessage value)? message,
   }) {
     return refreshUI?.call(this);
   }
@@ -779,6 +913,7 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenMessage value)? message,
     required TResult orElse(),
   }) {
     if (refreshUI != null) {
@@ -790,16 +925,199 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
 
 abstract class HomeScreenRefreshUI implements HomeScreenState {
   const factory HomeScreenRefreshUI(
-          {required final List<CategoryModel> categories}) =
+          {required final Map<String, CategoryModel> categories}) =
       _$HomeScreenRefreshUIImpl;
 
   @override
-  List<CategoryModel> get categories;
+  Map<String, CategoryModel> get categories;
 
   /// Create a copy of HomeScreenState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HomeScreenRefreshUIImplCopyWith<_$HomeScreenRefreshUIImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeScreenMessageImplCopyWith<$Res>
+    implements $HomeScreenStateCopyWith<$Res> {
+  factory _$$HomeScreenMessageImplCopyWith(_$HomeScreenMessageImpl value,
+          $Res Function(_$HomeScreenMessageImpl) then) =
+      __$$HomeScreenMessageImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, CategoryModel> categories, String message});
+}
+
+/// @nodoc
+class __$$HomeScreenMessageImplCopyWithImpl<$Res>
+    extends _$HomeScreenStateCopyWithImpl<$Res, _$HomeScreenMessageImpl>
+    implements _$$HomeScreenMessageImplCopyWith<$Res> {
+  __$$HomeScreenMessageImplCopyWithImpl(_$HomeScreenMessageImpl _value,
+      $Res Function(_$HomeScreenMessageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categories = null,
+    Object? message = null,
+  }) {
+    return _then(_$HomeScreenMessageImpl(
+      categories: null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as Map<String, CategoryModel>,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HomeScreenMessageImpl implements HomeScreenMessage {
+  const _$HomeScreenMessageImpl(
+      {required final Map<String, CategoryModel> categories,
+      required this.message})
+      : _categories = categories;
+
+  final Map<String, CategoryModel> _categories;
+  @override
+  Map<String, CategoryModel> get categories {
+    if (_categories is EqualUnmodifiableMapView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_categories);
+  }
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'HomeScreenState.message(categories: $categories, message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeScreenMessageImpl &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_categories), message);
+
+  /// Create a copy of HomeScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomeScreenMessageImplCopyWith<_$HomeScreenMessageImpl> get copyWith =>
+      __$$HomeScreenMessageImplCopyWithImpl<_$HomeScreenMessageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, CategoryModel> categories) initial,
+    required TResult Function(Map<String, CategoryModel> categories) loading,
+    required TResult Function(Map<String, CategoryModel> categories) refreshUI,
+    required TResult Function(
+            Map<String, CategoryModel> categories, String message)
+        message,
+  }) {
+    return message(categories, this.message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, CategoryModel> categories)? initial,
+    TResult? Function(Map<String, CategoryModel> categories)? loading,
+    TResult? Function(Map<String, CategoryModel> categories)? refreshUI,
+    TResult? Function(Map<String, CategoryModel> categories, String message)?
+        message,
+  }) {
+    return message?.call(categories, this.message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, CategoryModel> categories)? initial,
+    TResult Function(Map<String, CategoryModel> categories)? loading,
+    TResult Function(Map<String, CategoryModel> categories)? refreshUI,
+    TResult Function(Map<String, CategoryModel> categories, String message)?
+        message,
+    required TResult orElse(),
+  }) {
+    if (message != null) {
+      return message(categories, this.message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeScreenInitial value) initial,
+    required TResult Function(HomeScreenLoading value) loading,
+    required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenMessage value) message,
+  }) {
+    return message(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomeScreenInitial value)? initial,
+    TResult? Function(HomeScreenLoading value)? loading,
+    TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenMessage value)? message,
+  }) {
+    return message?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeScreenInitial value)? initial,
+    TResult Function(HomeScreenLoading value)? loading,
+    TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenMessage value)? message,
+    required TResult orElse(),
+  }) {
+    if (message != null) {
+      return message(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeScreenMessage implements HomeScreenState {
+  const factory HomeScreenMessage(
+      {required final Map<String, CategoryModel> categories,
+      required final String message}) = _$HomeScreenMessageImpl;
+
+  @override
+  Map<String, CategoryModel> get categories;
+  String get message;
+
+  /// Create a copy of HomeScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HomeScreenMessageImplCopyWith<_$HomeScreenMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

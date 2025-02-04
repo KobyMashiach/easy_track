@@ -10,11 +10,26 @@ part 'home_screen_state.dart';
 
 class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
   final CategoryRepo repo;
-  final List<CategoryModel> categories = [];
+  Map<String, CategoryModel> categories = {};
   HomeScreenBloc(this.repo)
-      : super(const HomeScreenState.initial(categories: [])) {
+      : super(const HomeScreenState.initial(categories: {})) {
     on<HomeScreenEvent>((event, emit) async {
       await event.map(
+        initialize: (e) async {
+          loading(emit);
+          final categoriesMap = await repo.getCategories();
+          categoriesMap.fold(
+            (map) {
+              categories = map;
+            },
+            (errorMessage) {
+              emit(HomeScreenState.message(
+                  categories: categories, message: errorMessage));
+            },
+          );
+
+          refreshUI(emit);
+        },
         addCategory: (e) async {
           loading(emit);
           final newCategory = CategoryModel(title: e.name);

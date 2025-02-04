@@ -3,11 +3,12 @@ part of 'home_screen_bloc.dart';
 @freezed
 class HomeScreenState with _$HomeScreenState {
   const factory HomeScreenState.initial(
-      {required List<CategoryModel> categories}) = HomeScreenInitial;
+      {required Map<String, CategoryModel> categories}) = HomeScreenInitial;
   const factory HomeScreenState.loading(
-      {required List<CategoryModel> categories}) = HomeScreenLoading;
+      {required Map<String, CategoryModel> categories}) = HomeScreenLoading;
   const factory HomeScreenState.refreshUI(
-      {required List<CategoryModel> categories}) = HomeScreenRefreshUI;
-
-  // const factory HomeScreenState.addCategory() = _HomeScreenAddCategory;
+      {required Map<String, CategoryModel> categories}) = HomeScreenRefreshUI;
+  const factory HomeScreenState.message(
+      {required Map<String, CategoryModel> categories,
+      required String message}) = HomeScreenMessage;
 }
