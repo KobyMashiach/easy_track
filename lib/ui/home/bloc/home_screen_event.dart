@@ -12,5 +12,9 @@ class HomeScreenEvent with _$HomeScreenEvent {
       ImageModel? imageModel}) = _UpdateCategory;
 
   const factory HomeScreenEvent.deleteItem(
-      {required String name, required ImageModel imageModel}) = _DeleteCategory;
+      {required String name, required ImageModel imageModel}) = _DeleteItem;
+  const factory HomeScreenEvent.updateCategoryName(
+      {required String name, required String oldName}) = _UpdateCategoryName;
+  const factory HomeScreenEvent.deleteCategory({required String name}) =
+      _DeleteCategory;
 }

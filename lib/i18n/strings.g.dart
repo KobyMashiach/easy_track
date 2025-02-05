@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 62 (31 per locale)
+/// Strings: 66 (33 per locale)
 ///
-/// Built on 2025-02-05 at 00:05 UTC
+/// Built on 2025-02-05 at 00:42 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -178,7 +178,9 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get delete => 'Delete';
 	String get edit => 'Edit';
 	String get edit_item => 'Edit item';
-	String get sure_delete => 'Are you sure you want to delete this item';
+	String get sure_delete_item => 'Are you sure you want to delete this item';
+	String edit_category_name({required Object name}) => 'Edit category "${name}"';
+	String get sure_delete_category => 'Are you sure you want to delete this category';
 }
 
 // Path: <root>
@@ -235,7 +237,9 @@ class _StringsHe implements Translations {
 	@override String get delete => 'מחיקה';
 	@override String get edit => 'עריכה';
 	@override String get edit_item => 'עריכת פריט';
-	@override String get sure_delete => 'אתה בטוח שאתה רוצה למחוק את הפריט הזה';
+	@override String get sure_delete_item => 'אתה בטוח שאתה רוצה למחוק את הפריט הזה';
+	@override String edit_category_name({required Object name}) => 'עריכת קטגוריה "${name}"';
+	@override String get sure_delete_category => 'אתה בטוח שאתה רוצה למחוק את הקטגוריה הזו';
 }
 
 /// Flat map(s) containing all translations.
@@ -274,7 +278,9 @@ extension on Translations {
 			case 'delete': return 'Delete';
 			case 'edit': return 'Edit';
 			case 'edit_item': return 'Edit item';
-			case 'sure_delete': return 'Are you sure you want to delete this item';
+			case 'sure_delete_item': return 'Are you sure you want to delete this item';
+			case 'edit_category_name': return ({required Object name}) => 'Edit category "${name}"';
+			case 'sure_delete_category': return 'Are you sure you want to delete this category';
 			default: return null;
 		}
 	}
@@ -313,7 +319,9 @@ extension on _StringsHe {
 			case 'delete': return 'מחיקה';
 			case 'edit': return 'עריכה';
 			case 'edit_item': return 'עריכת פריט';
-			case 'sure_delete': return 'אתה בטוח שאתה רוצה למחוק את הפריט הזה';
+			case 'sure_delete_item': return 'אתה בטוח שאתה רוצה למחוק את הפריט הזה';
+			case 'edit_category_name': return ({required Object name}) => 'עריכת קטגוריה "${name}"';
+			case 'sure_delete_category': return 'אתה בטוח שאתה רוצה למחוק את הקטגוריה הזו';
 			default: return null;
 		}
 	}

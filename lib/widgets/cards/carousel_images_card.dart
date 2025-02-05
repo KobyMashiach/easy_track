@@ -18,13 +18,18 @@ class CarouselImagesCard extends StatelessWidget {
   final Function(File? image, DateTime date, ImageModel? imageModel)
       saveCategory;
   final Function(ImageModel imageModel) deleteItem;
+  final Function(String oldName) editCategory;
+  final Function(String name) deleteCategory;
 
-  const CarouselImagesCard(
-      {super.key,
-      this.height,
-      required this.category,
-      required this.saveCategory,
-      required this.deleteItem});
+  const CarouselImagesCard({
+    super.key,
+    this.height,
+    required this.category,
+    required this.saveCategory,
+    required this.deleteItem,
+    required this.editCategory,
+    required this.deleteCategory,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +37,24 @@ class CarouselImagesCard extends StatelessWidget {
       height: height ?? 200,
       child: Column(
         children: [
-          Text(category.title ?? "", style: AppTextStyle().title),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                    onPressed: () => deleteCategory.call(category.title!),
+                    icon: const Icon(
+                      Icons.delete_forever,
+                      color: Colors.red,
+                    )),
+                Text(category.title ?? "", style: AppTextStyle().title),
+                IconButton(
+                    onPressed: () => editCategory.call(category.title!),
+                    icon: const Icon(Icons.edit))
+              ],
+            ),
+          ),
           Expanded(
             child: CarouselView.weighted(
               flexWeights: const [1, 2, 1],

@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 
 Future<dynamic> firestoreGetCollection(
     CollectionReference<Map<String, dynamic>> collection) async {
@@ -128,6 +129,28 @@ Future<void> firestoreRemoveFromStorage(String imagePath) async {
   } catch (e) {
     log('Error occurred while deleting the file: $e');
   }
+}
+
+Future<void> firestoreStorageRenameFolder(
+    String basePath, String oldName, String newName) async {
+  FirebaseStorage storage = FirebaseStorage.instance;
+
+  String oldFolderPath = "$basePath/$oldName/";
+  String newFolderPath = "$basePath/$newName/";
+
+  ListResult result = await storage.ref(oldFolderPath).listAll();
+
+  for (Reference fileRef in result.items) {
+    String fileName = fileRef.name;
+    String newFilePath = "$newFolderPath$fileName";
+    Uint8List? data = await fileRef.getData();
+    if (data != null) {
+      await storage.ref(newFilePath).putData(data);
+    }
+    await fileRef.delete();
+  }
+
+  log("Folder renamed from '$oldFolderPath' to '$newFolderPath'");
 }
 
 Future<void> firestoreRemoveFromStorageUrl(String fileUrl) async {

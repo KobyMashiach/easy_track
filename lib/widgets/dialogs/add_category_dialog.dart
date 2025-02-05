@@ -6,7 +6,9 @@ import 'package:kh_easy_dev/services/navigate_page.dart';
 
 class AddCategoryDialog extends StatefulWidget {
   final Function(String name) saveCategory;
-  const AddCategoryDialog({super.key, required this.saveCategory});
+  final String? oldName;
+  const AddCategoryDialog(
+      {super.key, required this.saveCategory, this.oldName});
 
   @override
   State<AddCategoryDialog> createState() => _AddCategoryDialogState();
@@ -19,6 +21,9 @@ class _AddCategoryDialogState extends State<AddCategoryDialog> {
   void initState() {
     super.initState();
     categoryName = TextEditingController();
+    if (widget.oldName != null) {
+      categoryName.text = widget.oldName!;
+    }
   }
 
   @override
@@ -30,7 +35,9 @@ class _AddCategoryDialogState extends State<AddCategoryDialog> {
   @override
   Widget build(BuildContext context) {
     return generalDialog(
-      title: t.add_category,
+      title: widget.oldName != null
+          ? t.edit_category_name(name: widget.oldName!)
+          : t.add_category,
       child: AppTextField(
         hintText: t.category_name,
         controller: categoryName,

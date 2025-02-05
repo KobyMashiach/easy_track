@@ -67,6 +67,11 @@ class CategoryRepo {
         docName: docName, values: {category.title!: category.toJson()});
   }
 
+  Future<void> deleteCategory(CategoryModel category) async {
+    firestoreUpdateDoc(collection,
+        docName: docName, values: {category.title!: FieldValue.delete()});
+  }
+
   // Future<void> deleteUser({required String email}) async {
   //   await localDB.deleteUser();
   //   final phoneExist = await firestoreCheckIfDocExists(collection, email);

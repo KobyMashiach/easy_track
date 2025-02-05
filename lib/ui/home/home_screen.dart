@@ -56,7 +56,9 @@ class HomeScreen extends StatelessWidget {
                                 physics: const NeverScrollableScrollPhysics(),
                                 itemCount: state.categories.length,
                                 separatorBuilder: (context, index) =>
-                                    const SizedBox(height: 40),
+                                    kheasydevDivider(
+                                        black: true,
+                                        padding: const EdgeInsets.all(24)),
                                 itemBuilder: (context, index) {
                                   return CarouselImagesCard(
                                     category: state.categories.values
@@ -80,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                                       final userChoise = await showDialog(
                                         context: context,
                                         builder: (context) => generalDialog(
-                                            title: "${t.sure_delete}?"),
+                                            title: "${t.sure_delete_item}?"),
                                       );
                                       if (userChoise) {
                                         bloc.add(HomeScreenEvent.deleteItem(
@@ -89,6 +91,30 @@ class HomeScreen extends StatelessWidget {
                                             imageModel: imageModel));
                                       }
                                     },
+                                    deleteCategory: (name) async {
+                                      final userChoise = await showDialog(
+                                        context: context,
+                                        builder: (context) => generalDialog(
+                                            title:
+                                                "${t.sure_delete_category}?"),
+                                      );
+                                      if (userChoise) {
+                                        bloc.add(HomeScreenEvent.deleteCategory(
+                                            name: name));
+                                      }
+                                    },
+                                    editCategory: (oldName) async =>
+                                        await showDialog(
+                                      context: context,
+                                      builder: (context) => AddCategoryDialog(
+                                          saveCategory: (name) => bloc.add(
+                                                HomeScreenEvent
+                                                    .updateCategoryName(
+                                                        name: name,
+                                                        oldName: oldName),
+                                              ),
+                                          oldName: oldName),
+                                    ),
                                   );
                                 },
                               ),
@@ -101,7 +127,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               floatingActionButton: FloatingActionButton.extended(
-                onPressed: () async => addNewCategory(context, bloc),
+                onPressed: () async => await showDialog(
+                  context: context,
+                  builder: (context) => AddCategoryDialog(
+                    saveCategory: (name) =>
+                        bloc.add(HomeScreenEvent.addCategory(name: name)),
+                  ),
+                ),
                 backgroundColor: AppColors.shadowColor,
                 label: Text(
                   t.add_category,
@@ -119,17 +151,5 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> addNewCategory(BuildContext context, HomeScreenBloc bloc) async {
-    {
-      await showDialog(
-        context: context,
-        builder: (context) => AddCategoryDialog(
-          saveCategory: (name) =>
-              bloc.add(HomeScreenEvent.addCategory(name: name)),
-        ),
-      );
-    }
   }
 }

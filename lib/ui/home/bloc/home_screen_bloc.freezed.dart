@@ -24,6 +24,8 @@ mixin _$HomeScreenEvent {
             String name, File? image, DateTime? date, ImageModel? imageModel)
         updateCategory,
     required TResult Function(String name, ImageModel imageModel) deleteItem,
+    required TResult Function(String name, String oldName) updateCategoryName,
+    required TResult Function(String name) deleteCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +36,8 @@ mixin _$HomeScreenEvent {
             String name, File? image, DateTime? date, ImageModel? imageModel)?
         updateCategory,
     TResult? Function(String name, ImageModel imageModel)? deleteItem,
+    TResult? Function(String name, String oldName)? updateCategoryName,
+    TResult? Function(String name)? deleteCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +48,8 @@ mixin _$HomeScreenEvent {
             String name, File? image, DateTime? date, ImageModel? imageModel)?
         updateCategory,
     TResult Function(String name, ImageModel imageModel)? deleteItem,
+    TResult Function(String name, String oldName)? updateCategoryName,
+    TResult Function(String name)? deleteCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,7 +58,9 @@ mixin _$HomeScreenEvent {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_UpdateCategory value) updateCategory,
-    required TResult Function(_DeleteCategory value) deleteItem,
+    required TResult Function(_DeleteItem value) deleteItem,
+    required TResult Function(_UpdateCategoryName value) updateCategoryName,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,7 +68,9 @@ mixin _$HomeScreenEvent {
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_AddCategory value)? addCategory,
     TResult? Function(_UpdateCategory value)? updateCategory,
-    TResult? Function(_DeleteCategory value)? deleteItem,
+    TResult? Function(_DeleteItem value)? deleteItem,
+    TResult? Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +78,9 @@ mixin _$HomeScreenEvent {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_UpdateCategory value)? updateCategory,
-    TResult Function(_DeleteCategory value)? deleteItem,
+    TResult Function(_DeleteItem value)? deleteItem,
+    TResult Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +154,8 @@ class _$InitializeImpl implements _Initialize {
             String name, File? image, DateTime? date, ImageModel? imageModel)
         updateCategory,
     required TResult Function(String name, ImageModel imageModel) deleteItem,
+    required TResult Function(String name, String oldName) updateCategoryName,
+    required TResult Function(String name) deleteCategory,
   }) {
     return initialize();
   }
@@ -155,6 +169,8 @@ class _$InitializeImpl implements _Initialize {
             String name, File? image, DateTime? date, ImageModel? imageModel)?
         updateCategory,
     TResult? Function(String name, ImageModel imageModel)? deleteItem,
+    TResult? Function(String name, String oldName)? updateCategoryName,
+    TResult? Function(String name)? deleteCategory,
   }) {
     return initialize?.call();
   }
@@ -168,6 +184,8 @@ class _$InitializeImpl implements _Initialize {
             String name, File? image, DateTime? date, ImageModel? imageModel)?
         updateCategory,
     TResult Function(String name, ImageModel imageModel)? deleteItem,
+    TResult Function(String name, String oldName)? updateCategoryName,
+    TResult Function(String name)? deleteCategory,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -182,7 +200,9 @@ class _$InitializeImpl implements _Initialize {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_UpdateCategory value) updateCategory,
-    required TResult Function(_DeleteCategory value) deleteItem,
+    required TResult Function(_DeleteItem value) deleteItem,
+    required TResult Function(_UpdateCategoryName value) updateCategoryName,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) {
     return initialize(this);
   }
@@ -193,7 +213,9 @@ class _$InitializeImpl implements _Initialize {
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_AddCategory value)? addCategory,
     TResult? Function(_UpdateCategory value)? updateCategory,
-    TResult? Function(_DeleteCategory value)? deleteItem,
+    TResult? Function(_DeleteItem value)? deleteItem,
+    TResult? Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
   }) {
     return initialize?.call(this);
   }
@@ -204,7 +226,9 @@ class _$InitializeImpl implements _Initialize {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_UpdateCategory value)? updateCategory,
-    TResult Function(_DeleteCategory value)? deleteItem,
+    TResult Function(_DeleteItem value)? deleteItem,
+    TResult Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -292,6 +316,8 @@ class _$AddCategoryImpl implements _AddCategory {
             String name, File? image, DateTime? date, ImageModel? imageModel)
         updateCategory,
     required TResult Function(String name, ImageModel imageModel) deleteItem,
+    required TResult Function(String name, String oldName) updateCategoryName,
+    required TResult Function(String name) deleteCategory,
   }) {
     return addCategory(name);
   }
@@ -305,6 +331,8 @@ class _$AddCategoryImpl implements _AddCategory {
             String name, File? image, DateTime? date, ImageModel? imageModel)?
         updateCategory,
     TResult? Function(String name, ImageModel imageModel)? deleteItem,
+    TResult? Function(String name, String oldName)? updateCategoryName,
+    TResult? Function(String name)? deleteCategory,
   }) {
     return addCategory?.call(name);
   }
@@ -318,6 +346,8 @@ class _$AddCategoryImpl implements _AddCategory {
             String name, File? image, DateTime? date, ImageModel? imageModel)?
         updateCategory,
     TResult Function(String name, ImageModel imageModel)? deleteItem,
+    TResult Function(String name, String oldName)? updateCategoryName,
+    TResult Function(String name)? deleteCategory,
     required TResult orElse(),
   }) {
     if (addCategory != null) {
@@ -332,7 +362,9 @@ class _$AddCategoryImpl implements _AddCategory {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_UpdateCategory value) updateCategory,
-    required TResult Function(_DeleteCategory value) deleteItem,
+    required TResult Function(_DeleteItem value) deleteItem,
+    required TResult Function(_UpdateCategoryName value) updateCategoryName,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) {
     return addCategory(this);
   }
@@ -343,7 +375,9 @@ class _$AddCategoryImpl implements _AddCategory {
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_AddCategory value)? addCategory,
     TResult? Function(_UpdateCategory value)? updateCategory,
-    TResult? Function(_DeleteCategory value)? deleteItem,
+    TResult? Function(_DeleteItem value)? deleteItem,
+    TResult? Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
   }) {
     return addCategory?.call(this);
   }
@@ -354,7 +388,9 @@ class _$AddCategoryImpl implements _AddCategory {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_UpdateCategory value)? updateCategory,
-    TResult Function(_DeleteCategory value)? deleteItem,
+    TResult Function(_DeleteItem value)? deleteItem,
+    TResult Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
     if (addCategory != null) {
@@ -493,6 +529,8 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
             String name, File? image, DateTime? date, ImageModel? imageModel)
         updateCategory,
     required TResult Function(String name, ImageModel imageModel) deleteItem,
+    required TResult Function(String name, String oldName) updateCategoryName,
+    required TResult Function(String name) deleteCategory,
   }) {
     return updateCategory(name, image, date, imageModel);
   }
@@ -506,6 +544,8 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
             String name, File? image, DateTime? date, ImageModel? imageModel)?
         updateCategory,
     TResult? Function(String name, ImageModel imageModel)? deleteItem,
+    TResult? Function(String name, String oldName)? updateCategoryName,
+    TResult? Function(String name)? deleteCategory,
   }) {
     return updateCategory?.call(name, image, date, imageModel);
   }
@@ -519,6 +559,8 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
             String name, File? image, DateTime? date, ImageModel? imageModel)?
         updateCategory,
     TResult Function(String name, ImageModel imageModel)? deleteItem,
+    TResult Function(String name, String oldName)? updateCategoryName,
+    TResult Function(String name)? deleteCategory,
     required TResult orElse(),
   }) {
     if (updateCategory != null) {
@@ -533,7 +575,9 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_UpdateCategory value) updateCategory,
-    required TResult Function(_DeleteCategory value) deleteItem,
+    required TResult Function(_DeleteItem value) deleteItem,
+    required TResult Function(_UpdateCategoryName value) updateCategoryName,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) {
     return updateCategory(this);
   }
@@ -544,7 +588,9 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_AddCategory value)? addCategory,
     TResult? Function(_UpdateCategory value)? updateCategory,
-    TResult? Function(_DeleteCategory value)? deleteItem,
+    TResult? Function(_DeleteItem value)? deleteItem,
+    TResult? Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
   }) {
     return updateCategory?.call(this);
   }
@@ -555,7 +601,9 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_UpdateCategory value)? updateCategory,
-    TResult Function(_DeleteCategory value)? deleteItem,
+    TResult Function(_DeleteItem value)? deleteItem,
+    TResult Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
     if (updateCategory != null) {
@@ -585,10 +633,10 @@ abstract class _UpdateCategory implements HomeScreenEvent {
 }
 
 /// @nodoc
-abstract class _$$DeleteCategoryImplCopyWith<$Res> {
-  factory _$$DeleteCategoryImplCopyWith(_$DeleteCategoryImpl value,
-          $Res Function(_$DeleteCategoryImpl) then) =
-      __$$DeleteCategoryImplCopyWithImpl<$Res>;
+abstract class _$$DeleteItemImplCopyWith<$Res> {
+  factory _$$DeleteItemImplCopyWith(
+          _$DeleteItemImpl value, $Res Function(_$DeleteItemImpl) then) =
+      __$$DeleteItemImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String name, ImageModel imageModel});
 
@@ -596,11 +644,11 @@ abstract class _$$DeleteCategoryImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$DeleteCategoryImplCopyWithImpl<$Res>
-    extends _$HomeScreenEventCopyWithImpl<$Res, _$DeleteCategoryImpl>
-    implements _$$DeleteCategoryImplCopyWith<$Res> {
-  __$$DeleteCategoryImplCopyWithImpl(
-      _$DeleteCategoryImpl _value, $Res Function(_$DeleteCategoryImpl) _then)
+class __$$DeleteItemImplCopyWithImpl<$Res>
+    extends _$HomeScreenEventCopyWithImpl<$Res, _$DeleteItemImpl>
+    implements _$$DeleteItemImplCopyWith<$Res> {
+  __$$DeleteItemImplCopyWithImpl(
+      _$DeleteItemImpl _value, $Res Function(_$DeleteItemImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of HomeScreenEvent
@@ -611,7 +659,7 @@ class __$$DeleteCategoryImplCopyWithImpl<$Res>
     Object? name = null,
     Object? imageModel = null,
   }) {
-    return _then(_$DeleteCategoryImpl(
+    return _then(_$DeleteItemImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -636,8 +684,8 @@ class __$$DeleteCategoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteCategoryImpl implements _DeleteCategory {
-  const _$DeleteCategoryImpl({required this.name, required this.imageModel});
+class _$DeleteItemImpl implements _DeleteItem {
+  const _$DeleteItemImpl({required this.name, required this.imageModel});
 
   @override
   final String name;
@@ -653,7 +701,7 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DeleteCategoryImpl &&
+            other is _$DeleteItemImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.imageModel, imageModel) ||
                 other.imageModel == imageModel));
@@ -661,6 +709,361 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
 
   @override
   int get hashCode => Object.hash(runtimeType, name, imageModel);
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteItemImplCopyWith<_$DeleteItemImpl> get copyWith =>
+      __$$DeleteItemImplCopyWithImpl<_$DeleteItemImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(String name) addCategory,
+    required TResult Function(
+            String name, File? image, DateTime? date, ImageModel? imageModel)
+        updateCategory,
+    required TResult Function(String name, ImageModel imageModel) deleteItem,
+    required TResult Function(String name, String oldName) updateCategoryName,
+    required TResult Function(String name) deleteCategory,
+  }) {
+    return deleteItem(name, imageModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function(String name)? addCategory,
+    TResult? Function(
+            String name, File? image, DateTime? date, ImageModel? imageModel)?
+        updateCategory,
+    TResult? Function(String name, ImageModel imageModel)? deleteItem,
+    TResult? Function(String name, String oldName)? updateCategoryName,
+    TResult? Function(String name)? deleteCategory,
+  }) {
+    return deleteItem?.call(name, imageModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(String name)? addCategory,
+    TResult Function(
+            String name, File? image, DateTime? date, ImageModel? imageModel)?
+        updateCategory,
+    TResult Function(String name, ImageModel imageModel)? deleteItem,
+    TResult Function(String name, String oldName)? updateCategoryName,
+    TResult Function(String name)? deleteCategory,
+    required TResult orElse(),
+  }) {
+    if (deleteItem != null) {
+      return deleteItem(name, imageModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_AddCategory value) addCategory,
+    required TResult Function(_UpdateCategory value) updateCategory,
+    required TResult Function(_DeleteItem value) deleteItem,
+    required TResult Function(_UpdateCategoryName value) updateCategoryName,
+    required TResult Function(_DeleteCategory value) deleteCategory,
+  }) {
+    return deleteItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_AddCategory value)? addCategory,
+    TResult? Function(_UpdateCategory value)? updateCategory,
+    TResult? Function(_DeleteItem value)? deleteItem,
+    TResult? Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
+  }) {
+    return deleteItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_AddCategory value)? addCategory,
+    TResult Function(_UpdateCategory value)? updateCategory,
+    TResult Function(_DeleteItem value)? deleteItem,
+    TResult Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult Function(_DeleteCategory value)? deleteCategory,
+    required TResult orElse(),
+  }) {
+    if (deleteItem != null) {
+      return deleteItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteItem implements HomeScreenEvent {
+  const factory _DeleteItem(
+      {required final String name,
+      required final ImageModel imageModel}) = _$DeleteItemImpl;
+
+  String get name;
+  ImageModel get imageModel;
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteItemImplCopyWith<_$DeleteItemImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateCategoryNameImplCopyWith<$Res> {
+  factory _$$UpdateCategoryNameImplCopyWith(_$UpdateCategoryNameImpl value,
+          $Res Function(_$UpdateCategoryNameImpl) then) =
+      __$$UpdateCategoryNameImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String name, String oldName});
+}
+
+/// @nodoc
+class __$$UpdateCategoryNameImplCopyWithImpl<$Res>
+    extends _$HomeScreenEventCopyWithImpl<$Res, _$UpdateCategoryNameImpl>
+    implements _$$UpdateCategoryNameImplCopyWith<$Res> {
+  __$$UpdateCategoryNameImplCopyWithImpl(_$UpdateCategoryNameImpl _value,
+      $Res Function(_$UpdateCategoryNameImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? oldName = null,
+  }) {
+    return _then(_$UpdateCategoryNameImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      oldName: null == oldName
+          ? _value.oldName
+          : oldName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateCategoryNameImpl implements _UpdateCategoryName {
+  const _$UpdateCategoryNameImpl({required this.name, required this.oldName});
+
+  @override
+  final String name;
+  @override
+  final String oldName;
+
+  @override
+  String toString() {
+    return 'HomeScreenEvent.updateCategoryName(name: $name, oldName: $oldName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateCategoryNameImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.oldName, oldName) || other.oldName == oldName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, oldName);
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateCategoryNameImplCopyWith<_$UpdateCategoryNameImpl> get copyWith =>
+      __$$UpdateCategoryNameImplCopyWithImpl<_$UpdateCategoryNameImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(String name) addCategory,
+    required TResult Function(
+            String name, File? image, DateTime? date, ImageModel? imageModel)
+        updateCategory,
+    required TResult Function(String name, ImageModel imageModel) deleteItem,
+    required TResult Function(String name, String oldName) updateCategoryName,
+    required TResult Function(String name) deleteCategory,
+  }) {
+    return updateCategoryName(name, oldName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function(String name)? addCategory,
+    TResult? Function(
+            String name, File? image, DateTime? date, ImageModel? imageModel)?
+        updateCategory,
+    TResult? Function(String name, ImageModel imageModel)? deleteItem,
+    TResult? Function(String name, String oldName)? updateCategoryName,
+    TResult? Function(String name)? deleteCategory,
+  }) {
+    return updateCategoryName?.call(name, oldName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(String name)? addCategory,
+    TResult Function(
+            String name, File? image, DateTime? date, ImageModel? imageModel)?
+        updateCategory,
+    TResult Function(String name, ImageModel imageModel)? deleteItem,
+    TResult Function(String name, String oldName)? updateCategoryName,
+    TResult Function(String name)? deleteCategory,
+    required TResult orElse(),
+  }) {
+    if (updateCategoryName != null) {
+      return updateCategoryName(name, oldName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_AddCategory value) addCategory,
+    required TResult Function(_UpdateCategory value) updateCategory,
+    required TResult Function(_DeleteItem value) deleteItem,
+    required TResult Function(_UpdateCategoryName value) updateCategoryName,
+    required TResult Function(_DeleteCategory value) deleteCategory,
+  }) {
+    return updateCategoryName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_AddCategory value)? addCategory,
+    TResult? Function(_UpdateCategory value)? updateCategory,
+    TResult? Function(_DeleteItem value)? deleteItem,
+    TResult? Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
+  }) {
+    return updateCategoryName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_AddCategory value)? addCategory,
+    TResult Function(_UpdateCategory value)? updateCategory,
+    TResult Function(_DeleteItem value)? deleteItem,
+    TResult Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult Function(_DeleteCategory value)? deleteCategory,
+    required TResult orElse(),
+  }) {
+    if (updateCategoryName != null) {
+      return updateCategoryName(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateCategoryName implements HomeScreenEvent {
+  const factory _UpdateCategoryName(
+      {required final String name,
+      required final String oldName}) = _$UpdateCategoryNameImpl;
+
+  String get name;
+  String get oldName;
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateCategoryNameImplCopyWith<_$UpdateCategoryNameImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteCategoryImplCopyWith<$Res> {
+  factory _$$DeleteCategoryImplCopyWith(_$DeleteCategoryImpl value,
+          $Res Function(_$DeleteCategoryImpl) then) =
+      __$$DeleteCategoryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String name});
+}
+
+/// @nodoc
+class __$$DeleteCategoryImplCopyWithImpl<$Res>
+    extends _$HomeScreenEventCopyWithImpl<$Res, _$DeleteCategoryImpl>
+    implements _$$DeleteCategoryImplCopyWith<$Res> {
+  __$$DeleteCategoryImplCopyWithImpl(
+      _$DeleteCategoryImpl _value, $Res Function(_$DeleteCategoryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+  }) {
+    return _then(_$DeleteCategoryImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteCategoryImpl implements _DeleteCategory {
+  const _$DeleteCategoryImpl({required this.name});
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'HomeScreenEvent.deleteCategory(name: $name)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteCategoryImpl &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name);
 
   /// Create a copy of HomeScreenEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -680,8 +1083,10 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
             String name, File? image, DateTime? date, ImageModel? imageModel)
         updateCategory,
     required TResult Function(String name, ImageModel imageModel) deleteItem,
+    required TResult Function(String name, String oldName) updateCategoryName,
+    required TResult Function(String name) deleteCategory,
   }) {
-    return deleteItem(name, imageModel);
+    return deleteCategory(name);
   }
 
   @override
@@ -693,8 +1098,10 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
             String name, File? image, DateTime? date, ImageModel? imageModel)?
         updateCategory,
     TResult? Function(String name, ImageModel imageModel)? deleteItem,
+    TResult? Function(String name, String oldName)? updateCategoryName,
+    TResult? Function(String name)? deleteCategory,
   }) {
-    return deleteItem?.call(name, imageModel);
+    return deleteCategory?.call(name);
   }
 
   @override
@@ -706,10 +1113,12 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
             String name, File? image, DateTime? date, ImageModel? imageModel)?
         updateCategory,
     TResult Function(String name, ImageModel imageModel)? deleteItem,
+    TResult Function(String name, String oldName)? updateCategoryName,
+    TResult Function(String name)? deleteCategory,
     required TResult orElse(),
   }) {
-    if (deleteItem != null) {
-      return deleteItem(name, imageModel);
+    if (deleteCategory != null) {
+      return deleteCategory(name);
     }
     return orElse();
   }
@@ -720,9 +1129,11 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_UpdateCategory value) updateCategory,
-    required TResult Function(_DeleteCategory value) deleteItem,
+    required TResult Function(_DeleteItem value) deleteItem,
+    required TResult Function(_UpdateCategoryName value) updateCategoryName,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) {
-    return deleteItem(this);
+    return deleteCategory(this);
   }
 
   @override
@@ -731,9 +1142,11 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_AddCategory value)? addCategory,
     TResult? Function(_UpdateCategory value)? updateCategory,
-    TResult? Function(_DeleteCategory value)? deleteItem,
+    TResult? Function(_DeleteItem value)? deleteItem,
+    TResult? Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
   }) {
-    return deleteItem?.call(this);
+    return deleteCategory?.call(this);
   }
 
   @override
@@ -742,23 +1155,23 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_UpdateCategory value)? updateCategory,
-    TResult Function(_DeleteCategory value)? deleteItem,
+    TResult Function(_DeleteItem value)? deleteItem,
+    TResult Function(_UpdateCategoryName value)? updateCategoryName,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
-    if (deleteItem != null) {
-      return deleteItem(this);
+    if (deleteCategory != null) {
+      return deleteCategory(this);
     }
     return orElse();
   }
 }
 
 abstract class _DeleteCategory implements HomeScreenEvent {
-  const factory _DeleteCategory(
-      {required final String name,
-      required final ImageModel imageModel}) = _$DeleteCategoryImpl;
+  const factory _DeleteCategory({required final String name}) =
+      _$DeleteCategoryImpl;
 
   String get name;
-  ImageModel get imageModel;
 
   /// Create a copy of HomeScreenEvent
   /// with the given fields replaced by the non-null parameter values.
