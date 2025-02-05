@@ -3,15 +3,19 @@ import 'dart:io';
 import 'package:easy_track/core/colors.dart';
 import 'package:easy_track/core/general_functions.dart';
 import 'package:easy_track/i18n/strings.g.dart';
+import 'package:easy_track/models/image_model/image_model.dart';
 import 'package:easy_track/widgets/design/fields/app_textfields.dart';
 import 'package:easy_track/widgets/dialogs/general_dialog.dart';
+import 'package:easy_track/widgets/general/circular_progress_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kh_easy_dev/services/navigate_page.dart';
 import 'package:intl/intl.dart' as intl;
 
 class AddItemDialog extends StatefulWidget {
-  final Function(File? image, DateTime date) saveCategory;
-  const AddItemDialog({super.key, required this.saveCategory});
+  final Function(File? image, DateTime date, ImageModel? imageModel)
+      saveCategory;
+  final ImageModel? imageModel;
+  const AddItemDialog({super.key, required this.saveCategory, this.imageModel});
 
   @override
   State<AddItemDialog> createState() => _AddItemDialogState();
@@ -27,8 +31,35 @@ class _AddItemDialogState extends State<AddItemDialog> {
   void initState() {
     super.initState();
     selectedDateController = TextEditingController();
-    selectedDateController.text =
-        intl.DateFormat('dd/MM/yyyy').format(selectedDate);
+    initDialogFields();
+  }
+
+  void initDialogFields() {
+    selectedDateController.text = intl.DateFormat('dd/MM/yyyy')
+        .format(widget.imageModel?.date ?? selectedDate);
+    if (widget.imageModel?.date != null) {
+      selectedDate = widget.imageModel!.date!;
+    }
+    if (widget.imageModel?.imageUrl != null) {
+      image = Image.network(
+        widget.imageModel!.imageUrl!,
+        fit: BoxFit.cover,
+        loadingBuilder: (BuildContext context, Widget child,
+            ImageChunkEvent? loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          } else {
+            return const Center(child: CircularProgressImage());
+          }
+        },
+        errorBuilder:
+            (BuildContext context, Object error, StackTrace? stackTrace) {
+          return const Center(
+              child: Icon(Icons.image_not_supported,
+                  size: 50, color: Colors.grey));
+        },
+      );
+    }
   }
 
   @override
@@ -41,7 +72,7 @@ class _AddItemDialogState extends State<AddItemDialog> {
   Widget build(BuildContext context) {
     final double imageSize = 75;
     return generalDialog(
-      title: t.add_item,
+      title: widget.imageModel != null ? t.edit_item : t.add_item,
       child: Column(
         spacing: 28,
         children: [
@@ -84,7 +115,7 @@ class _AddItemDialogState extends State<AddItemDialog> {
         ],
       ),
       okButtonOnTap: () {
-        widget.saveCategory.call(file, selectedDate);
+        widget.saveCategory.call(file, selectedDate, widget.imageModel);
         KheasydevNavigatePage().popDuration(context);
       },
     );

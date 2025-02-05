@@ -1,5 +1,6 @@
 import 'package:easy_track/repos/category_repo.dart';
 import 'package:easy_track/ui/home/bloc/home_screen_bloc.dart';
+import 'package:easy_track/widgets/dialogs/general_dialog.dart';
 import 'package:easy_track/widgets/general/circular_progress_image.dart';
 import 'package:flutter/material.dart';
 
@@ -60,19 +61,33 @@ class HomeScreen extends StatelessWidget {
                                   return CarouselImagesCard(
                                     category: state.categories.values
                                         .elementAt(index),
-                                    saveCategory: (image, date) {
+                                    saveCategory: (image, date, imageModel) {
                                       KheasydevNavigatePage()
                                           .maybePopDuration(context);
                                       KheasydevNavigatePage()
                                           .maybePopDuration(context);
                                       bloc.add(
                                         HomeScreenEvent.updateCategory(
-                                          name: state.categories.keys
-                                              .elementAt(index),
-                                          image: image,
-                                          date: date,
-                                        ),
+                                            name: state.categories.keys
+                                                .elementAt(index),
+                                            image: image,
+                                            date: date,
+                                            imageModel: imageModel),
                                       );
+                                    },
+                                    deleteItem: (imageModel) async {
+                                      KheasydevNavigatePage().pop(context);
+                                      final userChoise = await showDialog(
+                                        context: context,
+                                        builder: (context) => generalDialog(
+                                            title: "${t.sure_delete}?"),
+                                      );
+                                      if (userChoise) {
+                                        bloc.add(HomeScreenEvent.deleteItem(
+                                            name: state.categories.keys
+                                                .elementAt(index),
+                                            imageModel: imageModel));
+                                      }
                                     },
                                   );
                                 },
@@ -86,15 +101,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               floatingActionButton: FloatingActionButton.extended(
-                onPressed: () async {
-                  await showDialog(
-                    context: context,
-                    builder: (context) => AddCategoryDialog(
-                      saveCategory: (name) =>
-                          bloc.add(HomeScreenEvent.addCategory(name: name)),
-                    ),
-                  );
-                },
+                onPressed: () async => addNewCategory(context, bloc),
                 backgroundColor: AppColors.shadowColor,
                 label: Text(
                   t.add_category,
@@ -112,5 +119,17 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> addNewCategory(BuildContext context, HomeScreenBloc bloc) async {
+    {
+      await showDialog(
+        context: context,
+        builder: (context) => AddCategoryDialog(
+          saveCategory: (name) =>
+              bloc.add(HomeScreenEvent.addCategory(name: name)),
+        ),
+      );
+    }
   }
 }

@@ -25,5 +25,9 @@
   "required_password": "חובה למלא סיסמה",
   "save": "שמירה",
   "sure_logout": "אתה בטוח שאתה רוצה להתנתק",
-  "user_details": "פרטי משתמש"
+  "user_details": "פרטי משתמש",
+  "delete": "מחיקה",
+  "edit": "עריכה",
+  "edit_item": "עריכת פריט",
+  "sure_delete": "אתה בטוח שאתה רוצה למחוק את הפריט הזה"
 }

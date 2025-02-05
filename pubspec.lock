@@ -847,10 +847,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "9f27708cf80f063a9a8eeaa6885f93240bd26814"
-      url: "https://github.com/kobymashiach/kh_easy_dev.git"
+      resolved-ref: "544f26fee860298df8d9b8c8ea69a3226bcac824"
+      url: "https://github.com/kobymashiach/kh_easy_dev"
     source: git
-    version: "0.3.5"
+    version: "0.3.6"
   leak_tracker:
     dependency: transitive
     description:

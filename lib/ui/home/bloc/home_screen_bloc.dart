@@ -19,50 +19,69 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
   HomeScreenBloc(this.repo)
       : super(const HomeScreenState.initial(categories: {})) {
     on<HomeScreenEvent>((event, emit) async {
-      await event.map(
-        initialize: (e) async {
-          loading(emit);
-          final categoriesMap = await repo.getCategories();
-          categoriesMap.fold(
-            (map) {
-              categories = map;
-            },
-            (errorMessage) {
-              emit(HomeScreenState.message(
-                  categories: categories, message: errorMessage));
-            },
-          );
-          refreshUI(emit);
-        },
-        addCategory: (e) async {
-          loading(emit);
-          final newCategory = CategoryModel(title: e.name);
-          await repo.addCategory(newCategory);
-          categories[e.name] = newCategory;
-          refreshUI(emit);
-        },
-        updateCategory: (e) async {
-          loading(emit);
-          CategoryModel chosenCategory = categories.values
-              .firstWhere((category) => category.title == e.name);
-          String? imageUrl;
-          if (e.image != null) {
-            imageUrl = await firestoreUploadImageToStorage(
-                path: "${globalUser.email}/${e.name}",
-                imageFile: e.image!,
-                imageName: getRandomString(10));
-          }
-          List<ImageModel> categoryImages =
-              List<ImageModel>.from(chosenCategory.images ?? []);
-          categoryImages = List.of(categoryImages);
-          categoryImages.add(ImageModel(imageUrl: imageUrl, date: e.date));
-          chosenCategory = chosenCategory.copyWith(images: categoryImages);
-          await repo.updateCategory(chosenCategory);
-          categories[e.name] = chosenCategory;
+      await event.map(initialize: (e) async {
+        loading(emit);
+        final categoriesMap = await repo.getCategories();
+        categoriesMap.fold(
+          (map) {
+            categories = map;
+          },
+          (errorMessage) {
+            emit(HomeScreenState.message(
+                categories: categories, message: errorMessage));
+          },
+        );
+        refreshUI(emit);
+      }, addCategory: (e) async {
+        loading(emit);
+        final newCategory = CategoryModel(title: e.name);
+        await repo.addCategory(newCategory);
+        categories[e.name] = newCategory;
+        refreshUI(emit);
+      }, updateCategory: (e) async {
+        loading(emit);
+        CategoryModel chosenCategory = categories.values
+            .firstWhere((category) => category.title == e.name);
+        String? imageUrl;
+        final newImageId = getRandomString(10);
+        if (e.image != null) {
+          imageUrl = await firestoreUploadImageToStorage(
+              path: "${globalUser.email}/${e.name}",
+              imageFile: e.image!,
+              imageName: newImageId);
+        } else if (e.imageModel != null) {
+          imageUrl = e.imageModel?.imageUrl;
+        }
+        List<ImageModel> categoryImages =
+            List<ImageModel>.from(chosenCategory.images ?? []);
+        categoryImages = List.of(categoryImages);
+        if (e.imageModel != null) {
+          categoryImages.removeWhere((img) => img.id == e.imageModel!.id);
+        }
+        categoryImages
+            .add(ImageModel(id: newImageId, imageUrl: imageUrl, date: e.date));
 
-          refreshUI(emit);
-        },
-      );
+        chosenCategory = chosenCategory.copyWith(images: categoryImages);
+        await repo.updateCategory(chosenCategory);
+        categories[e.name] = chosenCategory;
+
+        refreshUI(emit);
+      }, deleteItem: (e) async {
+        loading(emit);
+        CategoryModel chosenCategory = categories.values
+            .firstWhere((category) => category.title == e.name);
+        List<ImageModel> categoryImages =
+            List<ImageModel>.from(chosenCategory.images ?? []);
+        categoryImages.removeWhere((img) => img.id == e.imageModel.id);
+        chosenCategory = chosenCategory.copyWith(images: categoryImages);
+        if (e.imageModel.imageUrl != null) {
+          await firestoreRemoveFromStorage(
+              "${globalUser.email}/${e.name}/${e.imageModel.id}");
+        }
+        await repo.updateCategory(chosenCategory);
+        categories[e.name] = chosenCategory;
+        refreshUI(emit);
+      });
     });
   }
 

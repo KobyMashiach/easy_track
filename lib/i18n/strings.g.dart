@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 54 (27 per locale)
+/// Strings: 62 (31 per locale)
 ///
-/// Built on 2025-02-04 at 21:24 UTC
+/// Built on 2025-02-05 at 00:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -148,33 +148,37 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
-	String get home_screen => 'Home Screen';
-	String get login_screen => 'Login Screen';
-	String get login_with_google => 'Login with Google';
-	String greeting({required Object name}) => 'Welcome ${name}';
 	String get add_category => 'Add category';
+	String get add_item => 'Add item';
+	String get category_added => 'Category added successfully';
+	String get category_exist => 'Category already exists';
 	String get category_name => 'category name';
-	String get user_details => 'User details';
-	String get first_name => 'First name';
-	String get last_name => 'Last name';
+	String get date => 'date';
 	String get email_address => 'email address';
-	String get save => 'save';
-	String get password => 'password';
-	String get or_login_with => 'or login with';
-	String get login_with_email => 'Login with email';
 	String get email_invalid => 'The email address is invalid';
+	String get error_occurred => 'An error occurred, please try again later.';
+	String get first_name => 'First name';
+	String greeting({required Object name}) => 'Welcome ${name}';
+	String get home_screen => 'Home Screen';
+	String get last_name => 'Last name';
+	String get login_screen => 'Login Screen';
+	String get login_with_email => 'Login with email';
+	String get login_with_google => 'Login with Google';
+	String get logout => 'Logout';
+	String get no_categories => 'There are no categories, please add one.';
+	String get no_items_added => 'No items added';
+	String get or_login_with => 'or login with';
+	String get password => 'password';
 	String get pasword_least_6_chars => 'The password must contain at least 6 characters';
 	String get required_email => 'Required to fill in an email address';
 	String get required_password => 'Required to fill in an password';
-	String get logout => 'Logout';
+	String get save => 'save';
 	String get sure_logout => 'Are you sure you want to logout';
-	String get no_categories => 'There are no categories, please add one.';
-	String get category_exist => 'Category already exists';
-	String get error_occurred => 'An error occurred, please try again later.';
-	String get category_added => 'Category added successfully';
-	String get no_items_added => 'No items added';
-	String get add_item => 'Add item';
-	String get date => 'date';
+	String get user_details => 'User details';
+	String get delete => 'Delete';
+	String get edit => 'Edit';
+	String get edit_item => 'Edit item';
+	String get sure_delete => 'Are you sure you want to delete this item';
 }
 
 // Path: <root>
@@ -201,33 +205,37 @@ class _StringsHe implements Translations {
 	@override late final _StringsHe _root = this; // ignore: unused_field
 
 	// Translations
-	@override String get home_screen => 'מסך הבית';
-	@override String get login_screen => 'בדיקה התחברות';
-	@override String get login_with_google => 'התחבר עם גוגל';
-	@override String greeting({required Object name}) => 'ברוך הבא ${name}';
 	@override String get add_category => 'הוסף קטגוריה';
+	@override String get add_item => 'הוסף פריט';
+	@override String get category_added => 'הקטגוריה הוספה בהצלחה';
+	@override String get category_exist => 'קטגוריה כבר קיימת';
 	@override String get category_name => 'שם הקטגוריה';
-	@override String get user_details => 'פרטי משתמש';
-	@override String get first_name => 'שם פרטי';
-	@override String get last_name => 'שם משפחה';
+	@override String get date => 'תאריך';
 	@override String get email_address => 'כתובת מייל';
-	@override String get save => 'שמירה';
-	@override String get password => 'סיסמה';
-	@override String get or_login_with => 'או התחבר עם';
-	@override String get login_with_email => 'התחבר עם מייל';
 	@override String get email_invalid => 'כתובת המייל אינה חוקית';
+	@override String get error_occurred => 'אירעה שגיאה, נא נסה שנית מאוחר יותר';
+	@override String get first_name => 'שם פרטי';
+	@override String greeting({required Object name}) => 'ברוך הבא ${name}';
+	@override String get home_screen => 'מסך הבית';
+	@override String get last_name => 'שם משפחה';
+	@override String get login_screen => 'בדיקה התחברות';
+	@override String get login_with_email => 'התחבר עם מייל';
+	@override String get login_with_google => 'התחבר עם גוגל';
+	@override String get logout => 'התנתק';
+	@override String get no_categories => 'אין קטגוריות, נא הוסף';
+	@override String get no_items_added => 'לא הוספו פריטים';
+	@override String get or_login_with => 'או התחבר עם';
+	@override String get password => 'סיסמה';
 	@override String get pasword_least_6_chars => 'הסיסמה חייבת להכיל לפחות 6 תווים';
 	@override String get required_email => 'חובה למלא כתובת מייל';
 	@override String get required_password => 'חובה למלא סיסמה';
-	@override String get logout => 'התנתק';
+	@override String get save => 'שמירה';
 	@override String get sure_logout => 'אתה בטוח שאתה רוצה להתנתק';
-	@override String get no_categories => 'אין קטגוריות, נא הוסף';
-	@override String get category_exist => 'קטגוריה כבר קיימת';
-	@override String get error_occurred => 'אירעה שגיאה, נא נסה שנית מאוחר יותר';
-	@override String get category_added => 'הקטגוריה הוספה בהצלחה';
-	@override String get no_items_added => 'לא הוספו פריטים';
-	@override String get add_item => 'הוסף פריט';
-	@override String get date => 'תאריך';
+	@override String get user_details => 'פרטי משתמש';
+	@override String get delete => 'מחיקה';
+	@override String get edit => 'עריכה';
+	@override String get edit_item => 'עריכת פריט';
+	@override String get sure_delete => 'אתה בטוח שאתה רוצה למחוק את הפריט הזה';
 }
 
 /// Flat map(s) containing all translations.
@@ -236,33 +244,37 @@ class _StringsHe implements Translations {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'home_screen': return 'Home Screen';
-			case 'login_screen': return 'Login Screen';
-			case 'login_with_google': return 'Login with Google';
-			case 'greeting': return ({required Object name}) => 'Welcome ${name}';
 			case 'add_category': return 'Add category';
+			case 'add_item': return 'Add item';
+			case 'category_added': return 'Category added successfully';
+			case 'category_exist': return 'Category already exists';
 			case 'category_name': return 'category name';
-			case 'user_details': return 'User details';
-			case 'first_name': return 'First name';
-			case 'last_name': return 'Last name';
+			case 'date': return 'date';
 			case 'email_address': return 'email address';
-			case 'save': return 'save';
-			case 'password': return 'password';
-			case 'or_login_with': return 'or login with';
-			case 'login_with_email': return 'Login with email';
 			case 'email_invalid': return 'The email address is invalid';
+			case 'error_occurred': return 'An error occurred, please try again later.';
+			case 'first_name': return 'First name';
+			case 'greeting': return ({required Object name}) => 'Welcome ${name}';
+			case 'home_screen': return 'Home Screen';
+			case 'last_name': return 'Last name';
+			case 'login_screen': return 'Login Screen';
+			case 'login_with_email': return 'Login with email';
+			case 'login_with_google': return 'Login with Google';
+			case 'logout': return 'Logout';
+			case 'no_categories': return 'There are no categories, please add one.';
+			case 'no_items_added': return 'No items added';
+			case 'or_login_with': return 'or login with';
+			case 'password': return 'password';
 			case 'pasword_least_6_chars': return 'The password must contain at least 6 characters';
 			case 'required_email': return 'Required to fill in an email address';
 			case 'required_password': return 'Required to fill in an password';
-			case 'logout': return 'Logout';
+			case 'save': return 'save';
 			case 'sure_logout': return 'Are you sure you want to logout';
-			case 'no_categories': return 'There are no categories, please add one.';
-			case 'category_exist': return 'Category already exists';
-			case 'error_occurred': return 'An error occurred, please try again later.';
-			case 'category_added': return 'Category added successfully';
-			case 'no_items_added': return 'No items added';
-			case 'add_item': return 'Add item';
-			case 'date': return 'date';
+			case 'user_details': return 'User details';
+			case 'delete': return 'Delete';
+			case 'edit': return 'Edit';
+			case 'edit_item': return 'Edit item';
+			case 'sure_delete': return 'Are you sure you want to delete this item';
 			default: return null;
 		}
 	}
@@ -271,33 +283,37 @@ extension on Translations {
 extension on _StringsHe {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'home_screen': return 'מסך הבית';
-			case 'login_screen': return 'בדיקה התחברות';
-			case 'login_with_google': return 'התחבר עם גוגל';
-			case 'greeting': return ({required Object name}) => 'ברוך הבא ${name}';
 			case 'add_category': return 'הוסף קטגוריה';
+			case 'add_item': return 'הוסף פריט';
+			case 'category_added': return 'הקטגוריה הוספה בהצלחה';
+			case 'category_exist': return 'קטגוריה כבר קיימת';
 			case 'category_name': return 'שם הקטגוריה';
-			case 'user_details': return 'פרטי משתמש';
-			case 'first_name': return 'שם פרטי';
-			case 'last_name': return 'שם משפחה';
+			case 'date': return 'תאריך';
 			case 'email_address': return 'כתובת מייל';
-			case 'save': return 'שמירה';
-			case 'password': return 'סיסמה';
-			case 'or_login_with': return 'או התחבר עם';
-			case 'login_with_email': return 'התחבר עם מייל';
 			case 'email_invalid': return 'כתובת המייל אינה חוקית';
+			case 'error_occurred': return 'אירעה שגיאה, נא נסה שנית מאוחר יותר';
+			case 'first_name': return 'שם פרטי';
+			case 'greeting': return ({required Object name}) => 'ברוך הבא ${name}';
+			case 'home_screen': return 'מסך הבית';
+			case 'last_name': return 'שם משפחה';
+			case 'login_screen': return 'בדיקה התחברות';
+			case 'login_with_email': return 'התחבר עם מייל';
+			case 'login_with_google': return 'התחבר עם גוגל';
+			case 'logout': return 'התנתק';
+			case 'no_categories': return 'אין קטגוריות, נא הוסף';
+			case 'no_items_added': return 'לא הוספו פריטים';
+			case 'or_login_with': return 'או התחבר עם';
+			case 'password': return 'סיסמה';
 			case 'pasword_least_6_chars': return 'הסיסמה חייבת להכיל לפחות 6 תווים';
 			case 'required_email': return 'חובה למלא כתובת מייל';
 			case 'required_password': return 'חובה למלא סיסמה';
-			case 'logout': return 'התנתק';
+			case 'save': return 'שמירה';
 			case 'sure_logout': return 'אתה בטוח שאתה רוצה להתנתק';
-			case 'no_categories': return 'אין קטגוריות, נא הוסף';
-			case 'category_exist': return 'קטגוריה כבר קיימת';
-			case 'error_occurred': return 'אירעה שגיאה, נא נסה שנית מאוחר יותר';
-			case 'category_added': return 'הקטגוריה הוספה בהצלחה';
-			case 'no_items_added': return 'לא הוספו פריטים';
-			case 'add_item': return 'הוסף פריט';
-			case 'date': return 'תאריך';
+			case 'user_details': return 'פרטי משתמש';
+			case 'delete': return 'מחיקה';
+			case 'edit': return 'עריכה';
+			case 'edit_item': return 'עריכת פריט';
+			case 'sure_delete': return 'אתה בטוח שאתה רוצה למחוק את הפריט הזה';
 			default: return null;
 		}
 	}

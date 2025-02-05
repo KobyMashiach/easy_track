@@ -25,5 +25,9 @@
   "required_password": "Required to fill in an password",
   "save": "save",
   "sure_logout": "Are you sure you want to logout",
-  "user_details": "User details"
+  "user_details": "User details",
+  "delete": "Delete",
+  "edit": "Edit",
+  "edit_item": "Edit item",
+  "sure_delete": "Are you sure you want to delete this item"
 }

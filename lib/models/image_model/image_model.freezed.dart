@@ -20,6 +20,7 @@ ImageModel _$ImageModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImageModel {
+  String get id => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   @DateConverter()
   DateTime? get date => throw _privateConstructorUsedError;
@@ -40,7 +41,7 @@ abstract class $ImageModelCopyWith<$Res> {
           ImageModel value, $Res Function(ImageModel) then) =
       _$ImageModelCopyWithImpl<$Res, ImageModel>;
   @useResult
-  $Res call({String? imageUrl, @DateConverter() DateTime? date});
+  $Res call({String id, String? imageUrl, @DateConverter() DateTime? date});
 }
 
 /// @nodoc
@@ -58,10 +59,15 @@ class _$ImageModelCopyWithImpl<$Res, $Val extends ImageModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? imageUrl = freezed,
     Object? date = freezed,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -82,7 +88,7 @@ abstract class _$$ImageModelImplCopyWith<$Res>
       __$$ImageModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? imageUrl, @DateConverter() DateTime? date});
+  $Res call({String id, String? imageUrl, @DateConverter() DateTime? date});
 }
 
 /// @nodoc
@@ -98,10 +104,15 @@ class __$$ImageModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? imageUrl = freezed,
     Object? date = freezed,
   }) {
     return _then(_$ImageModelImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -117,11 +128,14 @@ class __$$ImageModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ImageModelImpl implements _ImageModel {
-  const _$ImageModelImpl({this.imageUrl, @DateConverter() this.date});
+  const _$ImageModelImpl(
+      {required this.id, this.imageUrl, @DateConverter() this.date});
 
   factory _$ImageModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImageModelImplFromJson(json);
 
+  @override
+  final String id;
   @override
   final String? imageUrl;
   @override
@@ -130,7 +144,7 @@ class _$ImageModelImpl implements _ImageModel {
 
   @override
   String toString() {
-    return 'ImageModel(imageUrl: $imageUrl, date: $date)';
+    return 'ImageModel(id: $id, imageUrl: $imageUrl, date: $date)';
   }
 
   @override
@@ -138,6 +152,7 @@ class _$ImageModelImpl implements _ImageModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ImageModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.date, date) || other.date == date));
@@ -145,7 +160,7 @@ class _$ImageModelImpl implements _ImageModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, imageUrl, date);
+  int get hashCode => Object.hash(runtimeType, id, imageUrl, date);
 
   /// Create a copy of ImageModel
   /// with the given fields replaced by the non-null parameter values.
@@ -165,12 +180,15 @@ class _$ImageModelImpl implements _ImageModel {
 
 abstract class _ImageModel implements ImageModel {
   const factory _ImageModel(
-      {final String? imageUrl,
+      {required final String id,
+      final String? imageUrl,
       @DateConverter() final DateTime? date}) = _$ImageModelImpl;
 
   factory _ImageModel.fromJson(Map<String, dynamic> json) =
       _$ImageModelImpl.fromJson;
 
+  @override
+  String get id;
   @override
   String? get imageUrl;
   @override

@@ -8,6 +8,7 @@ part 'image_model.g.dart';
 @freezed
 class ImageModel with _$ImageModel {
   const factory ImageModel({
+    required String id,
     String? imageUrl,
     @DateConverter() DateTime? date,
   }) = _ImageModel;
